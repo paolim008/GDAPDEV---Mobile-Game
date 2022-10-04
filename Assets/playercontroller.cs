@@ -5,15 +5,21 @@ using UnityEngine;
 
 public class playercontroller : MonoBehaviour
 {
-
+    [SerializeField] GameObject peekPoint;
+    [SerializeField] GameObject initPoint;
     public bool Peek;
-
-    public CharacterController controller;
-
+    private Quaternion initCamRot;
+    private Vector3 initCamHeight;
     [SerializeField] private float speedMultiplier;
     // Update is called once per frame
+
+    void Start()
+    {
+    }
     void Update()
     {
+        initCamRot = Camera.main.transform.rotation;
+        
         //float x = Input.GetAxis("Horizontal");
         //float z = Input.GetAxis("Vertical");
 
@@ -21,18 +27,18 @@ public class playercontroller : MonoBehaviour
 
         //controller.Move(move);
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Peek = true;
         }
-        else 
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             Peek = false;
         }
 
 
 
-        if (this.gameObject.GetComponent<Test>().currentPoint == 2)
+        if (this.gameObject.GetComponent<PlayerNav>().currentPoint == 2)
         {
             Debug.Log("AAAAASHIT");
         }
@@ -40,13 +46,16 @@ public class playercontroller : MonoBehaviour
         if (Peek) //Peek
         {
             //controller.Move(new Vector3(0, -10*Time.deltaTime, 0));
-            LeanTween.moveLocalY(gameObject, 1.5f, 0.5f);
+            Camera.main.transform.SetPositionAndRotation(peekPoint.transform.position, initCamRot);
+            //LeanTween.moveLocalY(gameObject, 1.5f, 0.5f);
+
         }
 
         if (!Peek) //Hide
         {
             //controller.Move(new Vector3(0, 10*Time.deltaTime, 0));
-            LeanTween.moveLocalY(gameObject, 0.5f, 0.5f).setEaseOutQuad();
+            Camera.main.transform.SetPositionAndRotation(initPoint.transform.position, initCamRot);
+            //LeanTween.moveLocalY(gameObject, 0.5f, 0.5f).setEaseOutQuad();
         }
 
         //Debug.Log(Peek);
