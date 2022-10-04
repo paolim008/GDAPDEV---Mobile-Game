@@ -7,8 +7,9 @@ public class Test : MonoBehaviour
 {
     private NavMeshAgent agent;
     [SerializeField] private GameObject[] destinationPoint;
+    [SerializeField] private GameObject[] facePoint;
     private float ticks = 0;
-    private int currentPoint = 0;
+    public int currentPoint = 0;
     [SerializeField] private float interval = 5;
     private Vector3 offsetPlayer;
 
@@ -21,6 +22,7 @@ public class Test : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(destinationPoint[currentPoint].transform.position);
         agent.Move(offsetPlayer);
+        
     }
 
     // Update is called once per frame
@@ -30,6 +32,8 @@ public class Test : MonoBehaviour
         if (agent.remainingDistance <= 0)
         {
             ticks+= Time.deltaTime;
+            //Rotates Agent to look at the direction of facePoint
+            RotateViewToFocus(agent, facePoint[currentPoint]);
 
             //Reset ticks when over interval
             if (ticks >= interval)
@@ -49,4 +53,12 @@ public class Test : MonoBehaviour
        
 
     }
+    private void RotateViewToFocus(NavMeshAgent agent, GameObject facePoint)
+    {
+        Quaternion lockOnLook = Quaternion.LookRotation(facePoint.transform.position - agent.transform.position);
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lockOnLook, Time.deltaTime);
+
+    }
+
+
 }
