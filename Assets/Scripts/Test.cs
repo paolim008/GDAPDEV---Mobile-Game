@@ -10,14 +10,17 @@ public class Test : MonoBehaviour
     private float ticks = 0;
     private int currentPoint = 0;
     [SerializeField] private float interval = 5;
-
+    private Vector3 offsetPlayer;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
+        offsetPlayer.Set(0.0f, 0.1f, -1.0f);
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(destinationPoint[currentPoint].transform.position);
+        agent.Move(offsetPlayer);
     }
 
     // Update is called once per frame
