@@ -28,12 +28,12 @@ public class PlayerNav : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        RotateViewToFocus(agent, facePoint[currentPoint]);
         //Check if agent reached the destination point
         if (agent.remainingDistance <= 0)
         {
             ticks+= Time.deltaTime;
-            //Rotates Agent to look at the direction of facePoint
-            RotateViewToFocus(agent, facePoint[currentPoint]);
+            //Rotates Agent to look at the direction of facePoin
 
             //Reset ticks when over interval
             if (ticks >= interval)
@@ -56,7 +56,7 @@ public class PlayerNav : MonoBehaviour
     private void RotateViewToFocus(NavMeshAgent agent, GameObject facePoint)
     {
         Quaternion lockOnLook = Quaternion.LookRotation(facePoint.transform.position - agent.transform.position);
-        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lockOnLook, Time.deltaTime);
+        agent.transform.rotation = Quaternion.Slerp(agent.transform.rotation, lockOnLook, 4*Time.deltaTime);
 
     }
 
