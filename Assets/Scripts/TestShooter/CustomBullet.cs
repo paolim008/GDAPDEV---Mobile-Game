@@ -47,7 +47,7 @@ public class CustomBullet : MonoBehaviour
     private void Explode()
     {
         //instantiate Explosion
-        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.identity);
+        if (explosion != null) Instantiate(explosion, transform.position, Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
         //Check for enemies
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, enemyMask);
         for (int i = 0; i < enemies.Length; i++)

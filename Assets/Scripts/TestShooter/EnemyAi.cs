@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class EnemyAi : MonoBehaviour
 {
-    private float Health = 100;
+    private float health;
+    private float maxHealth = 8;
 
     [SerializeField] Slider slider;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        this.health = this.maxHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (this.Health <= 0)
+        if (this.health <= 0)
         {
             Destroy(gameObject);
         }
@@ -27,8 +28,8 @@ public class EnemyAi : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        this.Health -= damage;
-        Debug.Log(this.Health);
-        this.slider.value = Health / 100;
+        this.health -= damage;
+        Debug.Log(this.health);
+        this.slider.value = this.health / this.maxHealth;
     }
 }
