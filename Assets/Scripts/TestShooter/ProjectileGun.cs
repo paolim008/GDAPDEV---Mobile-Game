@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProjectileGun : MonoBehaviour
@@ -84,11 +85,16 @@ public class ProjectileGun : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-
+        float mouseX = Input.mousePosition.x;
+        float mouseY = Input.mousePosition.y;
         //Find the exact hit using a raycast
 
-        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        //Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        Ray ray = fpsCam.ScreenPointToRay(new Vector3(mouseX, mouseY, 0f));
         RaycastHit hit;
+        
+        //Rotate Gun
+       //this.GetComponent<Transform>().transform.LookAt(ray.origin);
 
         //check if ray hits
         Vector3 targetPoint;
@@ -140,6 +146,8 @@ public class ProjectileGun : MonoBehaviour
 
     private void ResetShot()
     {
+        //Rotate Gun
+        this.GetComponent<Transform>().rotation = Quaternion.identity;
         //Allowing shooting and invoking
         readyToShoot = true;
         allowInvoke = true;
