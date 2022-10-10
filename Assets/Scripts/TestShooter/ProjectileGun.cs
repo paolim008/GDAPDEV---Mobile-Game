@@ -18,9 +18,9 @@ public class ProjectileGun : MonoBehaviour
     public bool allowButtonHold;
     private int bulletsLeft, bulletsShot;
 
-    //Recoil
-    public Rigidbody playerRb;
-    public float recoilForce;
+    ////Recoil
+    //public Rigidbody playerRb;
+    //public float recoilForce;
 
     //bools
     private bool shooting, readyToShoot, reloading;
@@ -41,14 +41,20 @@ public class ProjectileGun : MonoBehaviour
         //make sure magazine is full;
         bulletsLeft = magazineSize;
         readyToShoot = true;
+
+        
     }
 
     private void Update()
     {
+        //Muzzle Flash Position
+        Vector3 muzzFlashPos = new Vector3(attackPoint.position.x, attackPoint.position.y, attackPoint.position.z + 4 );
+
         MyInput();
         //Set ammo display if it exists;
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft/bulletsPerTap + "/" + magazineSize/bulletsPerTap);
+
 
     }
 
@@ -124,8 +130,8 @@ public class ProjectileGun : MonoBehaviour
                     Invoke("ResetShot", timeBetweenShooting);
                     allowInvoke = false;
 
-                    //Add recoil
-                    playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+                    ////Add recoil
+                    //playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
                 //Multiple bullets per tap
                 if(bulletsShot < bulletsPerTap && bulletsLeft > 0)
@@ -142,10 +148,12 @@ public class ProjectileGun : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        this.GetComponent<Transform>().rotation = Quaternion.Euler(-45, 0, 0);
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
     {
+        this.GetComponent<Transform>().rotation = Quaternion.Euler(0, 0, 0);
         bulletsLeft = magazineSize;
         reloading = false;
     }

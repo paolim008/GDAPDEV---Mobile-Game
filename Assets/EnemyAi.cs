@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bulletScript : MonoBehaviour
+public class EnemyAi : MonoBehaviour
 {
-    [SerializeField]private float lifeSpan = 1f;
+    private float Health = 100;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,10 +14,15 @@ public class bulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lifeSpan -= Time.deltaTime;
-        if (lifeSpan <= 0)
+        if (this.Health <= 0)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        this.Health -= damage;
+        Debug.Log(this.Health);
     }
 }
