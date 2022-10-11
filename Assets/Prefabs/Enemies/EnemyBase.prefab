@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4146227278764713867}
   - component: {fileID: 4146227278764713866}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: EnemyBase
   m_TagString: enemyMask
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -226,7 +226,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 20}
+  m_SizeDelta: {x: 160, y: 39.12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7418790408767169472
 MonoBehaviour:
