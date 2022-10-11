@@ -129,14 +129,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6924642622637894942}
-  explosion: {fileID: 710262984323026121, guid: e6aaa0f49206ffd4caff92ce90aa34aa, type: 3}
+  explosion: {fileID: 985483039366664255, guid: f91edac4d13fc4343ba96bb6a843ad05, type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
   bounciness: 0.8
   useGravity: 0
-  explosionDamage: 3
-  explosionRange: 2
+  explosionDamage: 2
+  explosionRange: 0.2
   maxCollisions: 0
   maxLifetime: 4
   explodeOnTouch: 1

@@ -30,11 +30,6 @@ public class PlayerController : MonoBehaviour
         SwitchWeapon(weaponType);
         WeaponText.text = weaponType.ToString();
         this.healthBarSlider.value = this.health / this.maxHealth;
-
-
-        //Player Dies
-        if(this.health <= 0f)
-            EndGamePanel[0].SetActive(true);
     }
 
     private void TakeInput()
@@ -55,8 +50,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         this.health -= damage;
+
+        //Player Dies
+        if (this.health <= 0f)
+            EndGamePanel[0].SetActive(true);
     }
 }

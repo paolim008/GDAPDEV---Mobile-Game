@@ -48,12 +48,15 @@ public class CustomBullet : MonoBehaviour
     {
         //instantiate Explosion
         if (explosion != null) Instantiate(explosion, transform.position, Quaternion.Euler(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f)));
+
+
         //Check for enemies
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, enemyMask);
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            enemies[i].GetComponent<EnemyAi>().TakeDamage(explosionDamage);
-        }
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<EnemyAi>().TakeDamage(explosionDamage);
+            }
+
 
         Invoke("Delay", 0.05f);
     }
@@ -70,9 +73,10 @@ public class CustomBullet : MonoBehaviour
 
         //Count up collisions
         collisions++;
-
         //Explode if bullet hits an enemy directly
-        if (collision.collider.CompareTag("enemyMask") && explodeOnTouch) Explode();
+            if (collision.collider.CompareTag("enemyMask") && explodeOnTouch) Explode();
+
+
 
     }
 

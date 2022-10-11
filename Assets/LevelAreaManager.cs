@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class LevelAreaManager : MonoBehaviour
 {
+    private int levelStage;
+    [SerializeField] private GameObject[] EndGamePanel;
+    [SerializeField] private Transform EnemyHolder;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +20,10 @@ public class LevelAreaManager : MonoBehaviour
     void Update()
     {
         
+        
+        if (EnemyHolder.childCount <= 0)
+        {
+            EndGamePanel[1].SetActive(true);
+        }
     }
 }

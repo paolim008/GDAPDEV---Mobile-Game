@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ProjectileGun : MonoBehaviour
 {
-    public GameObject[] list;
     //Bullet
     public GameObject bullet;
 
@@ -19,9 +20,8 @@ public class ProjectileGun : MonoBehaviour
     public bool allowButtonHold;
     private int bulletsLeft, bulletsShot;
 
-    ////Recoil
-    //public Rigidbody playerRb;
-    //public float recoilForce;
+    //Reload Animation
+    //[SerializeField] private GameObject reloadScript;
 
     //bools
     private bool shooting, readyToShoot, reloading;
@@ -157,6 +157,8 @@ public class ProjectileGun : MonoBehaviour
     {
         reloading = true;
         this.GetComponent<Transform>().rotation = Quaternion.Euler(-45, 0, 0);
+        //reloadScript.SetActive(true);
+
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
@@ -165,4 +167,7 @@ public class ProjectileGun : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
     }
+
 }
+
+
