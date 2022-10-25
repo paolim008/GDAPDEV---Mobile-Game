@@ -10,15 +10,18 @@ public class PlayerController : MonoBehaviour
     private int weaponType;
     private float health;
     private float maxHealth;
+    public bool takePlayerInput;
     [SerializeField] private GameObject[] EndGamePanel;
     [SerializeField] private Slider healthBarSlider;
+    [SerializeField] private TextMeshProUGUI healthBarValue;
     [SerializeField] private TextMeshProUGUI WeaponText;
     [SerializeField] private GameObject[] equippedWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.weaponType = 1;
+        this.takePlayerInput = true;
+        this.weaponType = 0;
         this.maxHealth = 100;
         this.health = this.maxHealth;
     }
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
         SwitchWeapon(weaponType);
         WeaponText.text = weaponType.ToString();
         this.healthBarSlider.value = this.health / this.maxHealth;
+        this.healthBarValue.text = this.health.ToString() + "/" + this.maxHealth;
     }
 
     private void TakeInput()
@@ -40,6 +44,10 @@ public class PlayerController : MonoBehaviour
             
         if (Input.GetKeyDown(KeyCode.RightArrow)) weaponType++;
             if (weaponType > equippedWeapon.Length - 1) weaponType = 0;
+
+        if (Input.GetKeyDown(KeyCode.P))
+                this.health -= 5;
+
     }
     private void SwitchWeapon(int activeWeapon)
     {
@@ -54,8 +62,9 @@ public class PlayerController : MonoBehaviour
     {
         this.health -= damage;
 
-        //Player Dies
-        if (this.health <= 0f)
-            EndGamePanel[0].SetActive(true);
+        ////Player Dies
+        //if (this.health <= 0f)
+        //    EndGamePanel[0].SetActive(true);
+        //Debug.Log("PlayerDied");
     }
 }

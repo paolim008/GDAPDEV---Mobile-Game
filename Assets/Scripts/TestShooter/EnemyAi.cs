@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyAi : MonoBehaviour
 {
-    [SerializeField] private int id;
+    [SerializeField] public int id;
     private float health;
     private float maxHealth = 8;
 
@@ -52,7 +52,7 @@ public class EnemyAi : MonoBehaviour
     public void TakeDamage(int damage)
     {
         this.health -= damage;
-        Debug.Log(this.health);
+        Debug.Log($"Name: {this.name} HP: {this.health}");
         this.slider.value = this.health / this.maxHealth;
 
         if (this.health <= 0) DestroyEnemy();
@@ -61,6 +61,7 @@ public class EnemyAi : MonoBehaviour
     public void DestroyEnemy()
     {
         Destroy(gameObject);
+       
     }
 
 }

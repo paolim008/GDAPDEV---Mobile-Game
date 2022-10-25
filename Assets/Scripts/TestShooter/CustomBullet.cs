@@ -6,23 +6,24 @@ using UnityEngine;
 public class CustomBullet : MonoBehaviour
 {
     //Assignables
-    public Rigidbody rb;
-    public GameObject explosion;
-    public LayerMask enemyMask;
+    [SerializeField] private int id;
+    [SerializeField] private Rigidbody rb;
+    [SerializeField] private GameObject explosion;
+    [SerializeField] private LayerMask enemyMask;
 
     //Stats
     [Range(0f, 1f)] 
-    public float bounciness;
-    public bool useGravity;
+    private float bounciness;
+    private bool useGravity;
 
     //Damage
-    public int explosionDamage;
-    public float explosionRange;
+    private int explosionDamage;
+    private float explosionRange;
 
     //Lifetime
-    public int maxCollisions;
-    public float maxLifetime;
-    public bool explodeOnTouch = true;
+    private int maxCollisions;
+    private float maxLifetime;
+    private bool explodeOnTouch = true;
 
     private int collisions;
     private PhysicMaterial physics_mat;
@@ -54,11 +55,28 @@ public class CustomBullet : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, enemyMask);
             for (int i = 0; i < enemies.Length; i++)
             {
-                enemies[i].GetComponent<EnemyAi>().TakeDamage(explosionDamage);
+                enemies[i].GetComponent<EnemyAi>().TakeDamage(DamageEnemy(explosionDamage, enemies[i].GetComponent<EnemyAi>().id));
             }
 
 
         Invoke("Delay", 0.05f);
+    }
+
+    private int DamageEnemy(int explosionDamage, int enemyID)
+    {
+        int newExplosionDamage;
+        newExplosionDamage = explosionDamage;
+
+        if (enemyID == this.id)
+        {
+            newExplosionDamage = newExplosionDamage * 2;
+        }
+        else
+        {
+            newExplosionDamage = newExplosionDamage / 2;
+        }
+
+        return newExplosionDamage;
     }
 
     private void Delay()
@@ -94,7 +112,50 @@ public class CustomBullet : MonoBehaviour
         //SetGravity
         rb.useGravity = useGravity;
 
-    }
+       
+        switch (this.id)
+        {
+            case 0:     //Stats
+                         bounciness = 0.8f;
+                         useGravity = false;
+                        //Damage
+                         explosionDamage = 1;
+                         explosionRange = 0.2f;
+                        //Lifetime
+                         maxCollisions = 0;
+                         maxLifetime = 4;
+                         explodeOnTouch = true;
+                         break;
+
+            case 1:     //Stats
+                         bounciness = 0.8f;
+                         useGravity = false;
+                        //Damage
+                         explosionDamage = 2;
+                         explosionRange = 0.2f;
+                        //Lifetime
+                         maxCollisions = 0;
+                         maxLifetime = 4;
+                         explodeOnTouch = true;
+                         break;
+
+            case 2:     //Stats
+                         bounciness = 0.8f;
+                         useGravity = true;
+                       //Damage
+                         explosionDamage = 10;
+                         explosionRange = 3f;
+                       //Lifetime
+                         maxCollisions = 10;
+                         maxLifetime = 4;
+                         explodeOnTouch = true;
+                         break;
+            default:
+                break;
+        }
+
+
+}
 
     private void OnDrawGizmosSelected()
     {

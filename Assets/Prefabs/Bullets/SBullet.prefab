@@ -128,18 +128,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aab3ba9eb5619498c3e3cd9e5453e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   rb: {fileID: 3160274450837561338}
-  explosion: {fileID: 6813416509558619124, guid: 3b7f2c753d435d647a80f1f047a113e3, type: 3}
+  explosion: {fileID: 8654380388830622828, guid: 03afc3960556551459a5a6bd7e678701, type: 3}
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
-  bounciness: 0.8
-  useGravity: 0
-  explosionDamage: 1
-  explosionRange: 0.2
-  maxCollisions: 0
-  maxLifetime: 4
-  explodeOnTouch: 1
 --- !u!96 &1028766610538328961
 TrailRenderer:
   serializedVersion: 2
