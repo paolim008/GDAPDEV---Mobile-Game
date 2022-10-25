@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b467be36710854cae0b500932b6ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   id: 0
   slider: {fileID: 7382962764370233557}
 --- !u!1 &6379229864974525831

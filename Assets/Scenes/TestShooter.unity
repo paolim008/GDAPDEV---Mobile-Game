@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ca2f93a40383142be656c26952d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   takePlayerInput: 0
   EndGamePanel:
   - {fileID: 1172885014}
@@ -1066,6 +1067,7 @@ GameObject:
   - component: {fileID: 397748527}
   - component: {fileID: 397748526}
   - component: {fileID: 397748525}
+  - component: {fileID: 397748528}
   m_Layer: 5
   m_Name: HudPanels
   m_TagString: Untagged
@@ -1160,6 +1162,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397748523}
   m_CullTransparentMesh: 1
+--- !u!114 &397748528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397748523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318bbb8a08fac3e4283db1fb87f37d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
+  health: {fileID: 1103692807}
+  score: {fileID: 1854492962}
 --- !u!1 &406498936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,11 +1433,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -1477,6 +1494,10 @@ PrefabInstance:
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString
@@ -2022,11 +2043,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -2083,6 +2104,10 @@ PrefabInstance:
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString
@@ -2395,11 +2420,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -2456,6 +2481,10 @@ PrefabInstance:
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString
@@ -2659,6 +2688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4761220a96f31554495e14b6b35fa904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   endGamePanel:
   - {fileID: 1690055181}
   - {fileID: 1172885014}
@@ -2788,11 +2818,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -2849,6 +2879,10 @@ PrefabInstance:
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString
@@ -3124,7 +3158,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4434,11 +4468,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -4495,6 +4529,10 @@ PrefabInstance:
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString
@@ -4643,11 +4681,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -4706,6 +4744,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString
       value: enemyMask
       objectReference: {fileID: 0}
@@ -4740,11 +4782,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 754061555825544169, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
@@ -4801,6 +4843,10 @@ PrefabInstance:
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245469, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_TagString

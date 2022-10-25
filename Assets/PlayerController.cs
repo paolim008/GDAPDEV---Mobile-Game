@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Player playerdata;
     private int weaponType;
     private float health;
     private float maxHealth;
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow)) weaponType++;
             if (weaponType > equippedWeapon.Length - 1) weaponType = 0;
 
+        //DebugMode
         if (Input.GetKeyDown(KeyCode.P))
                 this.health -= 5;
 
@@ -58,13 +60,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
-    {
-        this.health -= damage;
-
-        ////Player Dies
-        //if (this.health <= 0f)
-        //    EndGamePanel[0].SetActive(true);
-        //Debug.Log("PlayerDied");
-    }
 }

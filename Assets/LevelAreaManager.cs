@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelAreaManager : MonoBehaviour
 {
+    public Player playerdata;
     private int levelStage;
     private int score;
     [SerializeField] private GameObject[] endGamePanel;
@@ -22,19 +23,19 @@ public class LevelAreaManager : MonoBehaviour
     void Start()
     {
         levelStage = 1;
-        this.score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        this.score = playerdata.score;
         scoretext.text = this.score.ToString();
 
         //Display Game Over Screen
         if (playerHealth.value <= 0)
         {
             Debug.Log("Player Died");
-            endGamePanel[1].SetActive(true);
+            endGamePanel[0].SetActive(true);
             Time.timeScale = 0;
 
         }
@@ -64,8 +65,13 @@ public class LevelAreaManager : MonoBehaviour
         
     }
 
-    public void SaveScore(int score)
+
+    void SaveHighScore()
     {
-        this.score += score;
+        if (this.score > playerdata.score)
+        {
+            //Add Feature: Display New HighScore on EndgamePanel
+            playerdata.score = this.score;
+        }
     }
 }

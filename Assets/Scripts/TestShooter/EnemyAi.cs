@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyAi : MonoBehaviour
 {
+    [SerializeField] private Player playerdata;
     [SerializeField] public int id;
     private float health;
     private float maxHealth = 8;
@@ -45,9 +46,14 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
+        float waitTime = Random.Range(5, 10);
+        StartCoroutine(DamagePlayer(waitTime, 2));
+        
     }
+
+    
+
+
 
     public void TakeDamage(int damage)
     {
@@ -61,7 +67,17 @@ public class EnemyAi : MonoBehaviour
     public void DestroyEnemy()
     {
         Destroy(gameObject);
-       
+        playerdata.score += 1;
+    }   
+    IEnumerator DamagePlayer(float waitTime ,float damage)
+    {
+        yield return new WaitForSeconds(waitTime);
+        playerdata.health -= damage;
+        StopAllCoroutines();
+
     }
+
+
+
 
 }
