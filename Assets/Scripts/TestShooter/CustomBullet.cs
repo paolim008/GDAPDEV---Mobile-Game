@@ -81,7 +81,7 @@ public class CustomBullet : MonoBehaviour
 
     private void Delay()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)

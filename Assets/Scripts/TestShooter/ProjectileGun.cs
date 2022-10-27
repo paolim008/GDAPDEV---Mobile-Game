@@ -10,6 +10,7 @@ public class ProjectileGun : MonoBehaviour
 {
     //Bullet
     public GameObject bullet;
+    [SerializeField] private GameObject[] ammo;
 
     //Force
     public float shootForce, upwardForce;
@@ -114,9 +115,14 @@ public class ProjectileGun : MonoBehaviour
                 //Calculate new Direction with spread
                 Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
+
+
                 //Instantiate Bullet/Projectile
                 GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
                 currentBullet.transform.forward = directionWithSpread.normalized;
+
+
+
 
                 //Add Forces
                 currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
