@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rickshaw
   health: 100
-  score: 1
+  maxHealth: 0
+  weaponType: 0
+  score: 4
+  allowPlayerInput: 1

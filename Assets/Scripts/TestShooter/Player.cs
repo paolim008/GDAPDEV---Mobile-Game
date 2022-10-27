@@ -7,6 +7,9 @@ public class Player : ScriptableObject
 {
     public new string name;
     public float health;
+    public float maxHealth;
+    public int weaponType;
     public int score;
+    public bool allowPlayerInput;
 
 }

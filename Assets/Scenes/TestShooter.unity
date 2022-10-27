@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 130874988}
   - component: {fileID: 130874992}
   - component: {fileID: 130874993}
-  - component: {fileID: 130874994}
   m_Layer: 6
   m_Name: PlayerBody
   m_TagString: Player
@@ -411,28 +410,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &130874994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130874987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ca2f93a40383142be656c26952d910, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
-  takePlayerInput: 0
-  EndGamePanel:
-  - {fileID: 1172885014}
-  healthBarSlider: {fileID: 1103692807}
-  healthBarValue: {fileID: 1757488182}
-  WeaponText: {fileID: 782449651}
-  equippedWeapon:
-  - {fileID: 295788783}
-  - {fileID: 407601284}
 --- !u!4 &133754575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4110379808831245468, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
@@ -1175,8 +1152,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
-  health: {fileID: 1103692807}
-  score: {fileID: 1854492962}
+  EndGamePanel:
+  - {fileID: 1690055181}
+  - {fileID: 1172885014}
+  healthBarSlider: {fileID: 1103692807}
+  healthBarValue: {fileID: 1757488182}
+  weaponText: {fileID: 782449651}
+  scoreText: {fileID: 1854492962}
+  equippedWeapon:
+  - {fileID: 295788783}
+  - {fileID: 407601284}
 --- !u!1 &406498936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3529,6 +3514,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227619348}
   m_CullTransparentMesh: 1
+--- !u!1 &1233441862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233441863}
+  m_Layer: 0
+  m_Name: ObjectPools
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233441863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233441862}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1271682195}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1235381458 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8654380388830622828, guid: 03afc3960556551459a5a6bd7e678701, type: 3}
@@ -3547,6 +3564,69 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSpan: 1
+--- !u!1 &1237625298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1237625299}
+  m_Layer: 0
+  m_Name: BluePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1237625299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237625298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271682195}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1271682194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1271682195}
+  m_Layer: 0
+  m_Name: AmmoPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1271682195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271682194}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1237625299}
+  m_Father: {fileID: 1233441863}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1367098977
 GameObject:
   m_ObjectHideFlags: 0
@@ -4573,6 +4653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1936634704}
+  - component: {fileID: 1936634705}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4596,6 +4677,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936634705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936634703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ca2f93a40383142be656c26952d910, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
+  allowPlayerInput: 0
+  weaponText: {fileID: 782449651}
+  equippedWeapon:
+  - {fileID: 295788783}
+  - {fileID: 407601284}
 --- !u!1 &1946069191
 GameObject:
   m_ObjectHideFlags: 0
@@ -5021,7 +5120,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4110379808831245471, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: id
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6379229864974525831, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer

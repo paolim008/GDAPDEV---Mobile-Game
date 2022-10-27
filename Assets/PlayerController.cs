@@ -7,21 +7,20 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Player playerdata;
+    [SerializeField] private Player playerdata;
     private int weaponType;
     private float health;
     private float maxHealth;
-    public bool takePlayerInput;
-    [SerializeField] private GameObject[] EndGamePanel;
-    [SerializeField] private Slider healthBarSlider;
-    [SerializeField] private TextMeshProUGUI healthBarValue;
-    [SerializeField] private TextMeshProUGUI WeaponText;
+    //Take from NavScript
+    public bool allowPlayerInput;
+    [SerializeField] private TextMeshProUGUI weaponText;
     [SerializeField] private GameObject[] equippedWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.takePlayerInput = true;
+        //this.allowPlayerInput = playerdata.allowPlayerInput;
+        this.allowPlayerInput = true;
         this.weaponType = 0;
         this.maxHealth = 100;
         this.health = this.maxHealth;
@@ -30,11 +29,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TakeInput();
+        if(allowPlayerInput)
+            TakeInput();
+
         SwitchWeapon(weaponType);
-        WeaponText.text = weaponType.ToString();
-        this.healthBarSlider.value = this.health / this.maxHealth;
-        this.healthBarValue.text = this.health.ToString() + "/" + this.maxHealth;
+        this.weaponText.text = weaponType.ToString();
+
+        SaveData();
     }
 
     private void TakeInput()
@@ -60,4 +61,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void SaveData()
+    {
+        playerdata.health = this.health;
+        playerdata.maxHealth = this.health;
+        playerdata.weaponType = this.weaponType;
+    }
 }
