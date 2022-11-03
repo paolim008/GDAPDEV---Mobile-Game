@@ -18,8 +18,7 @@ public class EnemyAi : MonoBehaviour
     private float health;
     private float maxHealth = 8;
 
-    [SerializeField] Slider slider;
-    [SerializeField] Slider attackBar;
+    [SerializeField] Slider healthSlider;
     // Start is called before the first frame update
     void Awake()
     {
@@ -54,8 +53,10 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(onCooldown == false)
+        if(!onCooldown)
         StartCoroutine(DealDamage(damage));
+
+
 
     }
 
@@ -63,7 +64,7 @@ public class EnemyAi : MonoBehaviour
     {
         this.health -= damage;
         Debug.Log($"Name: {this.name} HP: {this.health}");
-        this.slider.value = this.health / this.maxHealth;
+        this.healthSlider.value = this.health / this.maxHealth;
 
         if (this.health <= 0) DestroyEnemy();
     }
