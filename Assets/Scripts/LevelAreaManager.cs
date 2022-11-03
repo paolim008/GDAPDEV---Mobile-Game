@@ -31,15 +31,18 @@ public class LevelAreaManager : MonoBehaviour
         if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
         {
             Debug.Log("Player Died");
+            if(endGamePanel[0].activeSelf)
+                endGamePanel[0].SetActive(false);
             endGamePanel[1].SetActive(true);
+            
             Time.timeScale = 0;
 
         }
-
-
         //Load Next Area
-        if (enemyHolder.childCount <= 0 || timer.value <= 0 + .01)
-        {
+        else if (enemyHolder.childCount <= 0 || timer.value <= 0 + .01)
+        { 
+            if (endGamePanel[1].activeSelf)
+                endGamePanel[1].SetActive(false);
             endGamePanel[0].SetActive(true);
         }
 

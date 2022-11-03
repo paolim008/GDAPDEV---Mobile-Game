@@ -17,7 +17,7 @@ public class CustomBullet : MonoBehaviour
     private bool useGravity;
 
     //Damage
-    private int explosionDamage;
+    private float explosionDamage;
     private float explosionRange;
 
     //Lifetime
@@ -62,18 +62,20 @@ public class CustomBullet : MonoBehaviour
         Invoke("Delay", 0.05f);
     }
 
-    private int DamageEnemy(int explosionDamage, int enemyID)
+    private float DamageEnemy(float explosionDamage, int enemyID)
     {
-        int newExplosionDamage;
+        float newExplosionDamage;
         newExplosionDamage = explosionDamage;
 
         if (enemyID == this.id)
         {
-            newExplosionDamage = newExplosionDamage * 2;
+            //newExplosionDamage = newExplosionDamage * 2;
+            newExplosionDamage = newExplosionDamage;
         }
         else
         {
-            newExplosionDamage = newExplosionDamage / 2;
+            //newExplosionDamage = newExplosionDamage / 2;
+            newExplosionDamage = 0;
         }
 
         return newExplosionDamage;

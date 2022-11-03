@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 4110379808831245465}
   - component: {fileID: 4110379808831245470}
   - component: {fileID: 4110379808831245471}
+  - component: {fileID: 9021315334129526267}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -193,8 +194,21 @@ MonoBehaviour:
   id: 0
   damage: 10
   attackCooldown: 10
-  slider: {fileID: 7382962764370233557}
-  attackBar: {fileID: 0}
+--- !u!114 &9021315334129526267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110379808831245469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513c51e2e9c2784478328bd5bcba168e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 20
+  currentHealth: 0
+  healthSlider: {fileID: 7382962764370233557}
 --- !u!1 &6379229864974525831
 GameObject:
   m_ObjectHideFlags: 0
