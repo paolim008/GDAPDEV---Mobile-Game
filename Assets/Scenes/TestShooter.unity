@@ -1162,17 +1162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 318bbb8a08fac3e4283db1fb87f37d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
-  EndGamePanel:
-  - {fileID: 1690055181}
-  - {fileID: 1172885014}
-  healthBarSlider: {fileID: 1103692807}
-  healthBarValue: {fileID: 1757488182}
-  weaponText: {fileID: 782449651}
-  scoreText: {fileID: 1854492962}
-  equippedWeapon:
-  - {fileID: 295788783}
-  - {fileID: 407601284}
+  player: {fileID: 1936634703}
+  healthSlider: {fileID: 1103692807}
 --- !u!1 &406498936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,12 +2686,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4761220a96f31554495e14b6b35fa904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   endGamePanel:
   - {fileID: 1690055181}
   - {fileID: 1172885014}
   scoretext: {fileID: 1854492962}
-  playerHealth: {fileID: 1103692807}
+  player: {fileID: 1936634703}
   enemyHolder: {fileID: 742235084}
   timer: {fileID: 1689194089}
 --- !u!4 &971034403
@@ -3089,7 +3079,7 @@ GameObject:
   - component: {fileID: 1103692806}
   - component: {fileID: 1103692807}
   m_Layer: 5
-  m_Name: PlayerHealth
+  m_Name: Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3163,9 +3153,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4686,6 +4676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1936634704}
   - component: {fileID: 1936634705}
+  - component: {fileID: 1936634706}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -4721,12 +4712,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ca2f93a40383142be656c26952d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   allowPlayerInput: 0
   weaponText: {fileID: 782449651}
   equippedWeapon:
   - {fileID: 295788783}
   - {fileID: 407601284}
+--- !u!114 &1936634706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936634703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513c51e2e9c2784478328bd5bcba168e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
 --- !u!1 &1946069191
 GameObject:
   m_ObjectHideFlags: 0
@@ -7506,6 +7510,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1028456299107569563, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_Color.g
+      value: 0.27273715
+      objectReference: {fileID: 0}
+    - target: {fileID: 1028456299107569563, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2576350939361413591, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -7574,6 +7586,26 @@ PrefabInstance:
       propertyPath: id
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4110379808831245471, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1936634703}
+    - target: {fileID: 4110379808831245471, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: attackBar
+      value: 
+      objectReference: {fileID: 4110379809051517030}
+    - target: {fileID: 4463174249584755921, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4463174249584755921, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4668231118080957277, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -223.94
+      objectReference: {fileID: 0}
     - target: {fileID: 6379229864974525831, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -7592,6 +7624,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+--- !u!114 &4110379809051517030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4976710791909285691, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+  m_PrefabInstance: {fileID: 4110379809051517029}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6235850852192283973
 GameObject:
   m_ObjectHideFlags: 0

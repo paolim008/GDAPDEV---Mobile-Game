@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -7,11 +8,18 @@ using UnityEngine.UI;
 public class EnemyAi : MonoBehaviour
 {
     [SerializeField] private Player playerdata;
+    [SerializeField] private GameObject player;
     [SerializeField] public int id;
+    [SerializeField] private float damage = 10;
+    [SerializeField] private float attackCooldown;
+
+    private bool onCooldown = false;
+
     private float health;
     private float maxHealth = 8;
 
     [SerializeField] Slider slider;
+    [SerializeField] Slider attackBar;
     // Start is called before the first frame update
     void Awake()
     {
@@ -46,16 +54,12 @@ public class EnemyAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float waitTime = Random.Range(5, 10);
-        StartCoroutine(DamagePlayer(waitTime, 2));
-        
+        if(onCooldown == false)
+        StartCoroutine(DealDamage(damage));
+
     }
 
-    
-
-
-
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         this.health -= damage;
         Debug.Log($"Name: {this.name} HP: {this.health}");
@@ -68,15 +72,18 @@ public class EnemyAi : MonoBehaviour
     {
         Destroy(gameObject);
         playerdata.score += 1;
-    }   
-    IEnumerator DamagePlayer(float waitTime ,float damage)
-    {
-        yield return new WaitForSeconds(waitTime);
-        playerdata.health -= damage;
-        StopAllCoroutines();
-
     }
 
+    IEnumerator DealDamage(float damage)
+    {
+        onCooldown = true;
+            attackCooldown = Random.Range(5, 10);
+            yield return new WaitForSeconds(attackCooldown);
+            player.GetComponent<Health>().TakeDamage(damage);
+        onCooldown = false;
+
+        StopAllCoroutines();
+    }
 
 
 
