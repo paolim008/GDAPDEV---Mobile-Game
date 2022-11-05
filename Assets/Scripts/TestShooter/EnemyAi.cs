@@ -11,7 +11,14 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] public int id;
     [SerializeField] private float damage = 10;
-    [SerializeField] private float attackCooldown;
+
+
+    [SerializeField] 
+    [Range(4,10)]
+    private float attackCooldown;
+
+
+    [SerializeField] private Slider attackSlider;
 
     private bool onCooldown = false;
 
@@ -74,17 +81,23 @@ public class EnemyAi : MonoBehaviour
     {
         onCooldown = true;
             attackCooldown = Random.Range(5, 10);
+
             yield return new WaitForSeconds(attackCooldown);
+
                 if (!Input.GetKey(KeyCode.Space))
                 {
                     player.GetComponent<Health>().TakeDamage(damage);
                     Debug.Log("BANG");
                 }
+
         onCooldown = false;
 
         StopAllCoroutines();
     }
 
-
+    public float GetCooldown()
+    {
+        return attackCooldown;
+    }
 
 }

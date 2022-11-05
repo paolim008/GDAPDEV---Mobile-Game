@@ -7,12 +7,11 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [SerializeField] private Player playerdata;
     private int weaponType;
 
     //Take from NavScript
     public bool allowPlayerInput;
-    [SerializeField] private TextMeshProUGUI weaponText;
     [SerializeField] private GameObject[] equippedWeapon;
 
     // Start is called before the first frame update
@@ -31,8 +30,7 @@ public class PlayerController : MonoBehaviour
             TakeInput();
 
         SwitchWeapon(weaponType);
-        this.weaponText.text = weaponType.ToString();
-
+        playerdata.weaponType = weaponType;
     }
 
     private void TakeInput()
@@ -43,7 +41,6 @@ public class PlayerController : MonoBehaviour
             
         if (Input.GetKeyDown(KeyCode.RightArrow)) weaponType++;
             if (weaponType > equippedWeapon.Length - 1) weaponType = 0;
-
 
     }
     private void SwitchWeapon(int activeWeapon)

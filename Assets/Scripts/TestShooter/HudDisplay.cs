@@ -12,8 +12,10 @@ public class HudDisplay : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Image[] weaponSprites;
     private TextMeshProUGUI healthSliderText;
     private float score;
+    private int currentWeapon;
 
 
     void Awake()
@@ -29,7 +31,8 @@ public class HudDisplay : MonoBehaviour
 
     void Update()
     {
-        
+        LoadData();
+
         healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
         healthSliderText.text = healthSlider.value.ToString() + " / " + healthSlider.maxValue.ToString();
         if (Input.GetKeyDown(KeyCode.P))
@@ -37,11 +40,43 @@ public class HudDisplay : MonoBehaviour
             player.GetComponent<Health>().TakeDamage(10);
         }
 
+        scoreText.text = score.ToString();
+
+        UpdateCurrentWeapon();
+        for (int i = 0; i < weaponSprites.Length; i++)
+        {
+            if (i != currentWeapon)
+            {
+                weaponSprites[i].color = Color.white;
+            }
+            else
+            {
+                switch(i)
+                {
+                    case 0: weaponSprites[i].color = Color.blue;
+                        break;                    
+                    case 1: weaponSprites[i].color = Color.yellow;
+                        break;                    
+                    case 2: weaponSprites[i].color = Color.green;
+                        break;                    
+                    case 3: weaponSprites[i].color = Color.red;
+                        break;
+                }
+            }
+
+
+        }
+
     }
 
     private void LoadData()
     {
         score = playerData.score;
+    }
+
+    private void UpdateCurrentWeapon()
+    {
+        currentWeapon = playerData.weaponType;
     }
 
 }
