@@ -1,53 +1,82 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HudDisplay : MonoBehaviour
 {
-    public Player playerdata;
-    [SerializeField] private GameObject[] EndGamePanel;
-    [SerializeField] private Slider healthBarSlider;
-    [SerializeField] private TextMeshProUGUI healthBarValue;
-    [SerializeField] private TextMeshProUGUI weaponText;
+    [SerializeField] private Player playerData;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Slider healthSlider;
     [SerializeField] private TextMeshProUGUI scoreText;
-    [SerializeField] private GameObject[] equippedWeapon;
+    [SerializeField] private Image[] weaponSprites;
+    private TextMeshProUGUI healthSliderText;
+    private float score;
+    private int currentWeapon;
 
-    private int score;
-
-    private int weaponType;
-    private float maxHealth;
-    private float health;
 
     void Awake()
     {
         LoadData();
+        healthSliderText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
+        healthSlider.maxValue = player.GetComponent<Health>().GetMaxHealth();
+        healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
+
+
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        this.healthBarSlider.maxValue = this.maxHealth;
-    }
 
     void Update()
     {
         LoadData();
-        this.healthBarSlider.value = this.health;
-        this.healthBarValue.text = this.health.ToString() + "/" + this.maxHealth;
-        this.scoreText.text = score.ToString();
-        this.weaponText.text = weaponType.ToString();
+
+        healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
+        healthSliderText.text = healthSlider.value.ToString() + " / " + healthSlider.maxValue.ToString();
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            player.GetComponent<Health>().TakeDamage(10);
+        }
+
+        scoreText.text = score.ToString();
+
+        UpdateCurrentWeapon();
+        for (int i = 0; i < weaponSprites.Length; i++)
+        {
+            if (i != currentWeapon)
+            {
+                weaponSprites[i].color = Color.white;
+            }
+            else
+            {
+                switch(i)
+                {
+                    case 0: weaponSprites[i].color = Color.blue;
+                        break;                    
+                    case 1: weaponSprites[i].color = Color.yellow;
+                        break;                    
+                    case 2: weaponSprites[i].color = Color.green;
+                        break;                    
+                    case 3: weaponSprites[i].color = Color.red;
+                        break;
+                }
+            }
+
+
+        }
 
     }
 
     private void LoadData()
     {
-        this.health = playerdata.health;
-        this.maxHealth = playerdata.health;
-        this.weaponType = playerdata.weaponType;
-        this.score = playerdata.score;
+        score = playerData.score;
+    }
+
+    private void UpdateCurrentWeapon()
+    {
+        currentWeapon = playerData.weaponType;
     }
 
 }

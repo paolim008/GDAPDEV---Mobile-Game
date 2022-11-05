@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 1198615119140333588}
   - component: {fileID: 1198615119140333589}
   - component: {fileID: 1198615119140333590}
+  - component: {fileID: 5125923967216591212}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -166,6 +167,23 @@ MonoBehaviour:
   facePoint: []
   currentPoint: 0
   interval: 5
+--- !u!114 &5125923967216591212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198615119140333591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a854b5d3657af24badc2b9a6a5cd0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npeekdirection: 0
+  peekPoints: []
+  initPoint: {fileID: 0}
+  Peek: 0
+  speedMultiplier: 0
 --- !u!1 &1198615120212915801
 GameObject:
   m_ObjectHideFlags: 0

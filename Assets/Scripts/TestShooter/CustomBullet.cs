@@ -17,7 +17,7 @@ public class CustomBullet : MonoBehaviour
     private bool useGravity;
 
     //Damage
-    private int explosionDamage;
+    private float explosionDamage;
     private float explosionRange;
 
     //Lifetime
@@ -62,18 +62,20 @@ public class CustomBullet : MonoBehaviour
         Invoke("Delay", 0.05f);
     }
 
-    private int DamageEnemy(int explosionDamage, int enemyID)
+    private float DamageEnemy(float explosionDamage, int enemyID)
     {
-        int newExplosionDamage;
+        float newExplosionDamage;
         newExplosionDamage = explosionDamage;
 
         if (enemyID == this.id)
         {
-            newExplosionDamage = newExplosionDamage * 2;
+            //newExplosionDamage = newExplosionDamage * 2;
+            newExplosionDamage = newExplosionDamage;
         }
         else
         {
-            newExplosionDamage = newExplosionDamage / 2;
+            //newExplosionDamage = newExplosionDamage / 2;
+            newExplosionDamage = 0;
         }
 
         return newExplosionDamage;
@@ -141,15 +143,26 @@ public class CustomBullet : MonoBehaviour
 
             case 2:     //Stats
                          bounciness = 0.8f;
-                         useGravity = true;
+                         useGravity = false;
                        //Damage
-                         explosionDamage = 10;
-                         explosionRange = 3f;
+                         explosionDamage = 3;
+                         explosionRange = 1f;
                        //Lifetime
-                         maxCollisions = 10;
+                         maxCollisions = 1;
                          maxLifetime = 4;
                          explodeOnTouch = true;
                          break;
+            case 3:     //Stats
+                        bounciness = 0.8f;
+                        useGravity = true;
+                        //Damage
+                        explosionDamage = 5;
+                        explosionRange = 3f;
+                        //Lifetime
+                        maxCollisions = 1;
+                        maxLifetime = 4;
+                        explodeOnTouch = true;
+                        break;
             default:
                 break;
         }
