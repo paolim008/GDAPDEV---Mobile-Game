@@ -3020,7 +3020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27511ccfc792b14fa51098521617a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 7899002008161645637, guid: 779eb9052ad20c0469be68c9a066034e, type: 3}
+  bullet: {fileID: 9036552571065863651, guid: e0fad267157671644b85f0e7daea614b, type: 3}
   ammo:
   - {fileID: 3160274451886656948}
   - {fileID: 3160274452866123890}
@@ -3434,24 +3434,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1235381458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8654380388830622828, guid: 03afc3960556551459a5a6bd7e678701, type: 3}
-  m_PrefabInstance: {fileID: 1153654606795278376}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1235381460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235381458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49900ad831ebaf34aa1dddd722762b4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeSpan: 1
 --- !u!1 &1237625298
 GameObject:
   m_ObjectHideFlags: 0
@@ -4619,7 +4601,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1936634703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0b8646215dde1d44914a34f17000de5, type: 3}
+  m_Script: {fileID: 11500000, guid: 02ca2f93a40383142be656c26952d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
@@ -5818,6 +5800,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5031760394177078464, guid: 03afc3960556551459a5a6bd7e678701, type: 3}
+      propertyPath: lifeSpan
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7205549072171177004, guid: 03afc3960556551459a5a6bd7e678701, type: 3}
       propertyPath: m_RootOrder
       value: 5
