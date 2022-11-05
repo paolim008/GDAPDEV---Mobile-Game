@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         currentHealth = startingHealth;
         maxHealth = startingHealth;
