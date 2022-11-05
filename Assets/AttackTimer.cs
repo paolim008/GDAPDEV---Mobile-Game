@@ -25,7 +25,7 @@ public class AttackTimer : MonoBehaviour
         {
             attackTimerSlider.value += Time.deltaTime;
             attackTimerColor.color =
-                Color.Lerp(Color.green, Color.red, attackTimerSlider.value / attackCooldown);
+                Color.Lerp(Color.yellow, Color.red, attackTimerSlider.value / attackCooldown);
         }
         
     }

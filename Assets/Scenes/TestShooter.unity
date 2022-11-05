@@ -7252,6 +7252,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2970633386822962336, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970633386822962336, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
@@ -7367,6 +7371,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 7382962764370233557, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8081791576623673369, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -7375,8 +7383,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7340825785236924811, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfe8c904e9f047446b1e2886165e0815, type: 3}
 --- !u!1 &6235850852192283973
 GameObject:
