@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class CustomBullet : MonoBehaviour
 {
@@ -83,7 +84,7 @@ public class CustomBullet : MonoBehaviour
 
     private void Delay()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision)
