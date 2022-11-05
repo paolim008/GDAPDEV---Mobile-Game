@@ -10,11 +10,6 @@ public class AttackTimer : MonoBehaviour
     
     private float attackCooldown;
 
-    void Awake()
-    {
-
-    }
-
     void Update()
     {
         attackCooldown = GetComponentInParent<EnemyAi>().GetCooldown();

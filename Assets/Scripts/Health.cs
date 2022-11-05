@@ -18,8 +18,9 @@ public class Health : MonoBehaviour
         currentHealth = startingHealth;
         maxHealth = startingHealth;
         healthSlider.maxValue = maxHealth;
-        healthSlider.value = startingHealth;
+        healthSlider.value = currentHealth;
     }
+
 
     // Update is called once per frame
     void Update()

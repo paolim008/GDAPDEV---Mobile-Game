@@ -70,7 +70,7 @@ public class CustomBullet : MonoBehaviour
         if (enemyID == this.id)
         {
             //newExplosionDamage = newExplosionDamage * 2;
-            newExplosionDamage = newExplosionDamage;
+            return newExplosionDamage;
         }
         else
         {
@@ -78,7 +78,7 @@ public class CustomBullet : MonoBehaviour
             newExplosionDamage = 0;
         }
 
-        return newExplosionDamage;
+        return 0;
     }
 
     private void Delay()

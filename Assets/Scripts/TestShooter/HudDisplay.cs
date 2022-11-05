@@ -27,7 +27,7 @@ public class HudDisplay : MonoBehaviour
     private int currentWeapon;
 
 
-    void Awake()
+    void Start()
     {
         LoadData();
         healthSliderText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
