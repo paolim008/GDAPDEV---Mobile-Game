@@ -17,9 +17,6 @@ public class EnemyAi : MonoBehaviour
     [Range(4,10)]
     private float attackCooldown;
 
-
-    [SerializeField] private Slider attackSlider;
-
     private bool onCooldown = false;
 
 

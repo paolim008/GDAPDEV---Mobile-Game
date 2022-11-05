@@ -65,11 +65,12 @@ public class CustomBullet : MonoBehaviour
     private float DamageEnemy(float explosionDamage, int enemyID)
     {
         float newExplosionDamage;
+        newExplosionDamage = explosionDamage;
 
         if (enemyID == this.id)
         {
             //newExplosionDamage = newExplosionDamage * 2;
-            newExplosionDamage = explosionDamage;
+            return newExplosionDamage;
         }
         else
         {
@@ -77,12 +78,12 @@ public class CustomBullet : MonoBehaviour
             newExplosionDamage = 0;
         }
 
-        return newExplosionDamage;
+        return 0;
     }
 
     private void Delay()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)

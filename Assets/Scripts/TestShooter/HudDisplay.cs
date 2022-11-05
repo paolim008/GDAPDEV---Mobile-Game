@@ -8,17 +8,26 @@ using UnityEngine.UI;
 
 public class HudDisplay : MonoBehaviour
 {
-    [SerializeField] private Player playerData;
+    [Header("Player Attributes")]
     [SerializeField] private GameObject player;
+    [SerializeField] private Player playerData;
+
+    [Header("Health")]
     [SerializeField] private Slider healthSlider;
+    [SerializeField] private Image healthSliderImage;
+
+    [Header("Score")]
     [SerializeField] private TextMeshProUGUI scoreText;
+
+    [Header("Weapon")]
     [SerializeField] private Image[] weaponSprites;
+
     private TextMeshProUGUI healthSliderText;
     private float score;
     private int currentWeapon;
 
 
-    void Awake()
+    void Start()
     {
         LoadData();
         healthSliderText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
@@ -32,6 +41,8 @@ public class HudDisplay : MonoBehaviour
     void Update()
     {
         LoadData();
+
+        EnableFill();
 
         healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
         healthSliderText.text = healthSlider.value.ToString() + " / " + healthSlider.maxValue.ToString();
@@ -67,6 +78,16 @@ public class HudDisplay : MonoBehaviour
 
         }
 
+    }
+
+    private void EnableFill()
+    {
+            if(healthSlider.value <= healthSlider.minValue)
+                healthSliderImage.enabled = false;
+        
+            if (healthSlider.value > healthSlider.minValue)
+                healthSliderImage.enabled = true;
+            
     }
 
     private void LoadData()
