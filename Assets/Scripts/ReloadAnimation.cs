@@ -9,6 +9,9 @@ public class ReloadAnimation : MonoBehaviour
     [SerializeField] private float indicatorTimer;
     [SerializeField] private float maxIndicatorTimer;
     [SerializeField] private Image reloadSpriteImage;
+    [SerializeField] private Player playerData;
+    [SerializeField] private GameObject[] weapon;
+    private int currentWeapon;
 
     private bool reloading = false;
 
@@ -22,6 +25,8 @@ public class ReloadAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdateCurrentWeapon();
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             this.reloading = true;
@@ -29,18 +34,30 @@ public class ReloadAnimation : MonoBehaviour
 
         if (reloading)
         {
-            indicatorTimer -= Time.deltaTime;
+            indicatorTimer += Time.deltaTime;
             
-            reloadSpriteImage.fillAmount = indicatorTimer;
+            reloadSpriteImage.fillAmount = indicatorTimer/maxIndicatorTimer;
 
             if (indicatorTimer >= maxIndicatorTimer)
             {
-                this.reloadSpriteImage.fillAmount = 0f;
+                
                 reloading = false;
                 //this.gameObject.SetActive(false);
             }
         }
+        else
+        {
+           indicatorTimer = 0f;
+           reloadSpriteImage.fillAmount = indicatorTimer;
+        }
 
 
     }
+
+    private void UpdateCurrentWeapon()
+    {
+        currentWeapon = playerData.weaponType;
+        maxIndicatorTimer = weapon[currentWeapon].GetComponent<ProjectileGun>().GetReloadTime();
+    }
+
 }

@@ -98,27 +98,24 @@ public class ProjectileGun : MonoBehaviour
        //this.GetComponent<Transform>().transform.LookAt(ray.origin);
 
         //check if ray hits
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.GetPoint(75); // max distance of the point from the player
+        Vector3 targetPoint = ray.GetPoint(5f);
 
-                //Calculate direction from attackPoint to targetPoint
+        //Calculate direction from attackPoint to targetPoint
 
-                Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
+        Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
 
-                //Calculate spread
-                float x = Random.Range(-spread, spread);
-                float y = Random.Range(-spread, spread);
-                
-                //Calculate new Direction with spread
-                Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
+            //Calculate spread
+            float x = Random.Range(-spread, spread);
+            float y = Random.Range(-spread, spread);
+            float z = Random.Range(-spread, spread);
+
+        //Calculate new Direction with spread
+        Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, z);
 
 
 
-                //Instantiate Bullet/Projectile
-                GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        //Instantiate Bullet/Projectile
+         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
                 currentBullet.transform.forward = directionWithSpread.normalized;
 
 
@@ -153,7 +150,7 @@ public class ProjectileGun : MonoBehaviour
     private void ResetShot()
     {
         //Rotate Gun
-        this.GetComponent<Transform>().rotation = Quaternion.identity;
+        //this.GetComponent<Transform>().rotation = Quaternion.identity;
         //Allowing shooting and invoking
         readyToShoot = true;
         allowInvoke = true;
@@ -165,6 +162,7 @@ public class ProjectileGun : MonoBehaviour
         this.GetComponent<Transform>().rotation = Quaternion.Euler(-45, 0, 0);
         //reloadScript.SetActive(true);
 
+
         Invoke("ReloadFinished", reloadTime);
     }
     private void ReloadFinished()
@@ -174,6 +172,10 @@ public class ProjectileGun : MonoBehaviour
         reloading = false;
     }
 
+    public float GetReloadTime()
+    {
+        return reloadTime;
+    }
 }
 
 

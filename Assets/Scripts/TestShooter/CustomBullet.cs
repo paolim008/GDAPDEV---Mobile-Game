@@ -143,15 +143,26 @@ public class CustomBullet : MonoBehaviour
 
             case 2:     //Stats
                          bounciness = 0.8f;
-                         useGravity = true;
+                         useGravity = false;
                        //Damage
-                         explosionDamage = 10;
-                         explosionRange = 3f;
+                         explosionDamage = 3;
+                         explosionRange = 1f;
                        //Lifetime
-                         maxCollisions = 10;
+                         maxCollisions = 1;
                          maxLifetime = 4;
                          explodeOnTouch = true;
                          break;
+            case 3:     //Stats
+                        bounciness = 0.8f;
+                        useGravity = true;
+                        //Damage
+                        explosionDamage = 5;
+                        explosionRange = 3f;
+                        //Lifetime
+                        maxCollisions = 1;
+                        maxLifetime = 4;
+                        explodeOnTouch = true;
+                        break;
             default:
                 break;
         }

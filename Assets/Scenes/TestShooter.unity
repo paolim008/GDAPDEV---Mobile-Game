@@ -239,7 +239,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &81326984
 RectTransform:
   m_ObjectHideFlags: 0
@@ -276,6 +276,12 @@ MonoBehaviour:
   indicatorTimer: 0
   maxIndicatorTimer: 1
   reloadSpriteImage: {fileID: 1188931729}
+  playerData: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
+  weapon:
+  - {fileID: 295788783}
+  - {fileID: 407601284}
+  - {fileID: 325633527}
+  - {fileID: 1161507606}
 --- !u!850595691 &97262255
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -741,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27511ccfc792b14fa51098521617a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3160274450837561328, guid: a4d40ec631ee27149919946435d61b6b, type: 3}
+  bullet: {fileID: 7899002008161645637, guid: 118ed5e9c39abcc44adbd30c0627751b, type: 3}
   ammo:
   - {fileID: 3160274451886656948}
   - {fileID: 3160274452866123890}
@@ -756,11 +762,11 @@ MonoBehaviour:
   shootForce: 30
   upwardForce: 0
   timeBetweenShooting: 0.2
-  timeBetweenShots: 10
-  spread: 0
+  timeBetweenShots: 0
+  spread: 0.4
   reloadTime: 1.5
-  magazineSize: 64
-  bulletsPerTap: 1
+  magazineSize: 40
+  bulletsPerTap: 5
   allowButtonHold: 0
   fpsCam: {fileID: 1032625477}
   attackPoint: {fileID: 1874672458}
@@ -976,9 +982,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 271.37512, y: -42}
   m_SizeDelta: {x: 109.1124, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371777838
@@ -1073,9 +1079,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 415.3634, y: -42}
   m_SizeDelta: {x: 125.4439, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373174118
@@ -1891,9 +1897,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 144.88487, y: -42}
   m_SizeDelta: {x: 90.4479, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566114396
@@ -3725,9 +3731,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 39.9754, y: -42}
   m_SizeDelta: {x: 65.9508, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446964960
