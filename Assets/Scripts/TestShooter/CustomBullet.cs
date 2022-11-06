@@ -89,9 +89,6 @@ public class CustomBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        ////Dont count collisions with other bullets
-        //if (collision.collider.CompareTag("Bullet")) return;
-
         //Count up collisions
         collisions++;
         //Explode if bullet hits an enemy directly
