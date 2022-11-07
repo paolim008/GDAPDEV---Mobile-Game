@@ -14,6 +14,11 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private Slider timer;
 
+    [Header("EnemyContainers")]
+    [SerializeField] private GameObject area1EnemyHolder;
+    [SerializeField] private GameObject area2EnemyHolder;
+    [SerializeField] private GameObject area3EnemyHolder;
+
     
 
 
@@ -41,9 +46,13 @@ public class LevelAreaManager : MonoBehaviour
         //Load Next Area
         else if (enemyHolder.childCount <= 0 || timer.value <= 0 + .01)
         { 
+            //Close Player-Died Panel
             if (endGamePanel[1].activeSelf)
                 endGamePanel[1].SetActive(false);
+
+            //Open Loading-Next-Area Panel
             endGamePanel[0].SetActive(true);
+            levelStage++;
         }
 
         
@@ -59,9 +68,6 @@ public class LevelAreaManager : MonoBehaviour
         {
             endGamePanel[i].SetActive(false);
         }
-
-
-        
     }
 
 
@@ -72,5 +78,16 @@ public class LevelAreaManager : MonoBehaviour
         //    //Add Feature: Display New HighScore on EndgamePanel
         //    playerdata.score = this.score;
         //}
+    }
+
+
+    private void GetActiveEnemiesInArea()
+    {
+
+    }
+
+    public void GetLevelStage(int _levelStage)
+    {
+        levelStage = _levelStage;
     }
 }

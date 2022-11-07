@@ -8,11 +8,11 @@ public class PlayerNav : MonoBehaviour
     private NavMeshAgent agent;
     [SerializeField] private GameObject[] destinationPoint;
     [SerializeField] private GameObject[] facePoint;
-    private float ticks = 0;
+    //private float ticks = 0;
     public int currentPoint = 0;
-    [SerializeField] private float interval = 5;
     private Vector3 offsetPlayer;
-
+    [SerializeField] private bool moving = false;
+    private bool endScreenDisplayed = false;
 
     // Start is called before the first frame update
     public void Start()
@@ -28,31 +28,35 @@ public class PlayerNav : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            moving = !moving;
+        }
+
         RotateViewToFocus(agent, facePoint[currentPoint]);
         //Check if agent reached the destination point
         if (agent.remainingDistance <= 0)
         {
-            ticks+= Time.deltaTime;
-            //Rotates Agent to look at the direction of facePoin
 
-            //Reset ticks when over interval
-            if (ticks >= interval)
-            {
-                ticks = 0;
 
-                //Reset currentPoint if out of bounds
-                if (++currentPoint >= destinationPoint.Length)
+            if (currentPoint+1 >= destinationPoint.Length && !endScreenDisplayed)
                 {
-                    currentPoint = 0;
-                }
-                //Set new destination to the Agent
-                agent.SetDestination(destinationPoint[currentPoint].transform.position);
-            }
-        }
-       
-       
+                    Debug.Log("Stage Complete");
+                    //Display Win Screen
+                    endScreenDisplayed = true;
 
+                }
+            
+            //Set new destination to the Agent
+            if(currentPoint+1 < destinationPoint.Length)
+                WaitForNextArea();
+
+
+        }
+
+   
     }
+
     private void RotateViewToFocus(NavMeshAgent agent, GameObject facePoint)
     {
         Quaternion lockOnLook = Quaternion.LookRotation(facePoint.transform.position - agent.transform.position);
@@ -60,5 +64,13 @@ public class PlayerNav : MonoBehaviour
 
     }
 
-
+    private void WaitForNextArea()
+    {
+        if (moving == true)
+        {
+            currentPoint++;
+            agent.SetDestination(destinationPoint[currentPoint].transform.position);
+        }
+            
+    }
 }
