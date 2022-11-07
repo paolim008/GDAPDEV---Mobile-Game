@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class PlayerNav : MonoBehaviour
 {
+    [SerializeField] private LevelAreaManager levelAreaManager;
     private NavMeshAgent agent;
     [SerializeField] private GameObject[] destinationPoint;
     [SerializeField] private GameObject[] facePoint;
@@ -13,6 +14,9 @@ public class PlayerNav : MonoBehaviour
     private Vector3 offsetPlayer;
     [SerializeField] private bool moving = false;
     private bool endScreenDisplayed = false;
+    [SerializeField] private Transform enemyHolder1;
+    [SerializeField] private Transform enemyHolder2;
+    [SerializeField] private Transform enemyHolder3;
 
     // Start is called before the first frame update
     public void Start()
@@ -39,10 +43,9 @@ public class PlayerNav : MonoBehaviour
         {
 
 
-            if (currentPoint+1 >= destinationPoint.Length && !endScreenDisplayed)
+            if (currentPoint+1 > destinationPoint.Length && !endScreenDisplayed)
                 {
-                    Debug.Log("Stage Complete");
-                    //Display Win Screen
+                    levelAreaManager.DisplayEndScreen(1);
                     endScreenDisplayed = true;
 
                 }
@@ -66,11 +69,37 @@ public class PlayerNav : MonoBehaviour
 
     private void WaitForNextArea()
     {
-        if (moving == true)
+        switch (levelAreaManager.GetLevelStage())
         {
-            currentPoint++;
-            agent.SetDestination(destinationPoint[currentPoint].transform.position);
+            case 1:
+                if (enemyHolder1.childCount == 0)
+                {
+                    currentPoint++;
+                    agent.SetDestination(destinationPoint[currentPoint].transform.position);
+                    levelAreaManager.LoadLevelStage();
+ 
+                }
+                break;
+            case 2:
+                if (enemyHolder2.childCount == 0)
+                {
+                    currentPoint++;
+                    agent.SetDestination(destinationPoint[currentPoint].transform.position);
+                    levelAreaManager.LoadLevelStage();
+                }
+                break;
+            case 3:
+                if (enemyHolder3.childCount == 0)
+                {
+                    currentPoint++;
+                    agent.SetDestination(destinationPoint[currentPoint].transform.position);
+                    levelAreaManager.LoadLevelStage();
+                }
+                break;
+
+            default: return;
         }
+       
             
     }
 }

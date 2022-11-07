@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelAreaManager : MonoBehaviour
 {
+
     private int levelStage;
     private int score;
     [SerializeField] private GameObject[] endGamePanel;
@@ -14,10 +15,6 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private Slider timer;
 
-    [Header("EnemyContainers")]
-    [SerializeField] private GameObject area1EnemyHolder;
-    [SerializeField] private GameObject area2EnemyHolder;
-    [SerializeField] private GameObject area3EnemyHolder;
 
     
 
@@ -41,18 +38,20 @@ public class LevelAreaManager : MonoBehaviour
             endGamePanel[1].SetActive(true);
             
             Time.timeScale = 0;
-
         }
+
         //Load Next Area
-        else if (enemyHolder.childCount <= 0 || timer.value <= 0 + .01)
-        { 
+        else if (timer.value <= 0 + .01)
+        {
+            levelStage++;
             //Close Player-Died Panel
             if (endGamePanel[1].activeSelf)
                 endGamePanel[1].SetActive(false);
 
             //Open Loading-Next-Area Panel
             endGamePanel[0].SetActive(true);
-            levelStage++;
+            //levelStage++;
+            timer.value = timer.maxValue;
         }
 
         
@@ -86,8 +85,44 @@ public class LevelAreaManager : MonoBehaviour
 
     }
 
-    public void GetLevelStage(int _levelStage)
+    public int GetLevelStage()
     {
-        levelStage = _levelStage;
+        Debug.Log($"level stage : {levelStage}");
+        return levelStage;
+    }    
+    public void LoadLevelStage()
+    {
+        timer.value = timer.maxValue;
+        levelStage += 1;
+    }
+
+    public float GetTimeLeft()
+    {
+        return timer.value;
+    }
+
+    public void DisplayEndScreen(int status)
+    {
+        if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
+        {
+            Debug.Log("Player Died");
+            if (endGamePanel[0].activeSelf)
+                endGamePanel[0].SetActive(false);
+            endGamePanel[1].SetActive(true);
+
+            Time.timeScale = 0;
+        }
+        else if (timer.value <= 0 + .01)
+        {
+            levelStage++;
+            //Close Player-Died Panel
+            if (endGamePanel[1].activeSelf)
+                endGamePanel[1].SetActive(false);
+
+            //Open Loading-Next-Area Panel
+            endGamePanel[0].SetActive(true);
+            //levelStage++;
+            timer.value = timer.maxValue;
+        }
     }
 }
