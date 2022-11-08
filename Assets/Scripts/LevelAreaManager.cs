@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class LevelAreaManager : MonoBehaviour
 {
-
     private int levelStage;
     private int score;
     [SerializeField] private GameObject[] endGamePanel;
@@ -14,11 +13,6 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private Slider timer;
-
-
-    
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +37,6 @@ public class LevelAreaManager : MonoBehaviour
         //Load Next Area
         else if (timer.value <= 0 + .01)
         {
-            levelStage++;
             //Close Player-Died Panel
             if (endGamePanel[1].activeSelf)
                 endGamePanel[1].SetActive(false);
@@ -112,17 +105,6 @@ public class LevelAreaManager : MonoBehaviour
 
             Time.timeScale = 0;
         }
-        else if (timer.value <= 0 + .01)
-        {
-            levelStage++;
-            //Close Player-Died Panel
-            if (endGamePanel[1].activeSelf)
-                endGamePanel[1].SetActive(false);
 
-            //Open Loading-Next-Area Panel
-            endGamePanel[0].SetActive(true);
-            //levelStage++;
-            timer.value = timer.maxValue;
-        }
     }
 }
