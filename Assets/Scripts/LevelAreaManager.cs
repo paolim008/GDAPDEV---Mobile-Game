@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GameObject = UnityEngine.GameObject;
 
 public class LevelAreaManager : MonoBehaviour
 {
@@ -23,31 +25,29 @@ public class LevelAreaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Display Game Over Screen
+        //Display Death Screen
         if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
         {
             Debug.Log("Player Died");
-            if(endGamePanel[0].activeSelf)
-                endGamePanel[0].SetActive(false);
-            endGamePanel[1].SetActive(true);
-            
+
+            OpenPanel(3);
+
             Time.timeScale = 0;
         }
 
-        //Load Next Area
-        else if (timer.value <= 0 + .01)
+        //Time Out
+        else if (timer.value <= .5)
         {
-            //Close Player-Died Panel
-            if (endGamePanel[1].activeSelf)
-                endGamePanel[1].SetActive(false);
+            //Display TimeOutScreen
+            OpenPanel(1);
 
-            //Open Loading-Next-Area Panel
-            endGamePanel[0].SetActive(true);
-            //levelStage++;
-            timer.value = timer.maxValue;
         }
 
-        
+
+
+        if (Input.GetKeyDown(KeyCode.O))
+            player.GetComponent<Health>().Heal(30);
+
     }
 
 
@@ -72,12 +72,6 @@ public class LevelAreaManager : MonoBehaviour
         //}
     }
 
-
-    private void GetActiveEnemiesInArea()
-    {
-
-    }
-
     public int GetLevelStage()
     {
         Debug.Log($"level stage : {levelStage}");
@@ -94,17 +88,22 @@ public class LevelAreaManager : MonoBehaviour
         return timer.value;
     }
 
-    public void DisplayEndScreen(int status)
+    public void OpenPanel(int panelIndex)
     {
-        if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
+        //Close Current Panels
+        foreach (GameObject panel in endGamePanel)
         {
-            Debug.Log("Player Died");
-            if (endGamePanel[0].activeSelf)
-                endGamePanel[0].SetActive(false);
-            endGamePanel[1].SetActive(true);
-
-            Time.timeScale = 0;
+            if(panel.activeSelf)
+                panel.SetActive(false);
         }
 
+        if(!endGamePanel[panelIndex].activeSelf)
+            endGamePanel[panelIndex].SetActive(true);
+    }
+
+    public void OpenLoadingPanel(bool _status)
+    {
+        if(endGamePanel[0].activeSelf != _status)
+            endGamePanel[0].SetActive(_status);
     }
 }

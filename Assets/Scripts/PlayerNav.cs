@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class PlayerNav : MonoBehaviour
 {
+    public int currentPoint = 0;
+
     [SerializeField] private LevelAreaManager levelAreaManager;
-    private NavMeshAgent agent;
     [SerializeField] private GameObject[] destinationPoint;
     [SerializeField] private GameObject[] facePoint;
-    //private float ticks = 0;
-    public int currentPoint = 0;
+    [SerializeField] private Transform[] enemyHolders;
+    private NavMeshAgent agent;
     private Vector3 offsetPlayer;
     [SerializeField] private bool moving = false;
-    private bool endScreenDisplayed = false;
-    [SerializeField] private Transform enemyHolder1;
-    [SerializeField] private Transform enemyHolder2;
-    [SerializeField] private Transform enemyHolder3;
+
 
     // Start is called before the first frame update
     public void Start()
@@ -41,15 +40,14 @@ public class PlayerNav : MonoBehaviour
         //Check if agent reached the destination point
         if (agent.remainingDistance <= 0)
         {
+            levelAreaManager.OpenLoadingPanel(false);
 
+            if (currentPoint+1 == enemyHolders.Length && enemyHolders[levelAreaManager.GetLevelStage() - 1].childCount == 0)
+            {
 
-            if (currentPoint+1 > destinationPoint.Length && !endScreenDisplayed)
-                {
-                    levelAreaManager.DisplayEndScreen(1);
-                    endScreenDisplayed = true;
+                levelAreaManager.OpenPanel(3);
+            }
 
-                }
-            
             //Set new destination to the Agent
             if(currentPoint+1 < destinationPoint.Length)
                 WaitForNextArea();
@@ -57,7 +55,9 @@ public class PlayerNav : MonoBehaviour
 
         }
 
-   
+        
+
+
     }
 
     private void RotateViewToFocus(NavMeshAgent agent, GameObject facePoint)
@@ -69,37 +69,12 @@ public class PlayerNav : MonoBehaviour
 
     private void WaitForNextArea()
     {
-        switch (levelAreaManager.GetLevelStage())
+        if (enemyHolders[levelAreaManager.GetLevelStage()-1].childCount == 0)
         {
-            case 1:
-                if (enemyHolder1.childCount == 0)
-                {
-                    currentPoint++;
-                    agent.SetDestination(destinationPoint[currentPoint].transform.position);
-                    levelAreaManager.LoadLevelStage();
- 
-                }
-                break;
-            case 2:
-                if (enemyHolder2.childCount == 0)
-                {
-                    currentPoint++;
-                    agent.SetDestination(destinationPoint[currentPoint].transform.position);
-                    levelAreaManager.LoadLevelStage();
-                }
-                break;
-            case 3:
-                if (enemyHolder3.childCount == 0)
-                {
-                    currentPoint++;
-                    agent.SetDestination(destinationPoint[currentPoint].transform.position);
-                    levelAreaManager.LoadLevelStage();
-                }
-                break;
-
-            default: return;
+            levelAreaManager.OpenLoadingPanel(true);
+            currentPoint++;
+            agent.SetDestination(destinationPoint[currentPoint].transform.position);
+            levelAreaManager.LoadLevelStage();
         }
-       
-            
     }
 }

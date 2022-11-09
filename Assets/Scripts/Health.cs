@@ -42,6 +42,11 @@ public class Health : MonoBehaviour
         currentHealth -= _damage;
         healthSlider.value = currentHealth;
     }
+    public void Heal(float _amount)
+    {
+        currentHealth += _amount;
+        healthSlider.value = currentHealth;
+    }
 
     public void SetMaxHealth(float health)
     {

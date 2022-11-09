@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow)) weaponType--;
             if (weaponType < 0) weaponType = equippedWeapon.Length - 1;
-           
             
         if (Input.GetKeyDown(KeyCode.RightArrow)) weaponType++;
             if (weaponType > equippedWeapon.Length - 1) weaponType = 0;

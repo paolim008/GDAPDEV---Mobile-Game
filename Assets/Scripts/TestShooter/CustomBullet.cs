@@ -92,7 +92,7 @@ public class CustomBullet : MonoBehaviour
         //Count up collisions
         collisions++;
         //Explode if bullet hits an enemy directly
-            if (collision.collider.CompareTag("enemyMask") && explodeOnTouch) Explode();
+            if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
 
 
 
@@ -119,7 +119,7 @@ public class CustomBullet : MonoBehaviour
                          bounciness = 0.8f;
                          useGravity = false;
                         //Damage
-                         explosionDamage = 1;
+                         explosionDamage = 5;
                          explosionRange = 0.2f;
                         //Lifetime
                          maxCollisions = 0;
@@ -131,7 +131,7 @@ public class CustomBullet : MonoBehaviour
                          bounciness = 0.8f;
                          useGravity = false;
                         //Damage
-                         explosionDamage = 2;
+                         explosionDamage = 5;
                          explosionRange = 0.2f;
                         //Lifetime
                          maxCollisions = 0;
@@ -143,7 +143,7 @@ public class CustomBullet : MonoBehaviour
                          bounciness = 0.8f;
                          useGravity = false;
                        //Damage
-                         explosionDamage = 3;
+                         explosionDamage = 5;
                          explosionRange = 1f;
                        //Lifetime
                          maxCollisions = 1;
