@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 193648537}
   - component: {fileID: 193648536}
   m_Layer: 5
-  m_Name: QuitGame
+  m_Name: Return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 193648537}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 163743274}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &193648537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,7 +656,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 388796910}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ee3c3107f3e104f9fbce6474254cf5, type: 3}
+  m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &388796912
@@ -2137,7 +2149,7 @@ GameObject:
   - component: {fileID: 1952965192}
   - component: {fileID: 1952965191}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Level Select
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2207,7 +2219,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1952965192}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 163743274}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: LevelSelect
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1952965192
 MonoBehaviour:
   m_ObjectHideFlags: 0
