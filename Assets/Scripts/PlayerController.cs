@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         playerdata.weaponType = weaponType;
     }
 
+    /*
     private void TakeInput()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow)) weaponType--;
@@ -43,6 +44,33 @@ public class PlayerController : MonoBehaviour
             if (weaponType > equippedWeapon.Length - 1) weaponType = 0;
 
     }
+    */
+
+    private void TakeInput()
+    {
+        if (GestureManager.Instance.SwitchingLeft())
+        {
+            weaponType--;
+            GestureManager.Instance.SetSingle();
+            GestureManager.Instance.ToggleLeft();
+        }
+
+        if (weaponType < 0) 
+            weaponType = equippedWeapon.Length - 1;
+
+
+        if (GestureManager.Instance.SwitchingRight())
+        {
+            weaponType++;
+            GestureManager.Instance.SetRapid();
+            GestureManager.Instance.ToggleRight();
+        }
+
+        if (weaponType > equippedWeapon.Length - 1) 
+            weaponType = 0;
+
+    }
+
     private void SwitchWeapon(int activeWeapon)
     {
         for (int i = 0; i < equippedWeapon.Length; i++)

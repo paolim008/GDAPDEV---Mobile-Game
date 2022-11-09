@@ -39,8 +39,22 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        currentHealth -= _damage;
-        healthSlider.value = currentHealth;
+        if (!PlayerActions.Instance.IsBlocking())     // cancels damage if player is blocking
+        {
+            currentHealth -= _damage;
+            healthSlider.value = currentHealth;
+        }
+        else if (PlayerActions.Instance.IsParrying())   // awards 1 health for a successful parry if health isn't at max
+        {
+            if (currentHealth < maxHealth)
+                currentHealth++;
+        }
+        else                                          // 1 damage if player health is above 1, and is blocking
+        {
+            if (currentHealth > 1)
+                currentHealth -= 1;
+        }
+        
     }
 
     public void SetMaxHealth(float health)

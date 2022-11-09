@@ -26,13 +26,15 @@ public class ReloadAnimation : MonoBehaviour
     void Update()
     {
         UpdateCurrentWeapon();
-
+        
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             this.reloading = true;
         }
+        */
 
-        if (reloading)
+        if (PlayerActions.Instance.IsReloading())
         {
             indicatorTimer += Time.deltaTime;
             
@@ -44,13 +46,15 @@ public class ReloadAnimation : MonoBehaviour
                 reloading = false;
                 //this.gameObject.SetActive(false);
             }
+
+            PlayerActions.Instance.ReloadDone();
         }
         else
         {
            indicatorTimer = 0f;
            reloadSpriteImage.fillAmount = indicatorTimer;
         }
-
+        
 
     }
 

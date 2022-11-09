@@ -53,6 +53,7 @@ public class ProjectileGun : MonoBehaviour
         Vector3 muzzFlashPos = new Vector3(attackPoint.position.x, attackPoint.position.y, attackPoint.position.z + 4 );
 
         MyInput();
+
         //Set ammo display if it exists;
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft/bulletsPerTap + "/" + magazineSize/bulletsPerTap);
@@ -63,11 +64,15 @@ public class ProjectileGun : MonoBehaviour
     private void MyInput()
     {
         //Check if allowed to hold down button and take corresponding input
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        /*
+        if (allowButtonHold) 
+            shooting = Input.GetKey(KeyCode.Mouse0);
+        else 
+            shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        */
 
         //Reloading
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && bulletsLeft < magazineSize && !reloading) Reload();
+        if(PlayerActions.Instance.IsReloading() && bulletsLeft < magazineSize && bulletsLeft < magazineSize && !reloading) Reload();
         //Force Reload
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
