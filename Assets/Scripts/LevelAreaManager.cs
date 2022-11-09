@@ -30,7 +30,7 @@ public class LevelAreaManager : MonoBehaviour
         {
             Debug.Log("Player Died");
 
-            OpenPanel(3);
+            OpenPanel(2);
 
             Time.timeScale = 0;
         }
