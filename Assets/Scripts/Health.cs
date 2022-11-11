@@ -44,11 +44,6 @@ public class Health : MonoBehaviour
             currentHealth -= _damage;
             healthSlider.value = currentHealth;
         }
-        else if (PlayerActions.Instance.IsParrying())   // awards 1 health for a successful parry if health isn't at max
-        {
-            if (currentHealth < maxHealth)
-                currentHealth++;
-        }
         else                                          // 1 damage if player health is above 1, and is blocking
         {
             if (currentHealth > 1)

@@ -11,25 +11,9 @@ public class PlayerActions : MonoBehaviour
         get { return instance; }
     }
 
-    private bool Parrying = false;
     private bool Blocking = false;
-    private bool Shooting = false;
     private bool Reloading = false;
 
-    public void Parry()
-    {
-        Parrying = true;
-    }
-
-    public void ParryDone()
-    {
-        Parrying = false;
-    }
-
-    public bool IsParrying()
-    {
-        return Parrying;
-    }
     public void Block()
     {
         Blocking = true;
@@ -43,16 +27,6 @@ public class PlayerActions : MonoBehaviour
     public bool IsBlocking()
     {
         return Blocking;
-    }
-
-    public void Shoot()
-    {
-        Shooting = true;
-    }
-
-    public void ShootDone()
-    {
-        Shooting = false;
     }
 
     public void Reload()
@@ -69,5 +43,4 @@ public class PlayerActions : MonoBehaviour
     {
         return Reloading;
     }
-
 }

@@ -71,6 +71,15 @@ public class ProjectileGun : MonoBehaviour
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
         */
 
+        if (GestureManager.Instance.CheckRapid())               // if rapid weapon, check for drag input
+        {
+            shooting = GestureManager.Instance.CheckDrag();
+        }
+        else                                                    // if not, check for tap input
+        {
+            shooting = GestureManager.Instance.CheckTap();
+        }
+
         //Reloading
         if(PlayerActions.Instance.IsReloading() && bulletsLeft < magazineSize && bulletsLeft < magazineSize && !reloading) Reload();
         //Force Reload
@@ -84,6 +93,11 @@ public class ProjectileGun : MonoBehaviour
             bulletsShot = 0;
 
             Shoot();
+
+            if (GestureManager.Instance.CheckTap())         // if singe shot, reset the boolean value to false after firing
+            {
+                GestureManager.Instance.UnTap();
+            }
         }
 
     }

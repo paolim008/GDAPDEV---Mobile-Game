@@ -39,6 +39,9 @@ public class GestureManager : MonoBehaviour
     private bool RapidShot = false;
     private bool SingeShot = false;
 
+    private bool TapShot = false;
+    private bool DragShot = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -102,6 +105,11 @@ public class GestureManager : MonoBehaviour
         if(trackedFinger1.phase == TouchPhase.Ended && trackedFinger2.phase == TouchPhase.Ended)
         {
             sentinel = true;
+
+            if (CheckRapid())               // if finger is lifted, drag shot is then finished and stopped
+            {
+                DragShot = false;
+            }
         }
     }
 
@@ -142,29 +150,41 @@ public class GestureManager : MonoBehaviour
 
     private void FireTapEvent(Vector2 pos)
     {
+        if (sentinel)
+        {
+            if (CheckSingle())
+            {
+                TapShot = true;
 
+                GameObject hitObj = null;
+                Ray r = Camera.main.ScreenPointToRay(pos);
+                RaycastHit hit;
+                if (Physics.Raycast(r, out hit, Mathf.Infinity))
+                {
+                    hitObj = hit.collider.gameObject;
+                }
 
-        GameObject hitObj = null;
-        Ray r = Camera.main.ScreenPointToRay(pos);
-        RaycastHit hit;
-        if (Physics.Raycast(r, out hit, Mathf.Infinity)) {
-            hitObj = hit.collider.gameObject;
+                TapEventArgs tapArgs = new TapEventArgs(pos, hitObj);
+                // Notify tap listeners with tap event
+                // Check if anything is listening first
+                if (OnTap != null)
+                    OnTap(this, tapArgs);
+
+                // If the hit object is tappable, call its OnTap method
+                if (hitObj != null)
+                {
+                    ITappable tappable = hitObj.GetComponent<ITappable>();
+                    if (tappable != null)
+                    {
+                        tappable.OnTap();
+                    }
+                }
+            }
         }
 
-        TapEventArgs tapArgs = new TapEventArgs(pos, hitObj);
-        // Notify tap listeners with tap event
-        // Check if anything is listening first
-        if (OnTap != null)
-            OnTap(this, tapArgs);
-
-        // If the hit object is tappable, call its OnTap method
-        if (hitObj != null)
+        if (trackedFinger1.phase == TouchPhase.Ended)
         {
-            ITappable tappable = hitObj.GetComponent<ITappable>();
-            if (tappable != null)
-            {
-                tappable.OnTap();
-            }
+            sentinel = true;
         }
     }
 
@@ -200,11 +220,14 @@ public class GestureManager : MonoBehaviour
                 {
                     Debug.Log("Up");
                     swipeDir = SwipeDirection.UP;
+                    PlayerActions.Instance.Block();
                 }
                 else
                 {
                     Debug.Log("Down");
-                    swipeDir = SwipeDirection.DOWN;                }
+                    swipeDir = SwipeDirection.DOWN;
+                    PlayerActions.Instance.UnBlock();
+                }
             }
 
 
@@ -243,27 +266,38 @@ public class GestureManager : MonoBehaviour
     {
         Debug.Log("Drag");
 
-        Ray r = Camera.main.ScreenPointToRay(trackedFinger1.position);
-        RaycastHit hit;
-        GameObject hitObj = null;
-
-        if (Physics.Raycast(r, out hit, Mathf.Infinity))
+        if (CheckRapid())
         {
-            hitObj = hit.collider.gameObject;
-        }
+            DragShot = true;
 
-        DragEventArgs dragEvent = new DragEventArgs(trackedFinger1, hitObj);
+            Ray r = Camera.main.ScreenPointToRay(trackedFinger1.position);
+            RaycastHit hit;
+            GameObject hitObj = null;
 
-        if (OnDrag != null)
-        {
-            OnDrag(this, dragEvent);
-        }
+            if (Physics.Raycast(r, out hit, Mathf.Infinity))
+            {
+                hitObj = hit.collider.gameObject;
+            }
 
-        if (hitObj != null)
-        {
-            IDraggable draggable = hitObj.GetComponent<IDraggable>();
-            if (draggable != null)
-                draggable.OnDrag(dragEvent);
+            DragEventArgs dragEvent = new DragEventArgs(trackedFinger1, hitObj);
+
+            if (OnDrag != null)
+            {
+                OnDrag(this, dragEvent);
+            }
+
+            if (hitObj != null)
+            {
+                IDraggable draggable = hitObj.GetComponent<IDraggable>();
+                if (draggable != null)
+                    draggable.OnDrag(dragEvent);
+            }
+
+            if (trackedFinger1.phase == TouchPhase.Ended)
+            {
+                sentinel = true;
+                DragShot = false;
+            }
         }
     }
 
@@ -441,5 +475,30 @@ public class GestureManager : MonoBehaviour
     {
         SingeShot = true;
         RapidShot = false;
+    }
+
+    public bool CheckSingle()
+    {
+        return SingeShot;
+    }
+
+    public bool CheckRapid()
+    {
+        return RapidShot;
+    }
+
+    public bool CheckTap()
+    {
+        return TapShot;
+    }
+
+    public bool CheckDrag()
+    {
+        return DragShot;
+    }
+
+    public void UnTap()
+    {
+        TapShot = false;
     }
 }
