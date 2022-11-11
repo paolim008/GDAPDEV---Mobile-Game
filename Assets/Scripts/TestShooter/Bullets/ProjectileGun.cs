@@ -93,17 +93,20 @@ public class ProjectileGun : MonoBehaviour
 
 
         //shooting
-        if (shooting)  //readyToShoot && shooting && !reloading && bulletsLeft > 0
+        if (shooting && bulletsLeft > 0)  //readyToShoot && shooting && !reloading && bulletsLeft > 0
         {
-            //set bullets shot to 0
-            bulletsShot = 0;
-
-            Debug.Log("Should Shoot");
-            Shoot();
-
-            if (GestureManager.Instance.CheckTap())         // if singe shot, reset the boolean value to false after firing
+            if (!GestureManager.Instance.IsBlocking())
             {
-                GestureManager.Instance.UnTap();
+                //set bullets shot to 0
+                bulletsShot = 0;
+
+                Debug.Log("Should Shoot");
+                Shoot();
+
+                if (GestureManager.Instance.CheckTap())         // if singe shot, reset the boolean value to false after firing
+                {
+                    GestureManager.Instance.UnTap();
+                }
             }
         }
 
