@@ -36,7 +36,7 @@ public class GestureManager : MonoBehaviour
     private bool SwitchRight = false;
 
     private bool RapidShot = false;
-    private bool SingeShot = false;
+    private bool SingeShot = true;
 
     private bool TapShot = false;
     private bool DragShot = false;

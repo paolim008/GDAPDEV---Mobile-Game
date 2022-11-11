@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         if (GestureManager.Instance.SwitchingRight())   // checks if swipe was for right
         {
             weaponType++;
-            GestureManager.Instance.SetRapid();         // allows for rapid fire
+            GestureManager.Instance.SetSingle();         // allows for rapid fire
             GestureManager.Instance.ToggleRight();
         }
 

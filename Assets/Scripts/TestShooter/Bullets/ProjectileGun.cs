@@ -44,18 +44,19 @@ public class ProjectileGun : MonoBehaviour
         bulletsLeft = magazineSize;
         readyToShoot = true;
 
-        
+
     }
 
     private void Update()
     {
         //Muzzle Flash Position
-        Vector3 muzzFlashPos = new Vector3(attackPoint.position.x, attackPoint.position.y, attackPoint.position.z + 4 );
+        Vector3 muzzFlashPos = new Vector3(attackPoint.position.x, attackPoint.position.y, attackPoint.position.z + 4);
 
         MyInput();
+
         //Set ammo display if it exists;
         if (ammunitionDisplay != null)
-            ammunitionDisplay.SetText(bulletsLeft/bulletsPerTap + "/" + magazineSize/bulletsPerTap);
+            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + "/" + magazineSize / bulletsPerTap);
 
 
     }
@@ -63,28 +64,54 @@ public class ProjectileGun : MonoBehaviour
     private void MyInput()
     {
         //Check if allowed to hold down button and take corresponding input
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        /*
+        if (allowButtonHold) 
+            shooting = Input.GetKey(KeyCode.Mouse0);
+        else 
+            shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        */
+        /*
+        if (GestureManager.Instance.CheckRapid())               // if rapid weapon, check for drag input
+        {
+            shooting = GestureManager.Instance.CheckDrag();
+        }
+        else                                                    // if not, check for tap input
+        {
+            shooting = GestureManager.Instance.CheckTap();
+        }
+        */
+
+        shooting = GestureManager.Instance.CheckTap();
+
+        if (!shooting)
+            shooting = GestureManager.Instance.CheckDrag();
 
         //Reloading
-        if(Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && bulletsLeft < magazineSize && !reloading) Reload();
+        if (GestureManager.Instance.IsReloading() && bulletsLeft < magazineSize && bulletsLeft < magazineSize && !reloading) Reload();
         //Force Reload
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
 
         //shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (shooting)  //readyToShoot && shooting && !reloading && bulletsLeft > 0
         {
             //set bullets shot to 0
             bulletsShot = 0;
 
+            Debug.Log("Should Shoot");
             Shoot();
+
+            if (GestureManager.Instance.CheckTap())         // if singe shot, reset the boolean value to false after firing
+            {
+                GestureManager.Instance.UnTap();
+            }
         }
 
     }
 
     private void Shoot()
     {
+        Debug.Log("In shoot");
         readyToShoot = false;
         float mouseX = Input.mousePosition.x;
         float mouseY = Input.mousePosition.y;
@@ -92,10 +119,10 @@ public class ProjectileGun : MonoBehaviour
 
         //Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Ray ray = fpsCam.ScreenPointToRay(new Vector3(mouseX, mouseY, 0f));
-        //RaycastHit hit;
-        
+        RaycastHit hit;
+
         //Rotate Gun
-       //this.GetComponent<Transform>().transform.LookAt(ray.origin);
+        //this.GetComponent<Transform>().transform.LookAt(ray.origin);
 
         //check if ray hits
         Vector3 targetPoint = ray.GetPoint(5f);
@@ -104,10 +131,10 @@ public class ProjectileGun : MonoBehaviour
 
         Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
 
-            //Calculate spread
-            float x = Random.Range(-spread, spread);
-            float y = Random.Range(-spread, spread);
-            float z = Random.Range(-spread, spread);
+        //Calculate spread
+        float x = Random.Range(-spread, spread);
+        float y = Random.Range(-spread, spread);
+        float z = Random.Range(-spread, spread);
 
         //Calculate new Direction with spread
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, z);
@@ -115,36 +142,36 @@ public class ProjectileGun : MonoBehaviour
 
 
         //Instantiate Bullet/Projectile
-         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
-                currentBullet.transform.forward = directionWithSpread.normalized;
+        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        currentBullet.transform.forward = directionWithSpread.normalized;
 
 
 
 
-                //Add Forces
-                currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
-                currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+        //Add Forces
+        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
 
-                //Instantiates muzzle flash if you have one on
-                if (muzzleFlash != null)
-                    Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+        //Instantiates muzzle flash if you have one on
+        if (muzzleFlash != null)
+            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
 
-                bulletsLeft--;
-                bulletsShot++;
+        bulletsLeft--;
+        bulletsShot++;
 
-                //Invoke resetShot function
-                if (allowInvoke)
-                {
-                    Invoke("ResetShot", timeBetweenShooting);
-                    allowInvoke = false;
+        //Invoke resetShot function
+        if (allowInvoke)
+        {
+            Invoke("ResetShot", timeBetweenShooting);
+            allowInvoke = false;
 
-                    ////Add recoil
-                    //playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+            ////Add recoil
+            //playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
-                //Multiple bullets per tap
-                if(bulletsShot < bulletsPerTap && bulletsLeft > 0)
-                    Invoke("Shoot", timeBetweenShots);
+        //Multiple bullets per tap
+        if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweenShots);
     }
 
     private void ResetShot()
