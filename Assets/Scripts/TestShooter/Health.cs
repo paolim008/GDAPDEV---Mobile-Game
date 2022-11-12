@@ -39,8 +39,17 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        currentHealth -= _damage;
-        healthSlider.value = currentHealth;
+        if (GestureManager.Instance.IsBlocking())
+        {
+            if (currentHealth > 1)
+                currentHealth--;
+        }
+        else
+        {
+            currentHealth -= _damage;
+            healthSlider.value = currentHealth;
+        }
+
     }
     public void Heal(float _amount)
     {

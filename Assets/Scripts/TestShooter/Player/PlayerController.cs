@@ -35,13 +35,29 @@ public class PlayerController : MonoBehaviour
 
     private void TakeInput()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) weaponType--;
-            if (weaponType < 0) weaponType = equippedWeapon.Length - 1;
-            
-        if (Input.GetKeyDown(KeyCode.RightArrow)) weaponType++;
-            if (weaponType > equippedWeapon.Length - 1) weaponType = 0;
+        if (GestureManager.Instance.SwitchingLeft())    // checks if swipe was for left
+        {
+            weaponType--;
+            GestureManager.Instance.SetSingle();        // allows single fire only
+            GestureManager.Instance.ToggleLeft();
+        }
+
+        if (weaponType < 0)
+            weaponType = equippedWeapon.Length - 1;
+
+
+        if (GestureManager.Instance.SwitchingRight())   // checks if swipe was for right
+        {
+            weaponType++;
+            GestureManager.Instance.SetSingle();         // allows for rapid fire
+            GestureManager.Instance.ToggleRight();
+        }
+
+        if (weaponType > equippedWeapon.Length - 1)
+            weaponType = 0;
 
     }
+
     private void SwitchWeapon(int activeWeapon)
     {
         for (int i = 0; i < equippedWeapon.Length; i++)
