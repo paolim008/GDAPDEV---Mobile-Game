@@ -39,13 +39,15 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
+        //Take half damage while blocking
         if (GestureManager.Instance.IsBlocking())
         {
             if (currentHealth > 1)
-                currentHealth--;
+                currentHealth -= _damage * .5f;
         }
-        else
-        {
+        //Take full damage when not blocking
+        else                                       
+        {   
             currentHealth -= _damage;
             healthSlider.value = currentHealth;
         }
