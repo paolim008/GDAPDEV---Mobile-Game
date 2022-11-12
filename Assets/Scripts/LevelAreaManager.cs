@@ -28,8 +28,6 @@ public class LevelAreaManager : MonoBehaviour
         //Display Death Screen
         if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
         {
-            Debug.Log("Player Died");
-
             OpenPanel(2);
 
             Time.timeScale = 0;

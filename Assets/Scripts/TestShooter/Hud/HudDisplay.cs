@@ -46,10 +46,6 @@ public class HudDisplay : MonoBehaviour
 
         healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
         healthSliderText.text = healthSlider.value.ToString() + " / " + healthSlider.maxValue.ToString();
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            player.GetComponent<Health>().TakeDamage(10);
-        }
 
         scoreText.text = score.ToString();
 

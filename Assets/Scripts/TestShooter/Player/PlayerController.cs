@@ -26,14 +26,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(allowPlayerInput)
-            TakeInput();
+        if (allowPlayerInput)
+        {
+            TakeGestureInput();
+        }
+        TakeDebugInput();
 
         SwitchWeapon(weaponType);
         playerdata.weaponType = weaponType;
     }
 
-    private void TakeInput()
+    private void TakeGestureInput()
     {
         if (GestureManager.Instance.SwitchingLeft())    // checks if swipe was for left
         {
@@ -55,9 +58,28 @@ public class PlayerController : MonoBehaviour
 
         if (weaponType > equippedWeapon.Length - 1)
             weaponType = 0;
-
     }
 
+    private void TakeDebugInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow)) 
+        {
+            weaponType--;
+        }
+
+        if (weaponType < 0)
+            weaponType = equippedWeapon.Length - 1;
+
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            weaponType++;
+        }
+
+        if (weaponType > equippedWeapon.Length - 1)
+            weaponType = 0;
+
+    }
     private void SwitchWeapon(int activeWeapon)
     {
         for (int i = 0; i < equippedWeapon.Length; i++)

@@ -54,8 +54,9 @@ public class PlayerNav : MonoBehaviour
 
 
         }
+        else levelAreaManager.OpenLoadingPanel(true);
 
-        
+
 
 
     }

@@ -64,12 +64,13 @@ public class ProjectileGun : MonoBehaviour
     private void MyInput()
     {
         //Check if allowed to hold down button and take corresponding input
-        /*
+        
         if (allowButtonHold) 
             shooting = Input.GetKey(KeyCode.Mouse0);
         else 
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
-        */
+        
+
         /*
         if (GestureManager.Instance.CheckRapid())               // if rapid weapon, check for drag input
         {
@@ -122,7 +123,7 @@ public class ProjectileGun : MonoBehaviour
 
         //Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Ray ray = fpsCam.ScreenPointToRay(new Vector3(mouseX, mouseY, 0f));
-        RaycastHit hit;
+        //RaycastHit hit;
 
         //Rotate Gun
         //this.GetComponent<Transform>().transform.LookAt(ray.origin);
@@ -147,8 +148,6 @@ public class ProjectileGun : MonoBehaviour
         //Instantiate Bullet/Projectile
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         currentBullet.transform.forward = directionWithSpread.normalized;
-
-
 
 
         //Add Forces

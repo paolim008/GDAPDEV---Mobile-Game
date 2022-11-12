@@ -16,9 +16,9 @@ public class ShakeDetector : MonoBehaviour
             return;
         }
 
-        Debug.Log($"Accelerometer: {Input.acceleration}");
+        //Debug.Log($"Accelerometer: {Input.acceleration}");
         float distance = Vector3.Distance(prevAccel, Input.acceleration);
-        Debug.Log($"distance: {distance}");
+        //Debug.Log($"distance: {distance}");
 
         if (Mathf.Abs(distance) >= distanceThreshold)
         {
