@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh37476
+  m_Name: pb_Mesh122844
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2792,9 +2792,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 271.37512, y: -42}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 109.1124, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371777838
@@ -2889,9 +2889,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 415.3634, y: -42}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 125.4439, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &373174118
@@ -4189,9 +4189,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 144.88487, y: -42}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 90.4479, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &566114396
@@ -8765,9 +8765,9 @@ RectTransform:
   m_Father: {fileID: 1108063752}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 39.9754, y: -42}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 65.9508, y: 45.702}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446964960
@@ -12722,6 +12722,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3160274452196011131}
     - target: {fileID: 720051552358524812, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1172790675506927393, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+    - target: {fileID: 720051552358524812, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
       propertyPath: ammunitionDisplay
       value: 
       objectReference: {fileID: 1227619350}
@@ -13996,6 +14000,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca0265ce8f0c0eb4496f095cf308c7d6, type: 3}
+--- !u!1001 &1172790674559467381
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1172790675506927393, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_Name
+      value: BulletB
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.073
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.289
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1172790675506927394, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5c46842e1cd753499e3d38b7eda62cb, type: 3}
 --- !u!4 &2301137623732580427 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1222664658270276191, guid: ca0265ce8f0c0eb4496f095cf308c7d6, type: 3}
@@ -14183,6 +14244,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!1 &3160274451151497226
 GameObject:
   m_ObjectHideFlags: 0
@@ -14302,6 +14364,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!23 &3160274451811720862
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14420,6 +14483,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!23 &3160274451886656954
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14570,6 +14634,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!4 &3160274452196011127
 Transform:
   m_ObjectHideFlags: 0
@@ -14719,6 +14784,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!1 &3160274452434213466
 GameObject:
   m_ObjectHideFlags: 0
@@ -14822,6 +14888,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!23 &3160274452475118506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15006,6 +15073,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!54 &3160274452595237852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15075,6 +15143,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!4 &3160274452736342377
 Transform:
   m_ObjectHideFlags: 0
@@ -15290,6 +15359,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!33 &3160274452874201984
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15358,6 +15428,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 128
+  explosionDamage: 0
 --- !u!4 &3160274452874201987
 Transform:
   m_ObjectHideFlags: 0
