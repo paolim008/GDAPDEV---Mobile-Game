@@ -249,7 +249,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4110379808831245469}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -266,12 +266,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b467be36710854cae0b500932b6ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 0}
   playerdata: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   player: {fileID: 0}
   id: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
   damage: 10
   attackCooldown: 10
-  attackSlider: {fileID: 0}
 --- !u!114 &9021315334129526267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513c51e2e9c2784478328bd5bcba168e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 20
+  startingHealth: 5
   currentHealth: 0
   healthSlider: {fileID: 7382962764370233557}
 --- !u!114 &1913501936161743522
@@ -299,8 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58650058ddcefbf40961b8df4abd3612, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTimerSlider: {fileID: 0}
-  attackTimerColor: {fileID: 0}
+  attackTimerSlider: {fileID: 2970633386822962336}
+  attackTimerColor: {fileID: 8993309205436546347}
 --- !u!1 &4211974495918574318
 GameObject:
   m_ObjectHideFlags: 0
