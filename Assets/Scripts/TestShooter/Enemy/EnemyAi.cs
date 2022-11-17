@@ -12,6 +12,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] public int id;
     [SerializeField] private float damage = 10;
 
+    private ScoreManager scoreManager;
 
     [SerializeField] 
     [Range(4,10)]
@@ -23,6 +24,7 @@ public class EnemyAi : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class EnemyAi : MonoBehaviour
         //Enemy Attacks
         if(!onCooldown)
         StartCoroutine(DealDamage(damage));
+
 
     }
 
@@ -46,6 +49,8 @@ public class EnemyAi : MonoBehaviour
     {
         Destroy(gameObject);
         playerdata.score += 1;
+        scoreManager.AddScore(1);
+        
     }
 
     IEnumerator DealDamage(float damage)

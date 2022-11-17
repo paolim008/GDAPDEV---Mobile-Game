@@ -10,19 +10,18 @@ public class Player : ScriptableObject
     public float maxHealth;
     public int weaponType;
     public int score;
-    public bool allowPlayerInput;
+    public float totalScore;
 
     public string GetName()
     {
         return name;
     }
-
     public float GetMaxHealth()
     {
         return maxHealth;
     }
     public void SetMaxHealth(float setHealth) => maxHealth = setHealth;
 
-
+    
 
 }

@@ -1,15 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using GameObject = UnityEngine.GameObject;
 
 public class LevelAreaManager : MonoBehaviour
 {
     private int levelStage;
-    private int score;
     [SerializeField] private GameObject[] endGamePanel;
     [SerializeField] private TextMeshProUGUI scoretext;
     [SerializeField] private GameObject player;

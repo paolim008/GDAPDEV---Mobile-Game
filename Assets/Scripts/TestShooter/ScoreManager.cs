@@ -1,20 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField] private Player playerData;
     public static ScoreManager instance { get; private set; }
-    private float _score;
+    [SerializeField] private float score;
     
 
     private void Awake()
     {
+        score = 0;
         instance = this;
 
         //Keep object when switching scenes
@@ -31,10 +25,21 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    public void AddScore()
+    public void AddScore(float points)
     {
-
+        score += points;
     }
+
+    public float GetScore()
+    {
+        return score;
+    }
+
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.K))
+    //        AddScore(15);
+    //}
 
 }
 

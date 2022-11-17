@@ -25,10 +25,15 @@ public class HudDisplay : MonoBehaviour
     private TextMeshProUGUI healthSliderText;
     private float score;
     private int currentWeapon;
+    private string scoreString;
+
+    private ScoreManager scoreManager;
 
 
     void Start()
     {
+        scoreString = "";
+        scoreManager = FindObjectOfType<ScoreManager>();
         LoadData();
         healthSliderText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
         healthSlider.maxValue = player.GetComponent<Health>().GetMaxHealth();
@@ -40,14 +45,15 @@ public class HudDisplay : MonoBehaviour
 
     void Update()
     {
-        LoadData();
+        //LoadData();
 
         EnableFill();
 
         healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
         healthSliderText.text = healthSlider.value.ToString() + " / " + healthSlider.maxValue.ToString();
 
-        scoreText.text = score.ToString();
+        //scoreText.text = score.ToString();
+        scoreText.text = scoreManager.GetScore().ToString();
 
         UpdateCurrentWeapon();
         for (int i = 0; i < weaponSprites.Length; i++)
