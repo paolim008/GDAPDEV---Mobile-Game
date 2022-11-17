@@ -688,6 +688,7 @@ MonoBehaviour:
   player: {fileID: 0}
   id: 0
   damage: 5
+  spawnParticles: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
   attackCooldown: 10
 --- !u!114 &4041866700820249554
 MonoBehaviour:

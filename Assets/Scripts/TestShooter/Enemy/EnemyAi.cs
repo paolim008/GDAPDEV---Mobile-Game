@@ -11,6 +11,7 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] public int id;
     [SerializeField] private float damage = 10;
+    [SerializeField] private GameObject spawnParticles;
 
     private ScoreManager scoreManager;
 
@@ -20,7 +21,10 @@ public class EnemyAi : MonoBehaviour
 
     private bool onCooldown = false;
 
-
+    void OnEnable()
+    {
+        Instantiate(spawnParticles, this.transform);
+    }
     // Start is called before the first frame update
     void Awake()
     {

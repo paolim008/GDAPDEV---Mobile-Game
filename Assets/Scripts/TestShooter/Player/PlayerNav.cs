@@ -40,6 +40,11 @@ public class PlayerNav : MonoBehaviour
         //Check if agent reached the destination point
         if (agent.remainingDistance <= 0)
         {
+            for (int i = 0; i < enemyHolders[levelAreaManager.GetLevelStage() - 1].childCount; i++)
+            {
+                enemyHolders[levelAreaManager.GetLevelStage() - 1].transform.GetChild(i).gameObject.SetActive(true);
+            }
+
             levelAreaManager.OpenLoadingPanel(false);
 
             if (currentPoint+1 == enemyHolders.Length && enemyHolders[levelAreaManager.GetLevelStage() - 1].childCount == 0)
