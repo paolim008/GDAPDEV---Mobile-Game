@@ -4,18 +4,25 @@ using UnityEngine.UI;
 
 public class LevelAreaManager : MonoBehaviour
 {
+    [Header("Level Data")]
     [SerializeField] private LevelData levelData;
     private int levelStage;
-    [SerializeField] private GameObject[] endGamePanel;
-    [SerializeField] private TextMeshProUGUI[] scoreTMP;
-    [SerializeField] private TextMeshProUGUI[] highScoreTMP;
+
+    [Header("Player")]
     [SerializeField] private GameObject player;
+
+    [Header("Enemy")]
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private Slider timer;
 
+    [Header("EndScreen UI")]
+    [SerializeField] private GameObject[] endGamePanel;
+    [SerializeField] private TextMeshProUGUI[] scoreTMP;
+    [SerializeField] private TextMeshProUGUI[] highScoreTMP;
+
     private ScoreManager scoreManager;
-    public float _score;
-    public float _highScore;
+    private float _score;
+    private float _highScore;
 
     void Awake()
     {
@@ -88,7 +95,7 @@ public class LevelAreaManager : MonoBehaviour
 
     public int GetLevelStage()
     {
-        Debug.Log($"level stage : {levelStage}");
+        //Debug.Log($"level stage : {levelStage}");
         return levelStage;
     }    
     public void LoadLevelStage()

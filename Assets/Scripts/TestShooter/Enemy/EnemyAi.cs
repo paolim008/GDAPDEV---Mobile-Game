@@ -59,14 +59,14 @@ public class EnemyAi : MonoBehaviour
     IEnumerator DealDamage(float damage)
     {
         onCooldown = true;
-            attackCooldown = Random.Range(5, 10);
+        attackCooldown = Random.Range(5, 10);
 
             yield return new WaitForSeconds(attackCooldown);
 
                 if (!Input.GetKey(KeyCode.Space))
                 {
                     player.GetComponent<Health>().TakeDamage(damage);
-                    Debug.Log("BANG");
+                    Debug.Log("PlayerHit", this);
                 }
 
         onCooldown = false;
