@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class EnemyAi : MonoBehaviour
 {
-    [SerializeField] private Player playerdata;
     [SerializeField] private GameObject player;
     [SerializeField] public int id;
     [SerializeField] private float damage = 10;
@@ -36,7 +35,7 @@ public class EnemyAi : MonoBehaviour
     {
         //Enemy Attacks
         if(!onCooldown)
-        StartCoroutine(DealDamage(damage));
+            StartCoroutine(DealDamage(damage));
 
 
     }
@@ -45,6 +44,7 @@ public class EnemyAi : MonoBehaviour
     {
         //Damage Enemy
         this.GetComponent<Health>().TakeDamage(damage);
+
         //Destroy Enemy and Add Score
         if (this.GetComponent<Health>().GetCurrentHealth() <= 0) DestroyEnemy();
     }
@@ -52,7 +52,6 @@ public class EnemyAi : MonoBehaviour
     public void DestroyEnemy()
     {
         Destroy(gameObject);
-        playerdata.score += 1;
         scoreManager.AddScore(1);
         
     }

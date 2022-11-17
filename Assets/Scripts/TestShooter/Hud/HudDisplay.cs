@@ -102,4 +102,5 @@ public class HudDisplay : MonoBehaviour
         currentWeapon = playerData.weaponType;
     }
 
+
 }

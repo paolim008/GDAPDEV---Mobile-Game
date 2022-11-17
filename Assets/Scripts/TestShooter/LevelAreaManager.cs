@@ -4,13 +4,24 @@ using UnityEngine.UI;
 
 public class LevelAreaManager : MonoBehaviour
 {
+    [SerializeField] private LevelData levelData;
     private int levelStage;
     [SerializeField] private GameObject[] endGamePanel;
-    [SerializeField] private TextMeshProUGUI scoretext;
+    [SerializeField] private TextMeshProUGUI[] scoreTMP;
+    [SerializeField] private TextMeshProUGUI[] highScoreTMP;
     [SerializeField] private GameObject player;
     [SerializeField] private Transform enemyHolder;
     [SerializeField] private Slider timer;
 
+    private ScoreManager scoreManager;
+    public float _score;
+    public float _highScore;
+
+    void Awake()
+    {
+        _highScore = levelData.GetHighScore();
+        scoreManager = FindObjectOfType<ScoreManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +31,14 @@ public class LevelAreaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (endGamePanel[3].activeSelf)
+        {
+            SaveHighScore();
+            return;
+        }
+
+        _score = scoreManager.GetScore();
+        
         //Display Death Screen
         if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
         {
@@ -41,6 +60,9 @@ public class LevelAreaManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.O))
             player.GetComponent<Health>().Heal(30);
 
+
+            
+
     }
 
 
@@ -58,11 +80,10 @@ public class LevelAreaManager : MonoBehaviour
 
     void SaveHighScore()
     {
-        //if (this.score > playerdata.score)
-        //{
-        //    //Add Feature: Display New HighScore on EndgamePanel
-        //    playerdata.score = this.score;
-        //}
+        if (_score > levelData.GetHighScore())
+        {
+            levelData.highScore = _score;
+        }
     }
 
     public int GetLevelStage()
@@ -83,6 +104,8 @@ public class LevelAreaManager : MonoBehaviour
 
     public void OpenPanel(int panelIndex)
     {
+        //Update Panel Data
+        UpdatePanelData();
         //Close Current Panels
         foreach (GameObject panel in endGamePanel)
         {
@@ -98,5 +121,22 @@ public class LevelAreaManager : MonoBehaviour
     {
         if(endGamePanel[0].activeSelf != _status)
             endGamePanel[0].SetActive(_status);
+    }
+
+    private void UpdatePanelData()
+    {
+        foreach (TextMeshProUGUI scoreText in scoreTMP)
+        {
+            scoreText.text = "Score: " + _score.ToString();
+        }
+
+        //foreach (TextMeshProUGUI highScoreText in highScoreTMP)
+        //{
+        //    if (score > _highScore){
+        //        _highScore = _score;
+        //        highScoreText.text = "Highscore: " + _highScore.ToString();
+        //    }
+        //}
+
     }
 }
