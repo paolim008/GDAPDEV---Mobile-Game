@@ -16,4 +16,4 @@ MonoBehaviour:
   maxHealth: 0
   weaponType: 0
   score: 0
-  allowPlayerInput: 1
+  totalScore: 0
