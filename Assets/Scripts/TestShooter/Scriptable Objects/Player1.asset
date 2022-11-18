@@ -17,4 +17,4 @@ MonoBehaviour:
   weaponType: 0
   score: 0
   totalScore: 0
-  hasPlayedTutorial: 1
+  hasPlayedTutorial: 0
