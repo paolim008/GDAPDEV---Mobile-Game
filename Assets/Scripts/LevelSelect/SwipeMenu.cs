@@ -8,9 +8,11 @@ using UnityEngine.UI;
 public class SwipeMenu : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Level Selection")]
     [SerializeField] private Scrollbar scrollbar;
     private float scrollPos = 0;
     private float[] pos;
+
     void Start()
     {
         
@@ -47,15 +49,12 @@ public class SwipeMenu : MonoBehaviour
             {
                 transform.GetChild(i).localScale = Vector2.Lerp(transform.GetChild(i).localScale, new Vector2(1f, 1f), 0.1f);
                 for (int j = 0; j < pos.Length; j++)
-                {
                     if (j != i)
-                    {
                         transform.GetChild(j).localScale = Vector2.Lerp(transform.GetChild(j).localScale,new Vector2(0.8f, 0.8f), 0.1f);
-                    }
-                }
 
             }
         }
 
     }
+
 }

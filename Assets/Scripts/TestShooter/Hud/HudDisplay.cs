@@ -25,14 +25,14 @@ public class HudDisplay : MonoBehaviour
     private TextMeshProUGUI healthSliderText;
     private float score;
     private int currentWeapon;
-    private string scoreString;
+    //private string scoreString;
 
     private ScoreManager scoreManager;
 
 
     void Start()
     {
-        scoreString = "";
+        //scoreString = "";
         scoreManager = FindObjectOfType<ScoreManager>();
         LoadData();
         healthSliderText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
