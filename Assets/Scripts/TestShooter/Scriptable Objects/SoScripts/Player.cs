@@ -11,6 +11,7 @@ public class Player : ScriptableObject
     public int weaponType;
     public int score;
     public float totalScore;
+    public bool hasPlayedTutorial = false;
 
     public string GetName()
     {
@@ -22,6 +23,7 @@ public class Player : ScriptableObject
     }
     public void SetMaxHealth(float setHealth) => maxHealth = setHealth;
 
-    
+    public void TutorialIsDone() => hasPlayedTutorial = true;
+
 
 }
