@@ -125,6 +125,11 @@ public class ShopManager : MonoBehaviour
         playerData.upgradeHealth = upgrade_Health;
         playerData.upgradeReloadTime = upgrade_ReloadTime;
         playerData.upgradeShields = upgrade_Shields;
+
+        init_Coins = coins;
+
+        for (int i = 0; i < upgradeLevelText.Length; i++)
+            upgradeLevelText[i].color = Color.white;
     }
 
 }

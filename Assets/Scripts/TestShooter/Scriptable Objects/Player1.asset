@@ -16,8 +16,8 @@ MonoBehaviour:
   maxHealth: 0
   weaponType: 0
   score: 0
-  coins: 4
-  hasPlayedTutorial: 0
-  upgradeHealth: 0
-  upgradeReloadTime: 0
-  upgradeShields: 0
+  coins: 3
+  hasPlayedTutorial: 1
+  upgradeHealth: 3
+  upgradeReloadTime: 3
+  upgradeShields: 3
