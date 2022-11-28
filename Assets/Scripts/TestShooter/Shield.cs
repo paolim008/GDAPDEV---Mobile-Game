@@ -10,7 +10,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float startingShields;
     [SerializeField] private float currentShields;
     [SerializeField] private Slider shieldSlider;
-    [SerializeField] private float shieldCooldown;
+    [SerializeField] private const float shieldCooldown = 3f;
     private float maxShields;
     private bool onCooldown;
 
@@ -39,8 +39,7 @@ public class Shield : MonoBehaviour
     {
         Debug.Log("Replenishing Shields");
         onCooldown = true;
-        yield return new WaitForSeconds(3f);
-        //yield return new WaitForSeconds(shieldCooldown);
+        yield return new WaitForSeconds(shieldCooldown);
         if(currentShields + 1 <= maxShields)
             currentShields++;
         shieldSlider.value = currentShields;
