@@ -1,16 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
+    [Header("Health")]
     [SerializeField] private float startingHealth;
     [SerializeField] private float currentHealth;
     [SerializeField] private Slider healthSlider;
     private float maxHealth;
 
+    private Shield playerShield;
 
     // Start is called before the first frame update
     void Start()
@@ -19,12 +22,12 @@ public class Health : MonoBehaviour
         maxHealth = startingHealth;
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
-    }
 
+        //Get Shield Component if it exists
+        //TryGetComponent<Shield>(out Shield playerShield);
+        playerShield = GetComponent<Shield>();
+        
 
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 
@@ -40,10 +43,15 @@ public class Health : MonoBehaviour
     public void TakeDamage(float _damage)
     {
         //Take half damage while blocking
-        if (GestureManager.Instance.IsBlocking())
+        //if (GestureManager.Instance.IsBlocking() && playerShield.GetCurrentShields() > 0)
+        if (Input.GetKey(KeyCode.Space) && playerShield.GetCurrentShields() > 0)
         {
-            if (currentHealth > 1)
+            if (currentHealth > 0)
+            {
                 currentHealth -= _damage * .5f;
+                playerShield.TakeShieldDamage(1);
+            }
+
         }
         //Take full damage when not blocking
         else                                       

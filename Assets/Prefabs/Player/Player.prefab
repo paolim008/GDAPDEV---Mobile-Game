@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 720051550717981743}
   - component: {fileID: 720051550717981737}
   - component: {fileID: 720051550717981742}
+  - component: {fileID: 2385237470642318467}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -82,6 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4471de5bfef4ca749b66eace08d79600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPoint: 0
+  levelAreaManager: {fileID: 0}
   destinationPoint:
   - {fileID: 0}
   - {fileID: 0}
@@ -90,8 +93,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  currentPoint: 0
-  interval: 4
+  enemyHolders: []
+  moving: 0
 --- !u!195 &720051550717981742
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -114,6 +117,21 @@ NavMeshAgent:
   m_BaseOffset: 0.84
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2385237470642318467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720051550717981746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1520401a80e298945b1a0cf11fec42b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingShields: 0
+  currentShields: 0
+  shieldSlider: {fileID: 0}
 --- !u!1 &720051551050153012
 GameObject:
   m_ObjectHideFlags: 0

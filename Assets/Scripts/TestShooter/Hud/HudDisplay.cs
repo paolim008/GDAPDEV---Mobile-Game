@@ -14,7 +14,11 @@ public class HudDisplay : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private Image healthSliderImage;
+    [SerializeField] private Image healthSliderImage;    
+    
+    [Header("Shields")]
+    [SerializeField] private Slider shieldSlider;
+    [SerializeField] private Image shieldSliderImage;
 
     [Header("Score")]
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -23,6 +27,7 @@ public class HudDisplay : MonoBehaviour
     [SerializeField] private Image[] weaponSprites;
 
     private TextMeshProUGUI healthSliderText;
+    private TextMeshProUGUI shieldSliderText;
     private float score;
     private int currentWeapon;
     //private string scoreString;
@@ -35,9 +40,15 @@ public class HudDisplay : MonoBehaviour
         //scoreString = "";
         scoreManager = FindObjectOfType<ScoreManager>();
         LoadData();
+        //Health Slider Init
         healthSliderText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
         healthSlider.maxValue = player.GetComponent<Health>().GetMaxHealth();
-        healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
+        healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();        
+        
+        //Shield Slider Init
+        shieldSliderText = shieldSlider.GetComponentInChildren<TextMeshProUGUI>();
+        shieldSlider.maxValue = player.GetComponent<Shield>().GetMaxShields();
+        shieldSlider.value = player.GetComponent<Shield>().GetCurrentShields();
 
 
     }
@@ -51,6 +62,7 @@ public class HudDisplay : MonoBehaviour
 
         healthSlider.value = player.GetComponent<Health>().GetCurrentHealth();
         healthSliderText.text = healthSlider.value.ToString() + " / " + healthSlider.maxValue.ToString();
+        shieldSliderText.text = shieldSlider.value.ToString() + " / " + shieldSlider.maxValue.ToString();
 
         //scoreText.text = score.ToString();
         scoreText.text = scoreManager.GetScore().ToString();
