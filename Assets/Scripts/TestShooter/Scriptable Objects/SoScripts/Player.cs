@@ -10,8 +10,14 @@ public class Player : ScriptableObject
     public float maxHealth;
     public int weaponType;
     public int score;
-    public float totalScore;
+    //public float totalScore;
+    public float coins;
     public bool hasPlayedTutorial = false;
+
+    [Header("Upgrades")] 
+    public int upgradeHealth;
+    public int upgradeReloadTime;
+    public int upgradeShields;
 
     public string GetName()
     {
