@@ -119,7 +119,7 @@ public class ShopManager : MonoBehaviour
         coinsAmount.text = $"Coins: {coins.ToString()}";
     }
 
-    private void SaveData()
+    public void SaveData()
     {
         playerData.coins = coins;
         playerData.upgradeHealth = upgrade_Health;

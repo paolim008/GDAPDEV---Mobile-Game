@@ -460,7 +460,6 @@ GameObject:
   - component: {fileID: 163743273}
   - component: {fileID: 163743272}
   - component: {fileID: 163743274}
-  - component: {fileID: 163743275}
   m_Layer: 5
   m_Name: ShopScreen
   m_TagString: Untagged
@@ -539,23 +538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 493ea50d02f7c6e4f92738119094fff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &163743275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163743270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03312c7341a835f41b46ade376ebb61a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
-  upgradeLevelText: []
-  coinsAmount: {fileID: 0}
-  ConfirmButton: {fileID: 0}
-  coins: 0
 --- !u!1 &171286438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3687,7 +3669,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1889049698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1902145477}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: SaveData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1902145475
 GameObject:
   m_ObjectHideFlags: 0
