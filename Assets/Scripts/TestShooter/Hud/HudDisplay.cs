@@ -101,6 +101,12 @@ public class HudDisplay : MonoBehaviour
         
             if (healthSlider.value > healthSlider.minValue)
                 healthSliderImage.enabled = true;
+
+            if(shieldSlider.value <= shieldSlider.minValue)
+                shieldSliderImage.enabled = false;
+        
+            if (shieldSlider.value > shieldSlider.minValue)
+                shieldSliderImage.enabled = true;
             
     }
 
