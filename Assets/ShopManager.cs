@@ -7,7 +7,10 @@ using UnityEngine.UI;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] private Player playerData;
+
     [SerializeField] private TextMeshProUGUI[] upgradeLevelText;
+    [SerializeField] private Button[] undoButton;
+
     [SerializeField] private TextMeshProUGUI coinsAmount;
     [SerializeField] private Button ConfirmButton;
 
@@ -54,6 +57,9 @@ public class ShopManager : MonoBehaviour
             coins--;
             upgrade_Health++;
             upgradeLevelText[0].color = Color.yellow;
+
+            if (!undoButton[0].interactable)
+                undoButton[0].interactable = true;
         }
             
         UpdateUI();
@@ -65,6 +71,9 @@ public class ShopManager : MonoBehaviour
             coins--;
             upgrade_ReloadTime++;
             upgradeLevelText[1].color = Color.yellow;
+
+            if (!undoButton[1].interactable)
+                undoButton[1].interactable = true;
         }
 
         UpdateUI();
@@ -76,6 +85,8 @@ public class ShopManager : MonoBehaviour
             coins--;
             upgrade_Shields++;
             upgradeLevelText[2].color = Color.yellow;
+            if (!undoButton[2].interactable)
+                undoButton[2].interactable = true;
         }
         UpdateUI();
     }
@@ -86,6 +97,8 @@ public class ShopManager : MonoBehaviour
         coins += dataDifference;
         upgrade_Health = init_Health;
         upgradeLevelText[0].color = Color.white;
+        if (undoButton[0].interactable)
+            undoButton[0].interactable = false;
         UpdateUI();
     }
     public void ResetReloadTime()
@@ -94,6 +107,8 @@ public class ShopManager : MonoBehaviour
         coins += dataDifference;
         upgrade_ReloadTime = init_ReloadTime;
         upgradeLevelText[1].color = Color.white;
+        if (undoButton[1].interactable)
+            undoButton[1].interactable = false;
         UpdateUI();
     }
     public void ResetShields()
@@ -102,6 +117,8 @@ public class ShopManager : MonoBehaviour
         coins += dataDifference;
         upgrade_Shields = init_Shields;
         upgradeLevelText[2].color = Color.white;
+        if (undoButton[2].interactable)
+            undoButton[2].interactable = false;
         UpdateUI();
     }
 
@@ -129,10 +146,12 @@ public class ShopManager : MonoBehaviour
 
 
         SaveInitData();
-        //init_Coins = coins;
 
-        for (int i = 0; i < upgradeLevelText.Length; i++)
-            upgradeLevelText[i].color = Color.white;
+        foreach (Button button in undoButton)
+            button.interactable = false;
+
+        foreach (TextMeshProUGUI text in upgradeLevelText)
+            text.color = Color.white;
     }
 
 }
