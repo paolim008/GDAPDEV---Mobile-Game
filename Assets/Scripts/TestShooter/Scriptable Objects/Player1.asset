@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: 
   name: Rickshaw
-  maxHealth: 0
+  baseHealth: 10
+  maxHealth: 40
   weaponType: 0
   score: 0
-  coins: 6
+  coins: 0
   hasPlayedTutorial: 1
-  upgradeHealth: 0
+  upgradeHealth: 3
   upgradeReloadTime: 0
   upgradeShields: 0

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : ScriptableObject
 {
     public new string name;
+    public float baseHealth;
     public float maxHealth;
     public int weaponType;
     public int score;

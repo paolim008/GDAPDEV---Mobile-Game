@@ -18,8 +18,11 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = startingHealth;
-        maxHealth = startingHealth;
+        if (this.CompareTag("Enemy"))
+        {
+            currentHealth = startingHealth;
+            maxHealth = startingHealth;
+        }
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
 

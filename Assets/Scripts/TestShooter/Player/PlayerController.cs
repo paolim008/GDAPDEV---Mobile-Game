@@ -10,17 +10,24 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Player playerdata;
     private int weaponType;
 
+    //Component Initialization
+    private Health playerHealth;
+
     //Take from NavScript
     public bool allowPlayerInput;
     [SerializeField] private GameObject[] equippedWeapon;
 
+    void Awake()
+    {
+        playerHealth = GetComponent<Health>();
+        playerHealth.SetMaxHealth(playerdata.maxHealth);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        //this.allowPlayerInput = playerdata.allowPlayerInput;
         this.allowPlayerInput = true;
         this.weaponType = 0;
-
     }
 
     // Update is called once per frame

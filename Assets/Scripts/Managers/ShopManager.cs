@@ -174,6 +174,7 @@ public class ShopManager : MonoBehaviour
         playerData.upgradeReloadTime = upgrade_ReloadTime;
         playerData.upgradeShields = upgrade_Shields;
 
+        playerData.maxHealth = playerData.baseHealth + (10 * upgrade_Health);
 
 
         SaveInitData();
