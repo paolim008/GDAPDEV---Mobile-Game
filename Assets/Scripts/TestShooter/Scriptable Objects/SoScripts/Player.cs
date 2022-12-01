@@ -11,7 +11,7 @@ public class Player : ScriptableObject
     public int weaponType;
     public int score;
     //public float totalScore;
-    public float coins;
+    public int coins;
     public bool hasPlayedTutorial = false;
 
     [Header("Upgrades")] 
