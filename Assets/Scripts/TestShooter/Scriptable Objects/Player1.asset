@@ -16,11 +16,11 @@ MonoBehaviour:
   baseHealth: 10
   maxHealth: 40
   baseShield: 3
-  maxShield: 5
+  maxShield: 6
   weaponType: 0
   score: 0
-  coins: 90
+  coins: 82
   hasPlayedTutorial: 1
   upgradeHealth: 3
-  upgradeReloadTime: 0
-  upgradeShields: 2
+  upgradeReloadTime: 2
+  upgradeShields: 3
