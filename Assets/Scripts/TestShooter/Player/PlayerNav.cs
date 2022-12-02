@@ -31,10 +31,10 @@ public class PlayerNav : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            moving = !moving;
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    moving = !moving;
+        //}
 
         RotateViewToFocus(agent, facePoint[currentPoint]);
         //Check if agent reached the destination point
