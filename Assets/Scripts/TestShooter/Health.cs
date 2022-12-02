@@ -53,6 +53,7 @@ public class Health : MonoBehaviour
             {
                 currentHealth -= _damage * .5f;
                 playerShield.TakeShieldDamage(1);
+                Debug.Log("Half Damage Taken", this);
             }
 
         }
@@ -61,6 +62,7 @@ public class Health : MonoBehaviour
         {   
             currentHealth -= _damage;
             healthSlider.value = currentHealth;
+            Debug.Log("Full Damage Taken", this);
         }
 
     }

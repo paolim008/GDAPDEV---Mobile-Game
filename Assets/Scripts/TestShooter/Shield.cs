@@ -10,7 +10,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private float startingShields;
     [SerializeField] private float currentShields;
     [SerializeField] private Slider shieldSlider;
-    [SerializeField] private const float shieldCooldown = 3f;
+    [SerializeField] private const float shieldCooldown = 5f;
     private float maxShields;
     private bool onCooldown;
 
@@ -26,7 +26,8 @@ public class Shield : MonoBehaviour
 
     void Update()
     {
-        if(!onCooldown && currentShields != maxShields)
+        
+        if (!onCooldown && currentShields != maxShields)
             StartCoroutine(ReplenishShields());
         if (Input.GetKeyDown(KeyCode.M))
         {
@@ -37,11 +38,14 @@ public class Shield : MonoBehaviour
 
     IEnumerator ReplenishShields()
     {
-        Debug.Log("Replenishing Shields");
+        
         onCooldown = true;
         yield return new WaitForSeconds(shieldCooldown);
-        if(currentShields + 1 <= maxShields)
-            currentShields++;
+            if (currentShields + 1 <= maxShields && !Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("Replenishing Shields");
+                currentShields++;
+            }
         shieldSlider.value = currentShields;
         onCooldown = false;
     }
