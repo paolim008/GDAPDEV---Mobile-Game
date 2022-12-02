@@ -15,10 +15,12 @@ MonoBehaviour:
   name: Rickshaw
   baseHealth: 10
   maxHealth: 40
+  baseShield: 3
+  maxShield: 5
   weaponType: 0
   score: 0
-  coins: 97
+  coins: 90
   hasPlayedTutorial: 1
   upgradeHealth: 3
   upgradeReloadTime: 0
-  upgradeShields: 0
+  upgradeShields: 2

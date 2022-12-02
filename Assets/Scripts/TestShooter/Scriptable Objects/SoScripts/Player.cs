@@ -8,7 +8,9 @@ public class Player : ScriptableObject
 {
     public new string name;
     public float baseHealth;
-    public float maxHealth;
+    public float maxHealth;    
+    public float baseShield;
+    public float maxShield;
     public int weaponType;
     public int score;
     //public float totalScore;

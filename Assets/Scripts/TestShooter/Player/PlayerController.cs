@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 
     //Component Initialization
     private Health playerHealth;
+    private Shield playerShield;
 
     //Take from NavScript
     public bool allowPlayerInput;
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour
     {
         playerHealth = GetComponent<Health>();
         playerHealth.SetMaxHealth(playerdata.maxHealth);
+
+        playerShield = GetComponent<Shield>();
+        playerShield.SetMaxShield(playerdata.maxShield);
     }
 
     // Start is called before the first frame update

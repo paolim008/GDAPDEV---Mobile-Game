@@ -175,6 +175,7 @@ public class ShopManager : MonoBehaviour
         playerData.upgradeShields = upgrade_Shields;
 
         playerData.maxHealth = playerData.baseHealth + (10 * upgrade_Health);
+        playerData.maxShield = playerData.baseShield + (upgrade_Shields);
 
 
         SaveInitData();

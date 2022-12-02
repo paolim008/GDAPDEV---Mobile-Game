@@ -18,8 +18,7 @@ public class Shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentShields = startingShields;
-        maxShields = currentShields;
+        currentShields = maxShields;
         shieldSlider.maxValue = maxShields;
         shieldSlider.value = currentShields;
     }
@@ -64,5 +63,11 @@ public class Shield : MonoBehaviour
     public float GetMaxShields()
     {
         return maxShields;
+    }
+
+    public void SetMaxShield(float _maxShield)
+    {
+        maxShields = _maxShield;
+        currentShields = maxShields;
     }
 }
