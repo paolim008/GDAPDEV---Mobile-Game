@@ -260,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27511ccfc792b14fa51098521617a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   bullet: {fileID: 7899002008161645637, guid: 779eb9052ad20c0469be68c9a066034e, type: 3}
   ammo:
   - {fileID: 0}
@@ -275,7 +276,7 @@ MonoBehaviour:
   shootForce: 20
   upwardForce: 0
   timeBetweenShooting: 0.1
-  timeBetweenShots: 0.5
+  init_timeBetweenShots: 10
   spread: 0.3
   reloadTime: 2
   magazineSize: 50
@@ -561,6 +562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27511ccfc792b14fa51098521617a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   bullet: {fileID: 7899002008161645637, guid: 118ed5e9c39abcc44adbd30c0627751b, type: 3}
   ammo:
   - {fileID: 0}
@@ -576,7 +578,7 @@ MonoBehaviour:
   shootForce: 30
   upwardForce: 0
   timeBetweenShooting: 0.2
-  timeBetweenShots: 0
+  init_timeBetweenShots: 20
   spread: 0.4
   reloadTime: 1.5
   magazineSize: 40
@@ -684,6 +686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27511ccfc792b14fa51098521617a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   bullet: {fileID: 3160274450837561328, guid: a4d40ec631ee27149919946435d61b6b, type: 3}
   ammo:
   - {fileID: 0}
@@ -699,7 +702,7 @@ MonoBehaviour:
   shootForce: 30
   upwardForce: 0
   timeBetweenShooting: 0.2
-  timeBetweenShots: 10
+  init_timeBetweenShots: 20
   spread: 0
   reloadTime: 1.5
   magazineSize: 64
@@ -807,6 +810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27511ccfc792b14fa51098521617a5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 0}
   bullet: {fileID: 7899002008161645637, guid: 779eb9052ad20c0469be68c9a066034e, type: 3}
   ammo:
   - {fileID: 0}
@@ -822,7 +826,7 @@ MonoBehaviour:
   shootForce: 20
   upwardForce: 0
   timeBetweenShooting: 0.1
-  timeBetweenShots: 0.5
+  init_timeBetweenShots: 5
   spread: 0.3
   reloadTime: 2
   magazineSize: 50

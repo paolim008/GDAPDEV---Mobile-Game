@@ -64,7 +64,6 @@ public class ShopManager : MonoBehaviour
             coins--;
             upgrade_Health++;
             upgradeLevelText[0].color = Color.yellow;
-
             if (!undoButtons[0].interactable)
                 undoButtons[0].interactable = true;
         }
@@ -175,6 +174,7 @@ public class ShopManager : MonoBehaviour
         playerData.upgradeShields = upgrade_Shields;
 
         playerData.maxHealth = playerData.baseHealth + (10 * upgrade_Health);
+        playerData.reloadMultiplier = .25f * (float)upgrade_ReloadTime;
         playerData.maxShield = playerData.baseShield + (upgrade_Shields);
 
 

@@ -26,6 +26,8 @@ public class HudDisplay : MonoBehaviour
     [Header("Weapon")]
     [SerializeField] private Image[] weaponSprites;
 
+    [SerializeField] private TextMeshProUGUI ammoText;
+
     private TextMeshProUGUI healthSliderText;
     private TextMeshProUGUI shieldSliderText;
     private float score;
@@ -79,12 +81,16 @@ public class HudDisplay : MonoBehaviour
                 switch(i)
                 {
                     case 0: weaponSprites[i].color = Color.blue;
+                            ammoText.color = Color.blue;
                         break;                    
                     case 1: weaponSprites[i].color = Color.yellow;
+                            ammoText.color = Color.yellow;
                         break;                    
                     case 2: weaponSprites[i].color = Color.green;
+                            ammoText.color = Color.green;
                         break;                    
                     case 3: weaponSprites[i].color = Color.red;
+                            ammoText.color = Color.red;
                         break;
                 }
             }

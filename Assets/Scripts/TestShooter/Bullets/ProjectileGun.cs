@@ -8,6 +8,9 @@ using UnityEngine.UI;
 
 public class ProjectileGun : MonoBehaviour
 {
+    //PlayerData
+    [SerializeField] private Player playerData;
+
     //Bullet
     public GameObject bullet;
     [SerializeField] private GameObject[] ammo;
@@ -16,11 +19,12 @@ public class ProjectileGun : MonoBehaviour
     public float shootForce, upwardForce;
 
     //Gun Stats
-    public float timeBetweenShooting, timeBetweenShots, spread, reloadTime;
+    public float timeBetweenShooting, init_timeBetweenShots, spread, reloadTime;
     public int magazineSize, bulletsPerTap;
     public bool allowButtonHold;
     private int bulletsLeft, bulletsShot;
 
+    private float timeBetweenShots;
     //Reload Animation
     //[SerializeField] private GameObject reloadScript;
 
@@ -43,7 +47,7 @@ public class ProjectileGun : MonoBehaviour
         //make sure magazine is full;
         bulletsLeft = magazineSize;
         readyToShoot = true;
-
+        timeBetweenShots = init_timeBetweenShots - (init_timeBetweenShots * playerData.reloadMultiplier);
 
     }
 
@@ -64,14 +68,14 @@ public class ProjectileGun : MonoBehaviour
     private void MyInput()
     {
         //Check if allowed to hold down button and take corresponding input
-        
-        if (allowButtonHold) 
-            shooting = Input.GetKey(KeyCode.Mouse0);
-        else 
-            shooting = Input.GetKeyDown(KeyCode.Mouse0);
-        
 
-        /*
+        //if (allowButtonHold) 
+        //    shooting = Input.GetKey(KeyCode.Mouse0);
+        //else 
+        //    shooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+
+
         if (GestureManager.Instance.CheckRapid())               // if rapid weapon, check for drag input
         {
             shooting = GestureManager.Instance.CheckDrag();
@@ -80,7 +84,7 @@ public class ProjectileGun : MonoBehaviour
         {
             shooting = GestureManager.Instance.CheckTap();
         }
-        */
+
 
         shooting = GestureManager.Instance.CheckTap();
 

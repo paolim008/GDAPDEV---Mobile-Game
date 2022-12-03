@@ -13,6 +13,9 @@ public class Player : ScriptableObject
     public float maxShield;
     public int weaponType;
     public int score;
+
+    public float baseReloadTime;
+    public float reloadMultiplier;
     //public float totalScore;
     public int coins;
     public bool hasPlayedTutorial = false;
