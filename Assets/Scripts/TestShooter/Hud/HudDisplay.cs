@@ -19,6 +19,8 @@ public class HudDisplay : MonoBehaviour
     [Header("Shields")]
     [SerializeField] private Slider shieldSlider;
     [SerializeField] private Image shieldSliderImage;
+    [SerializeField] private GameObject shieldIndicator;
+    private bool shieldIsActive = false;
 
     [Header("Score")]
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -52,13 +54,23 @@ public class HudDisplay : MonoBehaviour
         shieldSlider.maxValue = player.GetComponent<Shield>().GetMaxShields();
         shieldSlider.value = player.GetComponent<Shield>().GetCurrentShields();
 
-
     }
 
 
     void Update()
     {
         //LoadData();
+
+
+        shieldIsActive = (Input.GetKey(KeyCode.Space)) ? true : false;
+        ActivateShield(shieldIsActive);
+
+        if(Input.GetKey(KeyCode.Space))
+            shieldIndicator.SetActive(true);
+        else
+        {
+            shieldIndicator.SetActive(false);
+        }
 
         EnableFill();
 
@@ -100,6 +112,10 @@ public class HudDisplay : MonoBehaviour
 
     }
 
+    private void ActivateShield(bool status)
+    {
+        shieldIndicator.SetActive(status);
+    }
     private void EnableFill()
     {
             if(healthSlider.value <= healthSlider.minValue)

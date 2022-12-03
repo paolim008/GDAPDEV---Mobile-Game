@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using Input = UnityEngine.Input;
 
 public class Health : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class Health : MonoBehaviour
     private float maxHealth;
 
     private Shield playerShield;
+    [SerializeField] private bool shieldIsActive;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +32,8 @@ public class Health : MonoBehaviour
         //Get Shield Component if it exists
         //TryGetComponent<Shield>(out Shield playerShield);
         playerShield = GetComponent<Shield>();
-        
 
+        shieldIsActive = false;
 
     }
 
@@ -45,9 +48,11 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
+        shieldIsActive = (Input.GetKey(KeyCode.Space)) ? true : false;
+
         //Take half damage while blocking
         //if (GestureManager.Instance.IsBlocking() && playerShield.GetCurrentShields() > 0)
-        if (Input.GetKey(KeyCode.Space) && playerShield.GetCurrentShields() > 0)
+        if (shieldIsActive && playerShield.GetCurrentShields() > 0)
         {
             if (currentHealth > 0)
             {
@@ -77,4 +82,5 @@ public class Health : MonoBehaviour
         maxHealth = health;
         currentHealth = maxHealth;
     }
+
 }
