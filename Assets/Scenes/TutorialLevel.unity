@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh67930
+  m_Name: pb_Mesh37728
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13053,6 +13053,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 720051551495140458, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 4856629672224149809, guid: 72930c8f958b473459a0b92e7523dfd6, type: 3}
+    - target: {fileID: 720051551495140458, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
       propertyPath: ammunitionDisplay
       value: 
       objectReference: {fileID: 1227619350}
@@ -13096,6 +13100,10 @@ PrefabInstance:
       propertyPath: ammo.Array.data[9]
       value: 
       objectReference: {fileID: 3160274452196011131}
+    - target: {fileID: 720051552328729220, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6806815801369512755, guid: c25ecacf498026447b4202c1f2c3b330, type: 3}
     - target: {fileID: 720051552328729220, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
       propertyPath: ammunitionDisplay
       value: 
@@ -13188,6 +13196,10 @@ PrefabInstance:
       propertyPath: ammo.Array.data[9]
       value: 
       objectReference: {fileID: 3160274452196011131}
+    - target: {fileID: 720051552515426299, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 8080973574836169162, guid: 2c13a8b2dba36334db3f98a469a064ad, type: 3}
     - target: {fileID: 720051552515426299, guid: cd8fead5e418b95409c54d51114fb944, type: 3}
       propertyPath: ammunitionDisplay
       value: 
