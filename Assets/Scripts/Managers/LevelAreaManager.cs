@@ -15,12 +15,13 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private Transform enemyHolder;
 
     [Header("LevelTimer")]
-    [SerializeField] private Slider timer;
+    [SerializeField] private Timer_Script timerScript;
 
     [Header("EndScreen UI")]
     [SerializeField] private GameObject[] endGamePanel;
     [SerializeField] private TextMeshProUGUI[] scoreTMP;
     [SerializeField] private TextMeshProUGUI[] highScoreTMP;
+
 
     private ScoreManager scoreManager;
     private float _score;
@@ -58,7 +59,7 @@ public class LevelAreaManager : MonoBehaviour
         }
 
         //Time Out
-        else if (timer.value <= .5)
+        else if (timerScript.GetCurrentTime() <= 0)
         {
             //Display TimeOutScreen
             OpenPanel(1);
@@ -76,7 +77,7 @@ public class LevelAreaManager : MonoBehaviour
     }
 
 
-    void ResetStats()
+    public void ResetStats()
     {
         levelStage = 1;
 
@@ -103,13 +104,8 @@ public class LevelAreaManager : MonoBehaviour
     }    
     public void LoadLevelStage()
     {
-        timer.value = timer.maxValue;
+        timerScript.ResetTimer();
         levelStage += 1;
-    }
-
-    public float GetTimeLeft()
-    {
-        return timer.value;
     }
 
     public void OpenPanel(int panelIndex)
@@ -125,6 +121,7 @@ public class LevelAreaManager : MonoBehaviour
 
         if(!endGamePanel[panelIndex].activeSelf)
             endGamePanel[panelIndex].SetActive(true);
+        TimeScale(0);
     }
 
     public void OpenLoadingPanel(bool _status)
@@ -148,5 +145,10 @@ public class LevelAreaManager : MonoBehaviour
         //    }
         //}
 
+    }
+
+    public void TimeScale(int status)
+    {
+        Time.timeScale = status;
     }
 }

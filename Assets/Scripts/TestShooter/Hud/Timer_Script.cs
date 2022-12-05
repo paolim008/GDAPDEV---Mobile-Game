@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +9,7 @@ using Time = UnityEngine.Time;
 public class Timer_Script : MonoBehaviour
 {
     private Image timerFillImage;
-    [Tooltip("In Seconds")]
-    [SerializeField] private float maxTimer;
+    private float maxTimer = 10f;
 
     private Color timerColor;
     private float currTimer;
@@ -19,8 +19,7 @@ public class Timer_Script : MonoBehaviour
     void Awake()
     {
         timerFillImage = GetComponent<Image>();
-        ResetTimer();
-        isActive = true;
+        SetTimer(10);
     }
 
     void Update()
@@ -40,16 +39,29 @@ public class Timer_Script : MonoBehaviour
 
     }
 
-    private void ResetTimer()
+    public void ResetTimer()
     {
         currTimer = maxTimer;
     }
 
-    private void PauseTimer()
+    public void PauseTimer()
     {
         isActive = false;
         Debug.Log("Timer is Paused", this);
     }
+    public void ResumeTimer()
+    {
+        isActive = true;
+        Debug.Log("Timer is Resumed", this);
+    }
+    public void SetTimer(float _maxTime)
+    {
+        maxTimer = _maxTime;
+        ResetTimer();
+        ResumeTimer();
+    }
+
+    public float GetCurrentTime() => currTimer;
     private void UpdateFill()
     {
         timerColor = new Color(1, timerFillImage.fillAmount, timerFillImage.fillAmount);
