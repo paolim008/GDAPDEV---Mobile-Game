@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -495,7 +495,7 @@ TextureImporter:
         height: 355
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 105, y: 127, z: 108, w: 96}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -869,8 +869,8 @@ TextureImporter:
         serializedVersion: 2
         x: 284
         y: 3566
-        width: 1502
-        height: 89
+        width: 1501
+        height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -878,8 +878,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee48938b93fe9374c901c719a8e87191
-      internalID: 1369249913
+      spriteID: 016a497597b826b4db8ac77a3d8393b6
+      internalID: -1288214693
       vertices: []
       indices: 
       edges: []
@@ -897,7 +897,7 @@ TextureImporter:
     nameFileIdTable:
       GDAPDEV-UI_15: -1875368974
       GDAPDEV-UI_24: -1915712563
-      GDAPDEV-UI_35: 1369249913
+      GDAPDEV-UI_35: -1288214693
       GDAPDEV-UI_2: -37477458
       GDAPDEV-UI_31: -973444453
       GDAPDEV-UI_0: -1941893572
