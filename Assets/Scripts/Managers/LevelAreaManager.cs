@@ -13,6 +13,8 @@ public class LevelAreaManager : MonoBehaviour
 
     [Header("Enemy")]
     [SerializeField] private Transform enemyHolder;
+
+    [Header("LevelTimer")]
     [SerializeField] private Slider timer;
 
     [Header("EndScreen UI")]
