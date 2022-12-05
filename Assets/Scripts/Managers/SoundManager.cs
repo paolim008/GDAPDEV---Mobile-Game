@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance { get; private set; }
     private AudioSource source;
+
+    [Header("SoundClips")] 
+    [SerializeField] private AudioClip ButtonClick;
 
     private void Awake()
     {
@@ -30,5 +34,10 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip _sound)
     {
         source.PlayOneShot(_sound);
+    }
+
+    public void ButtonClicked()
+    {
+        source.PlayOneShot(ButtonClick);
     }
 }
