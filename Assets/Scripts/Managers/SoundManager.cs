@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource source;
 
     [Header("SoundClips")] 
-    [SerializeField] private AudioClip ButtonClick;
+    [SerializeField] private AudioClip button_Click;
 
     private void Awake()
     {
@@ -38,6 +38,16 @@ public class SoundManager : MonoBehaviour
 
     public void ButtonClicked()
     {
-        source.PlayOneShot(ButtonClick);
+        source.PlayOneShot(button_Click);
     }
+
+    //public void ButtonClicked()
+    //{
+    //    source.PlayOneShot(ButtonClick);
+    //}
+
+    //public void ButtonClicked()
+    //{
+    //    source.PlayOneShot(ButtonClick);
+    //}
 }

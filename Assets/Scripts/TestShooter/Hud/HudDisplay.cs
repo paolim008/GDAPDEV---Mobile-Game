@@ -41,7 +41,6 @@ public class HudDisplay : MonoBehaviour
 
     void Start()
     {
-        //scoreString = "";
         scoreManager = FindObjectOfType<ScoreManager>();
         LoadData();
         //Health Slider Init
@@ -64,13 +63,10 @@ public class HudDisplay : MonoBehaviour
 
         shieldIsActive = (Input.GetKey(KeyCode.Space)) ? true : false;
         ActivateShield(shieldIsActive);
-
-        if(Input.GetKey(KeyCode.Space))
-            shieldIndicator.SetActive(true);
-        else
-        {
-            shieldIndicator.SetActive(false);
-        }
+        
+        //CheckSpaceInput
+        bool spacePressed = (Input.GetKey(KeyCode.Space)) ? true : false;
+        shieldIndicator.SetActive(spacePressed);
 
         EnableFill();
 
