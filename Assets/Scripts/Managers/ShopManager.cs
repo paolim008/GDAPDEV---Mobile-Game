@@ -185,6 +185,8 @@ public class ShopManager : MonoBehaviour
 
         foreach (TextMeshProUGUI text in upgradeLevelText)
             text.color = Color.white;
+
+        ConfirmButton.interactable = false;
     }
 
 }

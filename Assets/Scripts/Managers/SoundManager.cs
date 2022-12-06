@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource musicSource, sfxSource;
 
     [SerializeField] private Slider musicSlider, sfxSlider;
+    [SerializeField] private ButtonHandler musicMute, sfxMute;
 
     private void Awake()
     {
@@ -79,13 +80,44 @@ public class SoundManager : MonoBehaviour
         musicSource.mute = !musicSource.mute;
     }
 
+    private void MuteMusic(bool state)
+    {
+        musicSource.mute = state;
+    }
+    private void MuteSFX(bool state)
+    {
+        sfxSource.mute = state;
+    }
     public void MusicVolume(float volume)
     {
         musicSource.volume = musicSlider.value;
+        if (musicSource.volume <= 0)
+        {
+            musicMute.isActive = false;
+            MuteMusic(true);
+        }
+        else
+        {
+            musicMute.isActive = true;
+            MuteMusic(false);
+        }
+        musicMute.ButtonToggle();
     }
     public void SFXVolume(float volume)
     {
         sfxSource.volume = sfxSlider.value;
+        if (sfxSource.volume <= 0)
+        {
+            sfxMute.isActive = false;
+            MuteSFX(true);
+        }
+        else
+        {
+            sfxMute.isActive = true;
+            MuteSFX(false);
+        }
+
+        sfxMute.ButtonToggle();
     }
 
     public void SaveSoundSettings()
@@ -100,5 +132,7 @@ public class SoundManager : MonoBehaviour
         musicSource.volume = playerData.musicVolume;
         sfxSource.volume = playerData.sfxVolume;
 
+        musicSlider.value = musicSource.volume;
+        sfxSlider.value = sfxSource.volume;
     }
 }

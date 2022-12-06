@@ -388,6 +388,7 @@ MonoBehaviour:
   toggleImages:
   - {fileID: 1564034145, guid: a1104f0c260fe264e9b435d686d96182, type: 3}
   - {fileID: -1915712563, guid: a1104f0c260fe264e9b435d686d96182, type: 3}
+  isActive: 0
 --- !u!114 &116180392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleImages: []
+  isActive: 0
 --- !u!114 &462272834 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5880492110189276826, guid: 1f953383ee422b546afaf4aefb87855b, type: 3}
@@ -1596,7 +1598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &707037313
 GameObject:
@@ -2247,6 +2249,7 @@ MonoBehaviour:
   toggleImages:
   - {fileID: 1564034145, guid: a1104f0c260fe264e9b435d686d96182, type: 3}
   - {fileID: -1915712563, guid: a1104f0c260fe264e9b435d686d96182, type: 3}
+  isActive: 0
 --- !u!1 &874193302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,6 +4069,8 @@ MonoBehaviour:
   sfxSource: {fileID: 760839031}
   musicSlider: {fileID: 1039056065}
   sfxSlider: {fileID: 1824126307}
+  musicMute: {fileID: 116180391}
+  sfxMute: {fileID: 854462176}
 --- !u!4 &1343972186
 Transform:
   m_ObjectHideFlags: 0
@@ -4081,7 +4086,7 @@ Transform:
   - {fileID: 1920966408}
   - {fileID: 760839030}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366489478
 GameObject:

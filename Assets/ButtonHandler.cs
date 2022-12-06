@@ -8,7 +8,7 @@ public class ButtonHandler : MonoBehaviour
     private Image buttonImage;
     [SerializeField] private Sprite[] toggleImages;
 
-    private bool isActive = false;
+    public bool isActive = false;
     private void Awake()
     {
         buttonImage = GetComponent<Image>();
