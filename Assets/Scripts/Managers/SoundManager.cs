@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,49 +6,87 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance { get; private set; }
-    private AudioSource source;
+    public static SoundManager instance;
 
-    [Header("SoundClips")] 
-    [SerializeField] private AudioClip button_Click;
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
+
+    [SerializeField] private Slider musicSlider, sfxSlider;
 
     private void Awake()
     {
-        instance = this;
-        source = GetComponent<AudioSource>();
-
-        //Keep object when switching scenes
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        //Destroy duplicate
-        else if (instance != null & instance != this)
+        else
         {
             Destroy(gameObject);
         }
-            
-
     }
 
-    public void PlaySound(AudioClip _sound)
+    private void Start()
     {
-        source.PlayOneShot(_sound);
+        PlayMusic("Theme");
     }
 
-    public void ButtonClicked()
+    public void PlayMusic(string name)
     {
-        source.PlayOneShot(button_Click);
+        Sound s = Array.Find(musicSounds, x => x.name == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            musicSource.clip = s.clip;
+            musicSource.Play();
+        }
+
     }
 
-    //public void ButtonClicked()
-    //{
-    //    source.PlayOneShot(ButtonClick);
-    //}
+    public void PlaySFX(string name)
+    {
+        Sound s = Array.Find(sfxSounds, x => x.name == name);
 
-    //public void ButtonClicked()
-    //{
-    //    source.PlayOneShot(ButtonClick);
-    //}
+        if (s == null)
+        {
+            Debug.Log("Sound not found");
+        }
+        else
+        {
+            sfxSource.PlayOneShot(s.clip);
+        }
+
+
+    }
+    public void PauseMusic()
+    {
+        musicSource.Pause();
+    }
+    public void ResumeMusic()
+    {
+        musicSource.UnPause();
+    }
+    public void ToggleSFX()
+    {
+        sfxSource.mute = !sfxSource.mute;
+    }    
+    public void ToggleMusic()
+    {
+        musicSource.mute = !musicSource.mute;
+    }
+
+    public void MusicVolume(float volume)
+    {
+        musicSource.volume = musicSlider.value;
+    }    
+    public void SFXVolume(float volume)
+    {
+        sfxSource.volume = sfxSlider.value;
+    }
+
+
 }
