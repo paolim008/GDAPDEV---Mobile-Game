@@ -64,7 +64,7 @@ public class GestureManager : MonoBehaviour
             {
                 trackedFinger1 = Input.GetTouch(0);
                 trackedFinger2 = Input.GetTouch(1);
-                
+
                 if (trackedFinger1.phase == TouchPhase.Moved && trackedFinger2.phase == TouchPhase.Moved &&
                     Vector2.Distance(trackedFinger1.position, trackedFinger2.position) <= _twoFingerPanProperty.maxDistance * Screen.dpi)
                 {
@@ -86,7 +86,7 @@ public class GestureManager : MonoBehaviour
                 }
                 // Rotate Event
                 if ((trackedFinger1.phase == TouchPhase.Moved || trackedFinger2.phase == TouchPhase.Moved)
-                    && Vector2.Distance(trackedFinger1.position, trackedFinger2.position) >= _rotateProperty.minDistance * Screen.dpi) 
+                    && Vector2.Distance(trackedFinger1.position, trackedFinger2.position) >= _rotateProperty.minDistance * Screen.dpi)
                 {
                     Vector2 prevPoint1 = GetPreviousPoint(trackedFinger1);
                     Vector2 prevPoint2 = GetPreviousPoint(trackedFinger2);
@@ -104,7 +104,7 @@ public class GestureManager : MonoBehaviour
             }
         }
 
-        if(trackedFinger1.phase == TouchPhase.Ended)
+        if (trackedFinger1.phase == TouchPhase.Ended)
         {
             sentinel = true;
             DragShot = false;
@@ -190,67 +190,67 @@ public class GestureManager : MonoBehaviour
     private void FireSwipeEvent()
     {
 
-            Debug.Log("Swipe!");
-            Vector2 direction = endPoint - startPoint;
-            SwipeDirection swipeDir;
+        Debug.Log("Swipe!");
+        Vector2 direction = endPoint - startPoint;
+        SwipeDirection swipeDir;
 
-            if (Math.Abs(direction.x) > Math.Abs(direction.y))
+        if (Math.Abs(direction.x) > Math.Abs(direction.y))
+        {
+            // Horizontal
+            if (direction.x > 0)
             {
-                // Horizontal
-                if (direction.x > 0)
-                {
-                    Debug.Log("Right");
-                    swipeDir = SwipeDirection.RIGHT;
-                    ToggleRight();
-                }
-                else
-                {
-                    Debug.Log("Left");
-                    swipeDir = SwipeDirection.LEFT;
-                    ToggleLeft();
-                }
-
+                Debug.Log("Right");
+                swipeDir = SwipeDirection.RIGHT;
+                ToggleRight();
             }
             else
             {
-                // Vertical
-                if (direction.y > 0)
-                {
-                    Debug.Log("Up");
-                    swipeDir = SwipeDirection.UP;
-                    Blocking = true;
-                }
-                else
-                {
-                    Debug.Log("Down");
-                    swipeDir = SwipeDirection.DOWN;
-                    Blocking = false;
-                }
+                Debug.Log("Left");
+                swipeDir = SwipeDirection.LEFT;
+                ToggleLeft();
             }
 
-
-            GameObject hitObj = null;
-            Ray r = Camera.main.ScreenPointToRay(startPoint);
-            RaycastHit hit;
-            if (Physics.Raycast(r, out hit, Mathf.Infinity))
+        }
+        else
+        {
+            // Vertical
+            if (direction.y > 0)
             {
-                hitObj = hit.collider.gameObject;
+                Debug.Log("Up");
+                swipeDir = SwipeDirection.UP;
+                Blocking = true;
             }
-
-            SwipeEventArgs swipeArgs = new SwipeEventArgs(swipeDir, startPoint, direction, hitObj);
-            if (OnSwipe != null)
+            else
             {
-                OnSwipe(this, swipeArgs);
+                Debug.Log("Down");
+                swipeDir = SwipeDirection.DOWN;
+                Blocking = false;
             }
+        }
 
-            if (hitObj != null)
-            {
-                ISwipeable swipeable = hitObj.GetComponent<ISwipeable>();
-                if (swipeable != null)
-                    swipeable.OnSwipe(swipeArgs);
-            }
 
-            sentinel = false;
+        GameObject hitObj = null;
+        Ray r = Camera.main.ScreenPointToRay(startPoint);
+        RaycastHit hit;
+        if (Physics.Raycast(r, out hit, Mathf.Infinity))
+        {
+            hitObj = hit.collider.gameObject;
+        }
+
+        SwipeEventArgs swipeArgs = new SwipeEventArgs(swipeDir, startPoint, direction, hitObj);
+        if (OnSwipe != null)
+        {
+            OnSwipe(this, swipeArgs);
+        }
+
+        if (hitObj != null)
+        {
+            ISwipeable swipeable = hitObj.GetComponent<ISwipeable>();
+            if (swipeable != null)
+                swipeable.OnSwipe(swipeArgs);
+        }
+
+        sentinel = false;
 
         if (trackedFinger1.phase == TouchPhase.Ended)
         {
@@ -359,7 +359,7 @@ public class GestureManager : MonoBehaviour
             sentinel = false;
         }
 
-        if(trackedFinger1.phase == TouchPhase.Ended && trackedFinger2.phase == TouchPhase.Ended)
+        if (trackedFinger1.phase == TouchPhase.Ended && trackedFinger2.phase == TouchPhase.Ended)
         {
             sentinel = true;
         }

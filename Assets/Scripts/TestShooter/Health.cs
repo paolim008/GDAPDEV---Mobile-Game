@@ -23,8 +23,8 @@ public class Health : MonoBehaviour
     {
         if (this.CompareTag("Enemy"))
         {
-            currentHealth = startingHealth;
             maxHealth = startingHealth;
+            currentHealth = startingHealth;
         }
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
