@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
+    [SerializeField] private Player playerData;
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
@@ -28,6 +27,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        LoadSoundSettings();
         PlayMusic("Theme");
     }
 
@@ -73,7 +73,7 @@ public class SoundManager : MonoBehaviour
     public void ToggleSFX()
     {
         sfxSource.mute = !sfxSource.mute;
-    }    
+    }
     public void ToggleMusic()
     {
         musicSource.mute = !musicSource.mute;
@@ -82,11 +82,23 @@ public class SoundManager : MonoBehaviour
     public void MusicVolume(float volume)
     {
         musicSource.volume = musicSlider.value;
-    }    
+    }
     public void SFXVolume(float volume)
     {
         sfxSource.volume = sfxSlider.value;
     }
 
+    public void SaveSoundSettings()
+    {
+        playerData.SaveSettings(musicSource.mute, sfxSource.mute, musicSource.volume, sfxSource.volume);
+    }
 
+    private void LoadSoundSettings()
+    {
+        musicSource.mute = playerData.musicMute;
+        sfxSource.mute = playerData.sfxMute;
+        musicSource.volume = playerData.musicVolume;
+        sfxSource.volume = playerData.sfxVolume;
+
+    }
 }

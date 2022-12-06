@@ -25,6 +25,12 @@ public class Player : ScriptableObject
     public int upgradeReloadTime;
     public int upgradeShields;
 
+    [Header("Settings")] 
+    public bool musicMute;
+    public bool sfxMute;
+    public float musicVolume;
+    public float sfxVolume;
+
     public string GetName()
     {
         return name;
@@ -37,5 +43,11 @@ public class Player : ScriptableObject
 
     public void TutorialIsDone() => hasPlayedTutorial = true;
 
-
+    public void SaveSettings(bool _musicMute, bool _sfxMute, float _musicVolume, float _sfxVolume)
+    {
+        musicMute = _musicMute;
+        sfxMute = _sfxMute;
+        musicVolume = _musicVolume;
+        sfxVolume = _sfxVolume;
+    }
 }

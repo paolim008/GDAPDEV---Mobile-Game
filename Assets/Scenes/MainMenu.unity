@@ -236,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &82490443
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2256,7 +2256,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 874193303}
-  - component: {fileID: 874193304}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -2285,18 +2284,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 7.6942}
   m_SizeDelta: {x: 2106.5723, y: 1699.3264}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &874193304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874193302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 938d8746819a9be4e810cf9a74988cdf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &886275109
 GameObject:
   m_ObjectHideFlags: 0
@@ -2746,6 +2733,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1343972184}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
         m_MethodName: ResumeMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1343972184}
+        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
+        m_MethodName: SaveSoundSettings
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4056,6 +4055,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ab1108f46c5a44f8fc9188834d9517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   musicSounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 8879181e4b6156c4baa1615435185dca, type: 3}

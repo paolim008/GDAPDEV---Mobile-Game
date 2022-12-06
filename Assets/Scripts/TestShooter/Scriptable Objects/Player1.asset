@@ -26,3 +26,7 @@ MonoBehaviour:
   upgradeHealth: 2
   upgradeReloadTime: 3
   upgradeShields: 1
+  musicMute: 0
+  sfxMute: 0
+  musicVolume: 0.5
+  sfxVolume: 0.5
