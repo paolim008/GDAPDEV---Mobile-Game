@@ -134,5 +134,7 @@ public class SoundManager : MonoBehaviour
 
         musicSlider.value = musicSource.volume;
         sfxSlider.value = sfxSource.volume;
+
+        
     }
 }
