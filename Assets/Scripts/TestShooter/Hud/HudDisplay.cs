@@ -138,5 +138,10 @@ public class HudDisplay : MonoBehaviour
         currentWeapon = playerData.weaponType;
     }
 
+    public void UpdateUI()
+    {
+        healthSlider.value = playerData.maxHealth;
+        shieldSlider.value = playerData.maxShield;
+    }
 
 }

@@ -18,7 +18,7 @@ public class CustomBullet : MonoBehaviour
     private bool useGravity;
 
     //Damage
-    [SerializeField] private float explosionDamage;
+    private float explosionDamage;
     private float explosionRange;
 
     //Lifetime

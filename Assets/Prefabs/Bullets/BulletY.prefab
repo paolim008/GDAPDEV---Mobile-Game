@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8080973574835874628}
   - component: {fileID: 8080973574835060464}
   - component: {fileID: 8080973574833952472}
-  - component: {fileID: 8080973574829778490}
   - component: {fileID: 8080973574832989132}
+  - component: {fileID: 388589143305919986}
+  - component: {fileID: -222791007557137357}
   m_Layer: 0
   m_Name: BulletY
   m_TagString: Untagged
@@ -85,19 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8080973574829778490
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8080973574836169162}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0040386766, y: 0.005128407, z: 0.004028772}
-  m_Center: {x: 3.469447e-18, y: 0.00010460103, z: -0.000000003608875}
 --- !u!54 &8080973574832989132
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,3 +102,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &388589143305919986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080973574836169162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88aab3ba9eb5619498c3e3cd9e5453e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  rb: {fileID: 8080973574832989132}
+  explosion: {fileID: 0}
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!135 &-222791007557137357
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080973574836169162}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0029
+  m_Center: {x: 0, y: 0.00010460102, z: 1.1641532e-10}
