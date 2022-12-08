@@ -159,7 +159,7 @@ TextureImporter:
         height: 1396
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 166, y: 208, z: 155, w: 176}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -306,7 +306,7 @@ TextureImporter:
         height: 401
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 159, y: 107, z: 151, w: 97}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -872,7 +872,7 @@ TextureImporter:
         width: 1501
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -897,7 +897,6 @@ TextureImporter:
     nameFileIdTable:
       GDAPDEV-UI_15: -1875368974
       GDAPDEV-UI_24: -1915712563
-      GDAPDEV-UI_35: -1288214693
       GDAPDEV-UI_2: -37477458
       GDAPDEV-UI_31: -973444453
       GDAPDEV-UI_0: -1941893572
@@ -914,13 +913,14 @@ TextureImporter:
       GDAPDEV-UI_1: -1968636342
       GDAPDEV-UI_27: 878084351
       GDAPDEV-UI_9: 1135997121
-      GDAPDEV-UI_16: 210557191
+      GDAPDEV-UI_35: -1288214693
       GDAPDEV-UI_5: 274553681
+      GDAPDEV-UI_16: 210557191
       GDAPDEV-UI_17: -227569647
       GDAPDEV-UI_12: 255058294
       GDAPDEV-UI_4: 607331012
-      GDAPDEV-UI_25: 1564034145
       GDAPDEV-UI_33: -1347453688
+      GDAPDEV-UI_25: 1564034145
       GDAPDEV-UI_30: 57075388
       GDAPDEV-UI_7: 1486217793
       GDAPDEV-UI_3: 1666151134
