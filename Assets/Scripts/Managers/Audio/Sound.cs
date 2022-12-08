@@ -4,7 +4,10 @@ using UnityEngine;
 [System.Serializable]
 public class Sound
 {
-    
+    public enum AudioTypes { SFX, MUSIC}
+
+    public AudioTypes audioType;
+
     public string name;
     public AudioClip clip;
 
@@ -17,4 +20,5 @@ public class Sound
 
     [HideInInspector]
     public AudioSource source;
+    
 }

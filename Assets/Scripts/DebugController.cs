@@ -13,6 +13,7 @@ public class DebugController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] statsText;
 
+
     private bool status;
 
     void Awake()
