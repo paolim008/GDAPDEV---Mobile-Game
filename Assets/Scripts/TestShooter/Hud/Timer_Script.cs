@@ -6,10 +6,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using Time = UnityEngine.Time;
 
+[System.Serializable]
 public class Timer_Script : MonoBehaviour
 {
     private Image timerFillImage;
-    private float maxTimer = 10f;
+    [SerializeField] private float maxTimer = 10f;
 
     private Color timerColor;
     private float currTimer;

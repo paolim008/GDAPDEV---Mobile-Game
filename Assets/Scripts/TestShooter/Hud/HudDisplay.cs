@@ -26,7 +26,8 @@ public class HudDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
 
     [Header("Weapon")]
-    [SerializeField] private Image[] weaponSprites;
+    [SerializeField] private Image weaponSprite;
+    [SerializeField] private TextMeshProUGUI weapontext;
 
     [SerializeField] private TextMeshProUGUI ammoText;
 
@@ -78,33 +79,26 @@ public class HudDisplay : MonoBehaviour
         scoreText.text = scoreManager.GetScore().ToString();
 
         UpdateCurrentWeapon();
-        for (int i = 0; i < weaponSprites.Length; i++)
-        {
-            if (i != currentWeapon)
-            {
-                weaponSprites[i].color = Color.white;
-            }
-            else
-            {
-                switch(i)
+
+                switch(currentWeapon)
                 {
-                    case 0: weaponSprites[i].color = Color.blue;
+                    case 0: weaponSprite.color = Color.blue;
                             ammoText.color = Color.blue;
                         break;                    
-                    case 1: weaponSprites[i].color = Color.yellow;
+                    case 1: weaponSprite.color = Color.yellow;
                             ammoText.color = Color.yellow;
                         break;                    
-                    case 2: weaponSprites[i].color = Color.green;
+                    case 2: weaponSprite.color = Color.green;
                             ammoText.color = Color.green;
                         break;                    
-                    case 3: weaponSprites[i].color = Color.red;
+                    case 3: weaponSprite.color = Color.red;
                             ammoText.color = Color.red;
                         break;
                 }
-            }
+
+                weapontext.text = $"{currentWeapon + 1} / 4";
 
 
-        }
 
     }
 

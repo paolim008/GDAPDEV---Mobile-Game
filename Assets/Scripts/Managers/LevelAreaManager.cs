@@ -12,10 +12,12 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private GameObject player;
 
     [Header("Enemy")]
-    [SerializeField] private Transform enemyHolder;
+    [SerializeField] private Transform[] enemyHolders;
 
     [Header("LevelTimer")]
     [SerializeField] private Timer_Script timerScript;
+    [Tooltip("Same Value As EnemyHolders")]
+    [SerializeField] private int[] timerValues;
 
     [Header("EndScreen UI")]
     [SerializeField] private GameObject[] endGamePanel;
@@ -37,6 +39,7 @@ public class LevelAreaManager : MonoBehaviour
     {
         Time.timeScale = 1;
         levelStage = 1;
+        timerScript.SetTimer(timerValues[levelStage-1]);
     }
 
     // Update is called once per frame
@@ -70,6 +73,8 @@ public class LevelAreaManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.O))
             player.GetComponent<Health>().Heal(30);
+
+        
 
 
             
@@ -106,6 +111,7 @@ public class LevelAreaManager : MonoBehaviour
     {
         timerScript.ResetTimer();
         levelStage += 1;
+        timerScript.SetTimer(timerValues[levelStage - 1]);
     }
 
     public void OpenPanel(int panelIndex)
