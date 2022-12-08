@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        shieldIsActive = (Input.GetKey(KeyCode.Space)) ? true : false;
+        shieldIsActive = GestureManager.Instance.IsBlocking();
 
         //Take half damage while blocking
         //if (GestureManager.Instance.IsBlocking() && playerShield.GetCurrentShields() > 0)

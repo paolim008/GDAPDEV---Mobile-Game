@@ -20,7 +20,7 @@ public class HudDisplay : MonoBehaviour
     [SerializeField] private Slider shieldSlider;
     [SerializeField] private Image shieldSliderImage;
     [SerializeField] private GameObject shieldIndicator;
-    private bool shieldIsActive = false;
+    
 
     [Header("Score")]
     [SerializeField] private TextMeshProUGUI scoreText;
@@ -60,14 +60,7 @@ public class HudDisplay : MonoBehaviour
     void Update()
     {
         //LoadData();
-
-
-        shieldIsActive = (Input.GetKey(KeyCode.Space)) ? true : false;
-        ActivateShield(shieldIsActive);
-        
-        //CheckSpaceInput
-        bool spacePressed = (Input.GetKey(KeyCode.Space)) ? true : false;
-        shieldIndicator.SetActive(spacePressed);
+        ActivateShield(GestureManager.Instance.IsBlocking());
 
         EnableFill();
 
@@ -105,6 +98,7 @@ public class HudDisplay : MonoBehaviour
     private void ActivateShield(bool status)
     {
         shieldIndicator.SetActive(status);
+        //Debug.Log(status);
     }
     private void EnableFill()
     {

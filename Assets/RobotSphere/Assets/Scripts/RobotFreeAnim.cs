@@ -5,8 +5,7 @@ using UnityEngine;
 public class RobotFreeAnim : MonoBehaviour {
 
 	Vector3 rot = Vector3.zero;
-	float rotSpeed = 40f;
-	Animator anim;
+    Animator anim;
 
 	// Use this for initialization
 	void Awake()
