@@ -14,7 +14,7 @@ public class PlayerNav : MonoBehaviour
     [SerializeField] private Transform[] enemyHolders;
     private NavMeshAgent agent;
     private Vector3 offsetPlayer;
-    [SerializeField] private bool moving = false;
+    //[SerializeField] private bool moving = false;
 
 
     // Start is called before the first frame update
@@ -31,11 +31,6 @@ public class PlayerNav : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            moving = !moving;
-        }
-
         RotateViewToFocus(agent, facePoint[currentPoint]);
         //Check if agent reached the destination point
         if (agent.remainingDistance <= 0)
@@ -60,9 +55,6 @@ public class PlayerNav : MonoBehaviour
 
         }
         else levelAreaManager.OpenLoadingPanel(true);
-
-
-
 
     }
 

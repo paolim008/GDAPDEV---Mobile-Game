@@ -64,13 +64,12 @@ public class ProjectileGun : MonoBehaviour
     private void MyInput()
     {
         //Check if allowed to hold down button and take corresponding input
-        
+        /*
         if (allowButtonHold) 
             shooting = Input.GetKey(KeyCode.Mouse0);
         else 
             shooting = Input.GetKeyDown(KeyCode.Mouse0);
-        
-
+        */
         /*
         if (GestureManager.Instance.CheckRapid())               // if rapid weapon, check for drag input
         {
@@ -150,9 +149,13 @@ public class ProjectileGun : MonoBehaviour
         currentBullet.transform.forward = directionWithSpread.normalized;
 
 
+
+
         //Add Forces
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+
+        AudioManager.instance.Play("Throw_Gift");
 
         //Instantiates muzzle flash if you have one on
         if (muzzleFlash != null)

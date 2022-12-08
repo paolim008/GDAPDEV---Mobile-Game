@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Player playerdata;
     private int weaponType;
 
+    private Health playerHealth;
+    private Shield playerShield;
     //Take from NavScript
     public bool allowPlayerInput;
     [SerializeField] private GameObject[] equippedWeapon;
@@ -18,25 +20,20 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //this.allowPlayerInput = playerdata.allowPlayerInput;
-        this.allowPlayerInput = true;
-        this.weaponType = 0;
-
+        Initialize();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (allowPlayerInput)
-        {
-            TakeGestureInput();
-        }
-        TakeDebugInput();
+            TakeInput();
 
         SwitchWeapon(weaponType);
         playerdata.weaponType = weaponType;
     }
 
-    private void TakeGestureInput()
+    private void TakeInput()
     {
         if (GestureManager.Instance.SwitchingLeft())    // checks if swipe was for left
         {
@@ -58,28 +55,9 @@ public class PlayerController : MonoBehaviour
 
         if (weaponType > equippedWeapon.Length - 1)
             weaponType = 0;
-    }
-
-    private void TakeDebugInput()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) 
-        {
-            weaponType--;
-        }
-
-        if (weaponType < 0)
-            weaponType = equippedWeapon.Length - 1;
-
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            weaponType++;
-        }
-
-        if (weaponType > equippedWeapon.Length - 1)
-            weaponType = 0;
 
     }
+
     private void SwitchWeapon(int activeWeapon)
     {
         for (int i = 0; i < equippedWeapon.Length; i++)
@@ -87,6 +65,16 @@ public class PlayerController : MonoBehaviour
             if (i != activeWeapon) equippedWeapon[i].SetActive(false);
             else equippedWeapon[i].SetActive(true);
         }
+    }
+
+    public void Initialize()
+    {
+        this.allowPlayerInput = true;
+        this.weaponType = 0;
+        playerHealth = GetComponent<Health>();
+        playerShield = GetComponent<Shield>();
+        playerHealth.SetMaxHealth(playerdata.maxHealth);
+        playerShield.SetMaxShield(playerdata.maxShield);
     }
 
 }

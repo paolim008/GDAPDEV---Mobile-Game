@@ -1,0 +1,939 @@
+fileFormatVersion: 2
+guid: a1104f0c260fe264e9b435d686d96182
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GDAPDEV-UI_0
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 3497
+        width: 1603
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e31c7e3cef866e428a83c1826545e82
+      internalID: -1941893572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_1
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 2333
+        width: 1895
+        height: 1396
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 166, y: 208, z: 155, w: 176}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6101197bf882af948a837502b390bb2b
+      internalID: -1968636342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_2
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 3265
+        width: 1603
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370b4e694f86c634c8e3151b1e752610
+      internalID: -37477458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_3
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 3030
+        width: 1603
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a567e7d32a0d0a41af1b476feb3021c
+      internalID: 1666151134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_4
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 2796
+        width: 1598
+        height: 207
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b210b4d5135a9f4cabc6e01a7b6fcd8
+      internalID: 607331012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_5
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 2563
+        width: 1598
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70aa75745889cea4db35b770ee7b708d
+      internalID: 274553681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_6
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 2329
+        width: 1597
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6bf9f7bda484d418dbe2d77076eb20
+      internalID: -1546001517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_7
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 1778
+        width: 1238
+        height: 403
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 203, y: 0, z: 174, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0655f6b9d0cbd48a993cd271fed20c
+      internalID: 1486217793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_8
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 1780
+        width: 1090
+        height: 401
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 159, y: 107, z: 151, w: 97}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5098dadc5d611954a9864b0128cd6b13
+      internalID: -1527212412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_9
+      rect:
+        serializedVersion: 2
+        x: 2712
+        y: 1778
+        width: 1089
+        height: 403
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e351e550e289f3f408222ac290e35ceb
+      internalID: 1135997121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_10
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1263
+        width: 345
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f35d0427a5b3b24ba21d435e753a83a
+      internalID: 1944149973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_11
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 1263
+        width: 343
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe9d63d5775e81f4896ab667ff8d1997
+      internalID: 842844755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_12
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 1263
+        width: 341
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14a5ea7b200d62449927e64a4a6c5c03
+      internalID: 255058294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_13
+      rect:
+        serializedVersion: 2
+        x: 1413
+        y: 1263
+        width: 345
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b42f813605f2bb489f6744b3258cc43
+      internalID: -1893875792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_14
+      rect:
+        serializedVersion: 2
+        x: 1819
+        y: 1263
+        width: 342
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24bd80b4ba7c13e4e89f679a062a7aa8
+      internalID: -60805257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_15
+      rect:
+        serializedVersion: 2
+        x: 2222
+        y: 1263
+        width: 340
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a8c920cc3acb44a8d0546bc9b8c770
+      internalID: -1875368974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_16
+      rect:
+        serializedVersion: 2
+        x: 2624
+        y: 1263
+        width: 342
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c74eb991f414f84db8be32d743b7c38
+      internalID: 210557191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_17
+      rect:
+        serializedVersion: 2
+        x: 3026
+        y: 1263
+        width: 349
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 105, y: 127, z: 108, w: 96}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7bb466d4d2d86a4c8e605e8ba82d72a
+      internalID: -227569647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_18
+      rect:
+        serializedVersion: 2
+        x: 3429
+        y: 1263
+        width: 345
+        height: 355
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2632788014da4f54481bceda8443c02d
+      internalID: 1083983863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_19
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 755
+        width: 363
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f074ed46b263ff4285f6355bfde02d2
+      internalID: -135130817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_20
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 755
+        width: 362
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b5fc4c6a33f7143bf2ad4ed968e4a9
+      internalID: 9608907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_21
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 755
+        width: 363
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdae034a6e3dbd548b61e53e09a4780a
+      internalID: 684479849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_22
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 755
+        width: 363
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 103523ff7a76d6e4399f3b64865a02c7
+      internalID: -1057079787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_23
+      rect:
+        serializedVersion: 2
+        x: 1812
+        y: 755
+        width: 363
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02b012ee020c93d44bbbdf150ed8af14
+      internalID: 1797334084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_24
+      rect:
+        serializedVersion: 2
+        x: 2214
+        y: 755
+        width: 365
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66dfd1ec676e6c84484a8bab108dfd6e
+      internalID: -1915712563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_25
+      rect:
+        serializedVersion: 2
+        x: 2616
+        y: 755
+        width: 362
+        height: 359
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3914398c70c91e45a97d532b78bd942
+      internalID: 1564034145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_26
+      rect:
+        serializedVersion: 2
+        x: 3019
+        y: 755
+        width: 361
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5afcf99429d2633459ebae3ee7dda14d
+      internalID: -726727004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_27
+      rect:
+        serializedVersion: 2
+        x: 3417
+        y: 755
+        width: 363
+        height: 357
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6037b08f0e39446b839de31afa8ba0
+      internalID: 878084351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_28
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 255
+        width: 416
+        height: 402
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb6f28c27719cf43949039458ed50b5
+      internalID: 1558470789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_29
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 255
+        width: 414
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fba14057ac1a7744be4f8a378cec63d
+      internalID: 1689583461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_30
+      rect:
+        serializedVersion: 2
+        x: 1146
+        y: 239
+        width: 311
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44fd61034dcd0041b8fdd21b4832234
+      internalID: 57075388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_31
+      rect:
+        serializedVersion: 2
+        x: 1499
+        y: 239
+        width: 326
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80228150cef57594eb17d6d09158e6fc
+      internalID: -973444453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_32
+      rect:
+        serializedVersion: 2
+        x: 1870
+        y: 263
+        width: 315
+        height: 326
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1209dea0efa3689439ffc1e6c532a806
+      internalID: 903878152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_33
+      rect:
+        serializedVersion: 2
+        x: 2216
+        y: 275
+        width: 314
+        height: 337
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66edc5d52a5781147bd103ea7254c4b9
+      internalID: -1347453688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_34
+      rect:
+        serializedVersion: 2
+        x: 2585
+        y: 257
+        width: 1166
+        height: 344
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0825bb6bd943d0c4e837890dce5be776
+      internalID: -2064983449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GDAPDEV-UI_35
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 3566
+        width: 1501
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 016a497597b826b4db8ac77a3d8393b6
+      internalID: -1288214693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 595700768c5edbf44b89c148fa2a7e40
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      GDAPDEV-UI_15: -1875368974
+      GDAPDEV-UI_24: -1915712563
+      GDAPDEV-UI_2: -37477458
+      GDAPDEV-UI_31: -973444453
+      GDAPDEV-UI_0: -1941893572
+      GDAPDEV-UI_21: 684479849
+      GDAPDEV-UI_23: 1797334084
+      GDAPDEV-UI_8: -1527212412
+      GDAPDEV-UI_19: -135130817
+      GDAPDEV-UI_10: 1944149973
+      GDAPDEV-UI_28: 1558470789
+      GDAPDEV-UI_22: -1057079787
+      GDAPDEV-UI_11: 842844755
+      GDAPDEV-UI_18: 1083983863
+      GDAPDEV-UI_32: 903878152
+      GDAPDEV-UI_1: -1968636342
+      GDAPDEV-UI_27: 878084351
+      GDAPDEV-UI_9: 1135997121
+      GDAPDEV-UI_35: -1288214693
+      GDAPDEV-UI_5: 274553681
+      GDAPDEV-UI_16: 210557191
+      GDAPDEV-UI_17: -227569647
+      GDAPDEV-UI_12: 255058294
+      GDAPDEV-UI_4: 607331012
+      GDAPDEV-UI_33: -1347453688
+      GDAPDEV-UI_25: 1564034145
+      GDAPDEV-UI_30: 57075388
+      GDAPDEV-UI_7: 1486217793
+      GDAPDEV-UI_3: 1666151134
+      GDAPDEV-UI_14: -60805257
+      GDAPDEV-UI_20: 9608907
+      GDAPDEV-UI_29: 1689583461
+      GDAPDEV-UI_26: -726727004
+      GDAPDEV-UI_6: -1546001517
+      GDAPDEV-UI_34: -2064983449
+      GDAPDEV-UI_13: -1893875792
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

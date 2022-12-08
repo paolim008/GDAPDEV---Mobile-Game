@@ -13,7 +13,20 @@ MonoBehaviour:
   m_Name: Player1
   m_EditorClassIdentifier: 
   name: Rickshaw
-  maxHealth: 0
+  baseHealth: 10
+  maxHealth: 40
+  baseShield: 3
+  maxShield: 3
   weaponType: 0
   score: 0
-  allowPlayerInput: 1
+  baseReloadTime: 1
+  reloadMultiplier: 0.75
+  coins: 34
+  hasPlayedTutorial: 0
+  upgradeHealth: 3
+  upgradeReloadTime: 3
+  upgradeShields: 0
+  musicMute: 0
+  sfxMute: 0
+  musicVolume: 0.55629194
+  sfxVolume: 0.57156307
