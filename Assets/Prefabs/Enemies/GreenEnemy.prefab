@@ -3794,6 +3794,7 @@ MonoBehaviour:
   damage: 0.5
   spawnParticles: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
   LExplosion: {fileID: 3658701643957552651, guid: 9588dd01da5e7b64e80efbed5793f8de, type: 3}
+  AExplosion: {fileID: 8996057514156038013, guid: 549ade510ca69a847a61bf3d9673c2a3, type: 3}
   attackCooldown: 10
 --- !u!114 &325482027507611240
 MonoBehaviour:
