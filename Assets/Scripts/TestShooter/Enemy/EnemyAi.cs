@@ -8,11 +8,14 @@ using UnityEngine.UI;
 public class EnemyAi : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private Shield playerShield;
     [SerializeField] public int id;
     [SerializeField] private float damage = 10;
     [SerializeField] private GameObject spawnParticles;
     [SerializeField] private GameObject LExplosion;
     [SerializeField] private GameObject AExplosion;
+    [SerializeField] private GameObject blockedParticle;
+    [SerializeField] private Transform indicatorPos;
     private Animator anim;
 
     private ScoreManager scoreManager;
@@ -27,6 +30,7 @@ public class EnemyAi : MonoBehaviour
     {
         Instantiate(spawnParticles, this.transform);
         transform.LookAt(player.transform.position);
+        playerShield = player.GetComponent<Shield>();
     }
     // Start is called before the first frame update
     void Awake()
@@ -77,8 +81,21 @@ public class EnemyAi : MonoBehaviour
         attackCooldown = Random.Range(5, 10);
         yield return new WaitForSeconds(attackCooldown);
         anim.SetBool("Walk_Anim", true);
-        GameObject attackParticle = Instantiate(AExplosion, this.transform.position, this.transform.rotation);
-        Destroy(attackParticle, 2);
+        if (playerShield.GetCurrentShields() == 0 || !GestureManager.Instance.IsBlocking())
+        {
+            AudioManager.instance.Play("Enemy_Attack");
+            GameObject attackParticle = Instantiate(AExplosion, this.transform.position, this.transform.rotation);
+            Destroy(attackParticle, 2f);
+        }
+        else
+        {
+            if (playerShield.GetCurrentShields() > 0)
+            {
+                GameObject blockedSpriteIndicator = Instantiate(blockedParticle, indicatorPos.position, this.transform.rotation);
+                Destroy(blockedSpriteIndicator, 2f);
+            }
+
+        }
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("Walk_Anim", false);
         player.GetComponent<Health>().TakeDamage(damage);

@@ -40,7 +40,7 @@ public class Shield : MonoBehaviour
         
         onCooldown = true;
         yield return new WaitForSeconds(shieldCooldown);
-            if (currentShields + 1 <= maxShields && !Input.GetKey(KeyCode.Space))
+            if (currentShields + 1 <= maxShields && !GestureManager.Instance.IsBlocking())
             {
                 Debug.Log("Replenishing Shields");
                 currentShields++;
@@ -53,6 +53,10 @@ public class Shield : MonoBehaviour
     public void TakeShieldDamage(float _damage)
     {
         currentShields -= _damage;
+        if(currentShields > 0)
+            AudioManager.instance.Play("Shield_Hit");
+        else
+            AudioManager.instance.Play("Shield_Broken");
         shieldSlider.value = currentShields;
     }
 

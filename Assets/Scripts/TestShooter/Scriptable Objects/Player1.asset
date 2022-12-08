@@ -16,7 +16,7 @@ MonoBehaviour:
   baseHealth: 10
   maxHealth: 40
   baseShield: 3
-  maxShield: 6
+  maxShield: 3
   weaponType: 0
   score: 0
   baseReloadTime: 1
@@ -25,7 +25,7 @@ MonoBehaviour:
   hasPlayedTutorial: 0
   upgradeHealth: 3
   upgradeReloadTime: 3
-  upgradeShields: 3
+  upgradeShields: 0
   musicMute: 0
   sfxMute: 0
   musicVolume: 0.55629194
