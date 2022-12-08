@@ -122,7 +122,7 @@ public class ProjectileGun : MonoBehaviour
 
         //Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Ray ray = fpsCam.ScreenPointToRay(new Vector3(mouseX, mouseY, 0f));
-        RaycastHit hit;
+        //RaycastHit hit;
 
         //Rotate Gun
         //this.GetComponent<Transform>().transform.LookAt(ray.origin);
