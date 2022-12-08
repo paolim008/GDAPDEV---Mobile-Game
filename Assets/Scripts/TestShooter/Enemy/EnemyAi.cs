@@ -68,6 +68,7 @@ public class EnemyAi : MonoBehaviour
     {
         anim.SetBool("Open_Anim", false);
         yield return new WaitForSeconds(1f);
+        AudioManager.instance.Play("Enemy_Death");
         GameObject deathParticle = Instantiate(LExplosion, this.transform.position, this.transform.rotation);
         Destroy(deathParticle, 2);
         Destroy(gameObject);
