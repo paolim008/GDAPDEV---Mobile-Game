@@ -48,16 +48,12 @@ public class BossSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject Blue = Instantiate(BlueSpawn, BlueT);
-        Blue.transform.position = BlueT.transform.position;
-        GameObject Green = Instantiate(GreenSpawn, GreenT);
-        Green.transform.position = GreenT.transform.position;
-        GameObject Red = Instantiate(RedSpawn, RedT);
-        Red.transform.position = RedT.transform.position;
-        GameObject Yellow = Instantiate(YellowSpawn, YellowT);
-        Yellow.transform.position = YellowT.transform.position;
-
         Shield PlayerShield = Player.GetComponent<Shield>();
+        GameObject Blue = Instantiate(BlueSpawn, BlueT);
+        GameObject Green = Instantiate(GreenSpawn, GreenT);
+        GameObject Red = Instantiate(RedSpawn, RedT);
+        GameObject Yellow = Instantiate(YellowSpawn, YellowT);
+
         EnemyAi BlueAi = Blue.GetComponent<EnemyAi>();
         BlueAi.player = Player;
         BlueAi.playerShield = PlayerShield;
@@ -70,6 +66,12 @@ public class BossSpawner : MonoBehaviour
         EnemyAi YellowAi = Yellow.GetComponent<EnemyAi>();
         YellowAi.player = Player;
         YellowAi.playerShield = PlayerShield;
+
+        Blue.transform.position = BlueT.transform.position;
+        Green.transform.position = GreenT.transform.position;
+        Red.transform.position = RedT.transform.position;
+        Yellow.transform.position = YellowT.transform.position;
+
     }
 
     IEnumerator SpawningTime(float waitTime)

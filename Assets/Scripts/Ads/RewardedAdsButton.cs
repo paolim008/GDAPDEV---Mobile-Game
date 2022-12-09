@@ -11,11 +11,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     [SerializeField] Button _showAdBtn;
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
+    [SerializeField] Player currentPlayer;
     string _adUnitId;
-
-    Player currency;
-    [SerializeField] private TextMeshProUGUI coinsAmount;
-
 
     void Awake()
     {
@@ -58,6 +55,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     {
         _showAdBtn.interactable = false;
         Advertisement.Show(_adUnitId, this);
+
     }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
@@ -76,8 +74,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             // Reward here
             Debug.Log("Success -- completed watching ad");
-            currency.coins += 10;
-            coinsAmount.text = currency.coins.ToString();
+            currentPlayer.coins += 10;
 
         }
         // Load another ad for next time
