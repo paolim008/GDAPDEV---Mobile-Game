@@ -15932,11 +15932,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4761220a96f31554495e14b6b35fa904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 0e129fe7edfc2ef42957b2d5b06b92c6, type: 2}
+  levelData: {fileID: 11400000, guid: 7405c4c59a7c8d04eb6a070e378c1d5a, type: 2}
   player: {fileID: 1936634703}
-  enemyHolders: []
+  enemyHolders:
+  - {fileID: 983990746}
   timerScript: {fileID: 8806818010476462464}
-  timerValues: 05000000
+  timerValues: 14000000
   endGamePanel:
   - {fileID: 1690055181}
   - {fileID: 1316433014}

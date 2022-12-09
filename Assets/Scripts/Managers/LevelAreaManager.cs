@@ -25,14 +25,12 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] highScoreTMP;
 
 
-    private ScoreManager scoreManager;
     private float _score;
     private float _highScore;
 
     void Awake()
     {
         _highScore = levelData.GetHighScore();
-        scoreManager = FindObjectOfType<ScoreManager>();
     }
     // Start is called before the first frame update
     void Start()
@@ -51,7 +49,7 @@ public class LevelAreaManager : MonoBehaviour
             return;
         }
 
-        _score = scoreManager.GetScore();
+        _score = ScoreManager.instance.GetScore();
         
         //Display Death Screen
         if (player.GetComponent<Health>().GetCurrentHealth() <= 0)
@@ -96,9 +94,9 @@ public class LevelAreaManager : MonoBehaviour
 
     void SaveHighScore()
     {
-        if (_score > levelData.GetHighScore())
+        if (ScoreManager.instance.GetScore() > levelData.GetHighScore())
         {
-            levelData.highScore = _score;
+            levelData.highScore = ScoreManager.instance.GetScore();
         }
     }
 
@@ -140,20 +138,21 @@ public class LevelAreaManager : MonoBehaviour
     {
         foreach (TextMeshProUGUI scoreText in scoreTMP)
         {
-            scoreText.text = "Score: " + _score.ToString();
+            scoreText.text = "Score: " + ScoreManager.instance.GetScore();
         }
 
-        //foreach (TextMeshProUGUI highScoreText in highScoreTMP)
-        //{
-        //    if (score > _highScore){
-        //        _highScore = _score;
-        //        highScoreText.text = "Highscore: " + _highScore.ToString();
-        //    }
-        //}
+        foreach (TextMeshProUGUI highScoreText in highScoreTMP)
+        {
+            if (ScoreManager.instance.GetScore() > levelData.GetHighScore())
+            {
+                levelData.highScore = ScoreManager.instance.GetScore();
+            }
+            highScoreText.text = $"Highscore: {levelData.GetHighScore()}";
+        }
 
     }
 
-    public void TimeScale(int status)
+    private void TimeScale(int status)
     {
         Time.timeScale = status;
     }

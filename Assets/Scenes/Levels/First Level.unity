@@ -21338,9 +21338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4761220a96f31554495e14b6b35fa904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelData: {fileID: 11400000, guid: 0e129fe7edfc2ef42957b2d5b06b92c6, type: 2}
+  levelData: {fileID: 11400000, guid: bbb48e5df6f9a6043aa8e00684c6a1d5, type: 2}
   player: {fileID: 1936634703}
-  enemyHolders: []
+  enemyHolders:
+  - {fileID: 983990746}
   timerScript: {fileID: 8806818010476462464}
   timerValues: 1e000000
   endGamePanel:
@@ -104491,19 +104492,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1190228799464235442, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190228799464235442, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190228799464235442, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 197.9508
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1190228799464235442, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2063816845111744683, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_fontAsset
@@ -104551,11 +104552,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6045275449859289233, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6045275449859289233, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6045275449859289233, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_SizeDelta.y
@@ -104563,11 +104564,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6045275449859289233, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 64.9754
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6045275449859289233, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6045275449859289263, guid: 462f9eb77b699694198978a9db3d5a03, type: 3}
       propertyPath: m_Sprite

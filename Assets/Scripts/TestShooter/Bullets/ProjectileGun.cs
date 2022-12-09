@@ -100,7 +100,7 @@ public class ProjectileGun : MonoBehaviour
                 //set bullets shot to 0
                 bulletsShot = 0;
 
-                Debug.Log("Should Shoot");
+                //Debug.Log("Should Shoot");
                 Shoot();
 
                 if (GestureManager.Instance.CheckTap())         // if singe shot, reset the boolean value to false after firing
@@ -114,7 +114,7 @@ public class ProjectileGun : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("In shoot");
+        //Debug.Log("In shoot");
         readyToShoot = false;
         float mouseX = Input.mousePosition.x;
         float mouseY = Input.mousePosition.y;
