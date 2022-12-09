@@ -11,6 +11,7 @@ public class BossSpawner : MonoBehaviour
     [SerializeField] private GameObject RedSpawn;
     [SerializeField] private GameObject YellowSpawn;
 
+    [SerializeField] private Transform Player;
     [SerializeField] private Transform BlueT;
     [SerializeField] private Transform GreenT;
     [SerializeField] private Transform RedT;
@@ -18,7 +19,7 @@ public class BossSpawner : MonoBehaviour
 
     private bool spawnCooldown;
     private IEnumerator spawnCouroutine;
-    private float waitTime = 10;
+    [SerializeField] float waitTime = 10;
 
     void Start()
     {
@@ -48,12 +49,16 @@ public class BossSpawner : MonoBehaviour
     {
         GameObject Blue = Instantiate(BlueSpawn, BlueT);
         Blue.transform.position = BlueT.transform.position;
+        Blue.transform.LookAt(Player);
         GameObject Green = Instantiate(GreenSpawn, GreenT);
         Green.transform.position = GreenT.transform.position;
+        Green.transform.LookAt(Player);
         GameObject Red = Instantiate(RedSpawn, RedT);
         Red.transform.position = RedT.transform.position;
+        Red.transform.LookAt(Player);
         GameObject Yellow = Instantiate(YellowSpawn, YellowT);
         Yellow.transform.position = YellowT.transform.position;
+        Yellow.transform.LookAt(Player);
     }
 
     IEnumerator SpawningTime(float waitTime)
