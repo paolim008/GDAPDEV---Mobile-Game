@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
 
         shieldIsActive = false;
 
+        currentHealth = maxHealth;
     }
 
     public float GetMaxHealth()
