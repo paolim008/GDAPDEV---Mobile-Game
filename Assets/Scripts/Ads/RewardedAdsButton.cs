@@ -19,8 +19,6 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
             ? _iOSAdUnitId
             : _androidAdUnitId;
-
-        _showAdBtn.interactable = false;
     }
 
     void Start()
@@ -61,6 +59,8 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
     {
         Debug.Log($"Error loading Ad Unit {placementId}: {error.ToString()} - {message}");
+        _showAdBtn.interactable = true;
+
     }
 
     public void OnUnityAdsShowStart(string placementId) { }
