@@ -18,7 +18,7 @@ public class Shield : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentShields = maxShields;
+        currentShields = PlayerData.Instance.MaxShield;
         shieldSlider.maxValue = maxShields;
         shieldSlider.value = currentShields;
     }

@@ -40,25 +40,25 @@ public class DebugController : MonoBehaviour
 
     public void MaxHealth()
     {
-        playerData.upgradeHealth = 3;
-        playerData.maxHealth = playerData.baseHealth + (10 * playerData.upgradeHealth);
+        PlayerData.Instance.UpgradeHealth = 3;
+        PlayerData.Instance.MaxHealth = PlayerData.Instance.BaseHealth + (10 * PlayerData.Instance.UpgradeHealth);
         UpdateUI();
     }
     public void MaxReload()
     {
-        playerData.upgradeReloadTime = 3;
+        PlayerData.Instance.UpgradeReloadTime = 3;
         //Add ReloadTime Fix
         UpdateUI();
     }
     public void MaxShield()
     {
-        playerData.upgradeShields = 3;
-        playerData.maxShield = playerData.baseShield + (playerData.upgradeShields);
+        PlayerData.Instance.UpgradeShield = 3;
+        PlayerData.Instance.MaxShield = PlayerData.Instance.BaseShield + (PlayerData.Instance.UpgradeShield);
         UpdateUI();
     }
     public void AddCoins()
     {
-        playerData.coins += 10;
+        PlayerData.Instance.Coins += 10;
         UpdateUI();
     }
 
@@ -76,32 +76,32 @@ public class DebugController : MonoBehaviour
     }
     public void ResetCoins()
     {
-         playerData.coins = 0;
+        PlayerData.Instance.Coins = 0;
          UpdateUI();
     }
     public void ResetHealth()
     {
-        playerData.maxHealth = 10;
+        PlayerData.Instance.MaxHealth = 10;
         UpdateUI();
     }
     public void ResetShield()
     {
-         playerData.maxShield = 3;
+        PlayerData.Instance.MaxShield = 3;
          UpdateUI();
     }
     public void ResetHealthUpgrade()
     {
-         playerData.upgradeHealth = 0;
+        PlayerData.Instance.UpgradeHealth = 0;
          UpdateUI();
     }
     public void ResetReloadUpgrade()
     {
-         playerData.upgradeReloadTime = 0;
+        PlayerData.Instance.UpgradeReloadTime = 0;
          UpdateUI();
     }
     public void ResetShieldUpgrade()
     {
-         playerData.upgradeShields = 0;
+        PlayerData.Instance.UpgradeShield = 0;
          UpdateUI();
     }
     public void ResetTutorial()
@@ -112,14 +112,14 @@ public class DebugController : MonoBehaviour
 
     private void UpdateUI()
     {
-        statsText[0].text = $"{playerData.upgradeHealth} / 3";
-        statsText[4].text = $"{playerData.upgradeHealth} / 3";
-        statsText[1].text = $"{playerData.upgradeReloadTime} / 3";
-        statsText[5].text = $"{playerData.upgradeReloadTime} / 3";
-        statsText[2].text = $"{playerData.upgradeShields} / 3";
-        statsText[6].text = $"{playerData.upgradeShields} / 3";
-        statsText[3].text = $"{playerData.coins}";
-        statsText[7].text = $"{playerData.coins}";
+        statsText[0].text = $"{PlayerData.Instance.UpgradeHealth} / 3";
+        statsText[4].text = $"{PlayerData.Instance.UpgradeHealth} / 3";
+        statsText[1].text = $"{PlayerData.Instance.UpgradeReloadTime} / 3";
+        statsText[5].text = $"{PlayerData.Instance.UpgradeReloadTime} / 3";
+        statsText[2].text = $"{PlayerData.Instance.UpgradeShield} / 3";
+        statsText[6].text = $"{PlayerData.Instance.UpgradeShield} / 3";
+        statsText[3].text = $"{PlayerData.Instance.Coins}";
+        statsText[7].text = $"{PlayerData.Instance.Coins}";
 
     }
 }

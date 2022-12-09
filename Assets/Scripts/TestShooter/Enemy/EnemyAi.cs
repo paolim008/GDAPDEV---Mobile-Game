@@ -22,9 +22,6 @@ public class EnemyAi : MonoBehaviour
 
     private ScoreManager scoreManager;
 
-    Player currency;
-    [SerializeField] private Player coinsAmount;
-
     [SerializeField] 
     [Range(4,10)]
     private float attackCooldown;
@@ -78,7 +75,8 @@ public class EnemyAi : MonoBehaviour
         Destroy(deathParticle, 2);
         Destroy(gameObject);
         scoreManager.AddScore(1);
-        currency.coins += 1;
+        PlayerData.Instance.Coins += 1;
+        Debug.Log(PlayerData.Instance.Coins);
     }
 
     IEnumerator DealDamage(float damage)

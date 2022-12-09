@@ -118,7 +118,7 @@ public class HudDisplay : MonoBehaviour
 
     private void LoadData()
     {
-        score = playerData.score;
+        score = PlayerData.Instance.Score;
     }
 
     private void UpdateCurrentWeapon()
@@ -128,8 +128,8 @@ public class HudDisplay : MonoBehaviour
 
     public void UpdateUI()
     {
-        healthSlider.value = playerData.maxHealth;
-        shieldSlider.value = playerData.maxShield;
+        healthSlider.value = PlayerData.Instance.MaxHealth;
+        shieldSlider.value = PlayerData.Instance.MaxShield;
     }
 
 }

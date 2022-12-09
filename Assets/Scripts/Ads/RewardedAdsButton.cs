@@ -19,6 +19,9 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer)
             ? _iOSAdUnitId
             : _androidAdUnitId;
+
+        _showAdBtn.interactable = false;
+
     }
 
     void Start()
@@ -74,7 +77,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             // Reward here
             Debug.Log("Success -- completed watching ad");
-            currentPlayer.coins += 10;
+            PlayerData.Instance.Coins += 1;
 
         }
         // Load another ad for next time

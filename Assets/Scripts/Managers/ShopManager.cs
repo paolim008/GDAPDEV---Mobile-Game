@@ -43,10 +43,10 @@ public class ShopManager : MonoBehaviour
     }
     private void LoadData()
     {
-        coins = playerData.coins;
-        upgrade_Health = playerData.upgradeHealth;
-        upgrade_ReloadTime = playerData.upgradeReloadTime;
-        upgrade_Shields = playerData.upgradeShields;
+        coins = PlayerData.Instance.Coins;
+        upgrade_Health = PlayerData.Instance.UpgradeHealth;
+        upgrade_ReloadTime = PlayerData.Instance.UpgradeReloadTime;
+        upgrade_Shields = PlayerData.Instance.UpgradeShield;
     }
 
     private void SaveInitData()
