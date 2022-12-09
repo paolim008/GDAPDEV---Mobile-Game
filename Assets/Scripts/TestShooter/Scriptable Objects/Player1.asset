@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Rickshaw
   baseHealth: 10
-  maxHealth: 40
+  maxHealth: 10
   baseShield: 3
   maxShield: 3
   weaponType: 0
   score: 0
   baseReloadTime: 1
-  reloadMultiplier: 0.75
-  coins: 34
+  reloadMultiplier: 0
+  coins: 0
   hasPlayedTutorial: 0
-  upgradeHealth: 3
-  upgradeReloadTime: 3
+  upgradeHealth: 0
+  upgradeReloadTime: 0
   upgradeShields: 0
   musicMute: 0
   sfxMute: 0

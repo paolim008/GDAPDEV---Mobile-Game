@@ -22,7 +22,7 @@ public class ApplicationManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("First Level");
             playerData.TutorialIsDone();
         }
 

@@ -11,9 +11,6 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
-    
-
-    public bool musicStatus, sfxStatus;
     void Awake()
     {
         if (instance == null)
