@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.PackageManager;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;

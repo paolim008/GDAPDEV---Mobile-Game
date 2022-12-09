@@ -3547,6 +3547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  playerShield: {fileID: 0}
   id: 3
   damage: 0.5
   spawnParticles: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7, type: 3}
@@ -3554,6 +3555,7 @@ MonoBehaviour:
   AExplosion: {fileID: 8996057514156038013, guid: 549ade510ca69a847a61bf3d9673c2a3, type: 3}
   blockedParticle: {fileID: 9023712819047477471, guid: 48203be605b73d4449638d46e84f7424, type: 3}
   indicatorPos: {fileID: 5002651179953347178}
+  coinsAmount: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   attackCooldown: 10
 --- !u!114 &6254611832857635527
 MonoBehaviour:

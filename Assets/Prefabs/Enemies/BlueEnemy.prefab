@@ -3744,6 +3744,7 @@ MonoBehaviour:
   AExplosion: {fileID: 8996057514156038013, guid: 549ade510ca69a847a61bf3d9673c2a3, type: 3}
   blockedParticle: {fileID: 9023712819047477471, guid: 48203be605b73d4449638d46e84f7424, type: 3}
   indicatorPos: {fileID: 5145343069810914194}
+  coinsAmount: {fileID: 11400000, guid: 684572ad2c5d0f04f9e2e5b2b9d2d75e, type: 2}
   attackCooldown: 10
 --- !u!114 &2969894031215135857
 MonoBehaviour:

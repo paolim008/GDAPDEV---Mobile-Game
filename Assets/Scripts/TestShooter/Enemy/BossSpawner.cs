@@ -35,7 +35,7 @@ public class BossSpawner : MonoBehaviour
 
     void SpawnMinionsCondition()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 1 && GameObject.Find("BossEnemy"))
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length <= 5 && GameObject.Find("BossEnemy"))
         {
             StartCoroutine(SpawningTime(waitTime));
         }
@@ -50,9 +50,13 @@ public class BossSpawner : MonoBehaviour
     {
         Shield PlayerShield = Player.GetComponent<Shield>();
         GameObject Blue = Instantiate(BlueSpawn, BlueT);
+        Blue.SetActive(true);
         GameObject Green = Instantiate(GreenSpawn, GreenT);
+        Green.SetActive(true);
         GameObject Red = Instantiate(RedSpawn, RedT);
+        Red.SetActive(true);
         GameObject Yellow = Instantiate(YellowSpawn, YellowT);
+        Yellow.SetActive(true);
 
         EnemyAi BlueAi = Blue.GetComponent<EnemyAi>();
         BlueAi.player = Player;

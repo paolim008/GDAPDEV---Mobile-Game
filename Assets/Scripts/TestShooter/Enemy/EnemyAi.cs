@@ -23,7 +23,7 @@ public class EnemyAi : MonoBehaviour
     private ScoreManager scoreManager;
 
     Player currency;
-    [SerializeField] private TextMeshProUGUI coinsAmount;
+    [SerializeField] private Player coinsAmount;
 
     [SerializeField] 
     [Range(4,10)]
@@ -79,8 +79,6 @@ public class EnemyAi : MonoBehaviour
         Destroy(gameObject);
         scoreManager.AddScore(1);
         currency.coins += 1;
-
-        coinsAmount.text = currency.coins.ToString(); 
     }
 
     IEnumerator DealDamage(float damage)
