@@ -4973,8 +4973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b73a505f7db9aa45a0205924e6fc0f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _showBannerBtn: {fileID: 0}
-  _hideBannerBtn: {fileID: 0}
   _androidAdUnitId: Banner_Android
   _iOSAdUnitId: Banner_iOS
   showBannerOnAwake: 1

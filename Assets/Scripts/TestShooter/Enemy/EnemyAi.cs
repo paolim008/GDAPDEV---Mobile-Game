@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using TMPro;
 
 public class EnemyAi : MonoBehaviour
 {
@@ -16,9 +17,13 @@ public class EnemyAi : MonoBehaviour
     [SerializeField] private GameObject AExplosion;
     [SerializeField] private GameObject blockedParticle;
     [SerializeField] private Transform indicatorPos;
+    
     private Animator anim;
 
     private ScoreManager scoreManager;
+
+    Player currency;
+    [SerializeField] private TextMeshProUGUI coinsAmount;
 
     [SerializeField] 
     [Range(4,10)]
@@ -73,6 +78,9 @@ public class EnemyAi : MonoBehaviour
         Destroy(deathParticle, 2);
         Destroy(gameObject);
         scoreManager.AddScore(1);
+        currency.coins += 1;
+
+        coinsAmount.text = currency.coins.ToString(); 
     }
 
     IEnumerator DealDamage(float damage)

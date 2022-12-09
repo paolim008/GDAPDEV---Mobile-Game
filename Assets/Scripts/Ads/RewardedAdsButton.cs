@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
+using TMPro;
+
 
 public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
 {
@@ -10,6 +12,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
     [SerializeField] string _androidAdUnitId = "Rewarded_Android";
     [SerializeField] string _iOSAdUnitId = "Rewarded_iOS";
     string _adUnitId;
+
+    Player currency;
+    [SerializeField] private TextMeshProUGUI coinsAmount;
+
 
     void Awake()
     {
@@ -70,6 +76,9 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         {
             // Reward here
             Debug.Log("Success -- completed watching ad");
+            currency.coins += 10;
+            coinsAmount.text = currency.coins.ToString();
+
         }
         // Load another ad for next time
         Advertisement.Load(_adUnitId, this);
