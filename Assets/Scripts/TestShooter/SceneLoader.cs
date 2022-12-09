@@ -9,6 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     public void SwitchScene(string sceneName)
     {
+        ResetScore();
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1;
     }
@@ -25,7 +26,7 @@ public class SceneLoader : MonoBehaviour
 
     private void ResetScore()
     {
-        ScoreManager.instance.
+        ScoreManager.instance.ResetScore();
     }
 
 }
