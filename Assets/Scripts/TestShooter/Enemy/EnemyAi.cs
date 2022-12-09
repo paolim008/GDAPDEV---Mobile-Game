@@ -8,8 +8,8 @@ using TMPro;
 
 public class EnemyAi : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    [SerializeField] private Shield playerShield;
+    [SerializeField] public GameObject player;
+    [SerializeField] public Shield playerShield;
     [SerializeField] public int id;
     [SerializeField] private float damage = 10;
     [SerializeField] private GameObject spawnParticles;

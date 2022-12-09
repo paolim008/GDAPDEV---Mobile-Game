@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BossSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [SerializeField] GameObject Player;
 
     [SerializeField] private GameObject BlueSpawn;
     [SerializeField] private GameObject GreenSpawn;
     [SerializeField] private GameObject RedSpawn;
     [SerializeField] private GameObject YellowSpawn;
 
-    [SerializeField] private Transform Player;
     [SerializeField] private Transform BlueT;
     [SerializeField] private Transform GreenT;
     [SerializeField] private Transform RedT;
@@ -49,16 +50,26 @@ public class BossSpawner : MonoBehaviour
     {
         GameObject Blue = Instantiate(BlueSpawn, BlueT);
         Blue.transform.position = BlueT.transform.position;
-        Blue.transform.LookAt(Player);
         GameObject Green = Instantiate(GreenSpawn, GreenT);
         Green.transform.position = GreenT.transform.position;
-        Green.transform.LookAt(Player);
         GameObject Red = Instantiate(RedSpawn, RedT);
         Red.transform.position = RedT.transform.position;
-        Red.transform.LookAt(Player);
         GameObject Yellow = Instantiate(YellowSpawn, YellowT);
         Yellow.transform.position = YellowT.transform.position;
-        Yellow.transform.LookAt(Player);
+
+        Shield PlayerShield = Player.GetComponent<Shield>();
+        EnemyAi BlueAi = Blue.GetComponent<EnemyAi>();
+        BlueAi.player = Player;
+        BlueAi.playerShield = PlayerShield;
+        EnemyAi GreenAi = Green.GetComponent<EnemyAi>();
+        GreenAi.player = Player;
+        GreenAi.playerShield = PlayerShield;
+        EnemyAi RedAi = Red.GetComponent<EnemyAi>();
+        RedAi.player = Player;
+        RedAi.playerShield = PlayerShield;
+        EnemyAi YellowAi = Yellow.GetComponent<EnemyAi>();
+        YellowAi.player = Player;
+        YellowAi.playerShield = PlayerShield;
     }
 
     IEnumerator SpawningTime(float waitTime)
