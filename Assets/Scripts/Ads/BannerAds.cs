@@ -20,8 +20,6 @@ public class BannerAds : MonoBehaviour
         _adUnitId = (Application.platform == RuntimePlatform.IPhonePlayer) ?
             _iOSAdUnitId :
             _androidAdUnitId;
-        
-
 
     }
 
