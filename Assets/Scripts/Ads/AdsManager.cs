@@ -10,8 +10,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener
     [SerializeField] bool _testMode = true;
 
     string _gameId;
-
-    [SerializeField] RewardedAdsButton rewardedAdsButton;
     private void Awake()
     {
         InitializeAds();
@@ -41,7 +39,6 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener
     public void OnInitializationComplete()
     {
         Debug.Log("Initialization Complete");
-        rewardedAdsButton.LoadAd();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message)

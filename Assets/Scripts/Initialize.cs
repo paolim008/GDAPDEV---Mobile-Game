@@ -6,11 +6,11 @@ public class Initialize : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Player set;
+    [SerializeField] Player set;
 
     void Start()
     {
-        set.baseHealth = set.maxHealth;
+        
     }
 
     // Update is called once per frame
