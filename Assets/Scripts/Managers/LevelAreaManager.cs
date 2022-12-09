@@ -23,6 +23,7 @@ public class LevelAreaManager : MonoBehaviour
     [SerializeField] private GameObject[] endGamePanel;
     [SerializeField] private TextMeshProUGUI[] scoreTMP;
     [SerializeField] private TextMeshProUGUI[] highScoreTMP;
+    [SerializeField] private Button menuButton;
 
 
     private float _score;
@@ -43,6 +44,15 @@ public class LevelAreaManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (endGamePanel[0].activeSelf)
+        {
+            menuButton.interactable = false;
+        }
+        else
+        {
+            menuButton.interactable = true;
+        }
+
         if (endGamePanel[3].activeSelf)
         {
             SaveHighScore();
@@ -152,7 +162,7 @@ public class LevelAreaManager : MonoBehaviour
 
     }
 
-    private void TimeScale(int status)
+    public void TimeScale(int status)
     {
         Time.timeScale = status;
     }

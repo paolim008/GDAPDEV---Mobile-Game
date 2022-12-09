@@ -21,6 +21,7 @@ public class Timer_Script : MonoBehaviour
 
     void Update()
     {
+
         if (currTimer < 0 && isActive) PauseTimer();
 
         //if (Input.GetKey(KeyCode.Space))

@@ -35,6 +35,11 @@ public class ScoreManager : MonoBehaviour
         return score;
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+    }
+
     //void Update()
     //{
     //    if (Input.GetKeyDown(KeyCode.K))
